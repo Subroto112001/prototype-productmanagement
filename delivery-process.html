@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Delivery Process Register - Inventory MS</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+                rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet" />
+        <script id="tailwind-config">
+                tailwind.config = {
+                        darkMode: "class",
+                        theme: {
+                                extend: {
+                                        "colors": {
+                                                "outline-variant": "#bcc9c6",
+                                                "on-background": "#0b1c30",
+                                                "secondary": "#565e74",
+                                                "tertiary": "#825100",
+                                                "surface-tint": "#006a61",
+                                                "surface": "#f8f9ff",
+                                                "on-tertiary-fixed-variant": "#653e00",
+                                                "background": "#f8f9ff",
+                                                "primary": "#00685f",
+                                                "surface-container-highest": "#d3e4fe",
+                                                "on-primary-fixed": "#00201d",
+                                                "on-tertiary-fixed": "#2a1700",
+                                                "secondary-container": "#dae2fd",
+                                                "surface-dim": "#cbdbf5",
+                                                "primary-fixed-dim": "#6bd8cb",
+                                                "on-surface": "#0b1c30",
+                                                "surface-container": "#e5eeff",
+                                                "surface-bright": "#f8f9ff",
+                                                "on-error": "#ffffff",
+                                                "outline": "#6d7a77",
+                                                "error-container": "#ffdad6",
+                                                "on-primary-container": "#f4fffc",
+                                                "on-error-container": "#93000a",
+                                                "primary-container": "#008378",
+                                                "on-surface-variant": "#3d4947",
+                                                "tertiary-container": "#a36700",
+                                                "primary-fixed": "#89f5e7",
+                                                "on-secondary-container": "#5c647a",
+                                                "on-tertiary": "#ffffff",
+                                                "tertiary-fixed": "#ffddb8",
+                                                "inverse-surface": "#213145",
+                                                "on-secondary": "#ffffff",
+                                                "on-tertiary-container": "#fffbff",
+                                                "on-secondary-fixed-variant": "#3f465c",
+                                                "on-primary-fixed-variant": "#005049",
+                                                "error": "#ba1a1a",
+                                                "secondary-fixed-dim": "#bec6e0",
+                                                "tertiary-fixed-dim": "#ffb95f",
+                                                "surface-container-low": "#eff4ff",
+                                                "inverse-on-surface": "#eaf1ff",
+                                                "inverse-primary": "#6bd8cb",
+                                                "on-secondary-fixed": "#131b2e",
+                                                "surface-variant": "#d3e4fe",
+                                                "surface-container-lowest": "#ffffff",
+                                                "surface-container-high": "#dce9ff",
+                                                "on-primary": "#ffffff",
+                                                "secondary-fixed": "#dae2fd"
+                                        },
+                                        "borderRadius": {
+                                                "DEFAULT": "0.25rem",
+                                                "lg": "0.5rem",
+                                                "xl": "0.75rem",
+                                                "full": "9999px"
+                                        },
+                                        "spacing": {
+                                                "sidebar-width": "260px",
+                                                "section-gap": "32px",
+                                                "container-margin": "24px",
+                                                "table-cell-padding": "12px 16px",
+                                                "gutter": "16px",
+                                                "card-padding": "20px"
+                                        },
+                                        "fontFamily": {
+                                                "body-sm": [
+                                                        "Inter"
+                                                ],
+                                                "label-caps": [
+                                                        "Inter"
+                                                ],
+                                                "title-sm": [
+                                                        "Inter"
+                                                ],
+                                                "headline-md": [
+                                                        "Inter"
+                                                ],
+                                                "mushak-print": [
+                                                        "Inter"
+                                                ],
+                                                "display-lg": [
+                                                        "Inter"
+                                                ],
+                                                "body-base": [
+                                                        "Inter"
+                                                ],
+                                                "table-data": [
+                                                        "Inter"
+                                                ]
+                                        },
+                                        "fontSize": {
+                                                "body-sm": [
+                                                        "13px",
+                                                        {
+                                                                "lineHeight": "18px",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "label-caps": [
+                                                        "12px",
+                                                        {
+                                                                "lineHeight": "16px",
+                                                                "letterSpacing": "0.05em",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "title-sm": [
+                                                        "18px",
+                                                        {
+                                                                "lineHeight": "24px",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "headline-md": [
+                                                        "24px",
+                                                        {
+                                                                "lineHeight": "32px",
+                                                                "letterSpacing": "-0.01em",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "mushak-print": [
+                                                        "11px",
+                                                        {
+                                                                "lineHeight": "14px",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "display-lg": [
+                                                        "32px",
+                                                        {
+                                                                "lineHeight": "40px",
+                                                                "letterSpacing": "-0.02em",
+                                                                "fontWeight": "700"
+                                                        }
+                                                ],
+                                                "body-base": [
+                                                        "14px",
+                                                        {
+                                                                "lineHeight": "20px",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "table-data": [
+                                                        "13px",
+                                                        {
+                                                                "lineHeight": "16px",
+                                                                "fontWeight": "450"
+                                                        }
+                                                ]
+                                        }
+                                },
+                        },
+                }
+        </script>
+        <style>
+                /* Custom styles to augment Tailwind where necessary */
+                body {
+                        background-color: #f8f9ff;
+                }
+
+                .table-row-zebra:nth-child(even) {
+                        background-color: #f8fafc;
+                        /* slightly different from background for contrast */
+                }
+        </style>
+</head>
+
+<body class="bg-background text-on-background font-body-base h-screen flex overflow-hidden">
+        <!-- Primary SideNav (from JSON) -->
+        <nav
+                class="fixed left-0 top-0 h-full w-[260px] flex flex-col p-4 z-40 bg-surface-container-lowest border-r border-outline-variant shadow-sm hidden md:flex">
+                <div class="flex items-center gap-3 px-4 py-6 mb-4 border-b border-outline-variant">
+                        <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined"
+                                        style="font-variation-settings: 'FILL' 1;">domain</span>
+                        </div>
+                        <div>
+                                <h1 class="font-display-lg text-display-lg text-primary truncate" title="Inventory MS">
+                                        Inventory MS</h1>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant truncate">VAT Compliant</p>
+                        </div>
+                </div>
+                <ul class="flex flex-col gap-1 flex-grow overflow-y-auto">
+                        <li>
+                                <a href="./Index.html"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface-variant transition-all font-label-caps text-label-caps active:translate-x-1 duration-200"
+                                        href="#">
+                                        <span class="material-symbols-outlined">dashboard</span>
+                                        Dashboard
+                                </a>
+                        </li>
+                        <li>
+                                <a href="./Client.html"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface-variant transition-all font-label-caps text-label-caps active:translate-x-1 duration-200"
+                                        href="#">
+                                        <span class="material-symbols-outlined">groups</span>
+                                        Clients
+                                </a>
+                        </li>
+                        <li>
+                                <a href="./Order.html"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface-variant transition-all font-label-caps text-label-caps active:translate-x-1 duration-200"
+                                        href="#">
+                                        <span class="material-symbols-outlined">receipt_long</span>
+                                        Orders
+                                </a>
+                        </li>
+                        <li>
+                                <a href="./Stock-management.html"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface-variant transition-all font-label-caps text-label-caps active:translate-x-1 duration-200"
+                                        href="#">
+                                        <span class="material-symbols-outlined">inventory_2</span>
+                                        Stock
+                                </a>
+                        </li>
+                        <li>
+                                <a href="./Vat.html"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface-variant transition-all font-label-caps text-label-caps active:translate-x-1 duration-200"
+                                        href="#">
+                                        <span class="material-symbols-outlined">description</span>
+                                        VAT (Mushak)
+                                </a>
+                        </li>
+                        <li>
+                                <a href="./Financial-reports.html"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-lg bg-secondary-container text-on-secondary-container font-semibold transition-all font-label-caps text-label-caps active:translate-x-1 duration-200"
+                                        href="#">
+                                        <span class="material-symbols-outlined"
+                                                style="font-variation-settings: 'FILL' 1;">assessment</span>
+                                        Reports
+                                </a>
+                        </li>
+
+                </ul>
+                <div class="mt-auto pt-4 border-t border-outline-variant">
+                        <ul class="flex flex-col gap-1">
+                                <li>
+                                        <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all font-label-caps text-label-caps active:translate-x-1 duration-200"
+                                                href="#">
+                                                <span class="material-symbols-outlined">settings</span>
+                                                Settings
+                                        </a>
+                                </li>
+                                <li>
+                                        <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all font-label-caps text-label-caps active:translate-x-1 duration-200"
+                                                href="#">
+                                                <span class="material-symbols-outlined">logout</span>
+                                                Logout
+                                        </a>
+                                </li>
+                        </ul>
+                </div>
+        </nav>
+        <!-- Main Content Wrapper -->
+        <div class="flex-1 flex flex-col ml-0 md:ml-[260px] h-full overflow-hidden relative">
+                <!-- TopAppBar (from JSON) -->
+                <header
+                        class="sticky top-0 z-50 flex justify-between items-center px-container-margin h-16 w-full bg-surface-container-lowest border-b border-outline-variant shadow-sm">
+                        <div class="flex items-center gap-4">
+                                <!-- Mobile menu button (hidden on desktop) -->
+                                <button
+                                        class="md:hidden text-on-surface-variant hover:bg-surface-container p-2 rounded-lg transition-colors cursor-pointer active:scale-95 duration-150">
+                                        <span class="material-symbols-outlined">menu</span>
+                                </button>
+                                <div class="text-headline-md font-headline-md text-primary">VATPro Enterprise</div>
+                        </div>
+                        <!-- Search Bar (on left structurally, but right of brand here based on typical top bar flow) -->
+                        <div class="hidden md:flex flex-1 max-w-md mx-8 relative">
+                                <span
+                                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+                                <input class="w-full pl-10 pr-4 py-2 bg-surface border border-outline-variant rounded-lg text-body-sm font-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
+                                        placeholder="Search orders, clients..." type="text" />
+                        </div>
+                        <div class="flex items-center gap-2">
+                                <button
+                                        class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer active:scale-95 duration-150 relative">
+                                        <span class="material-symbols-outlined">notifications</span>
+                                        <span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+                                </button>
+                                <button
+                                        class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer active:scale-95 duration-150">
+                                        <span class="material-symbols-outlined">settings</span>
+                                </button>
+                                <div
+                                        class="ml-2 w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant overflow-hidden cursor-pointer active:scale-95 duration-150 flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-on-surface-variant">person</span>
+                                </div>
+                        </div>
+                </header>
+                <!-- Page Content: Dual Sidebar Layout -->
+                <div class="flex flex-1 overflow-hidden relative">
+                        <!-- Secondary Sidebar: Reports Menu -->
+                        <aside
+                                class="w-[260px] flex-shrink-0 bg-surface-bright border-r border-outline-variant overflow-y-auto hidden lg:block">
+                                <div class="p-6 pb-2 border-b border-outline-variant">
+                                        <h2 class="font-title-sm text-title-sm text-on-background">Reports Menu</h2>
+                                </div>
+                                <div class="p-4">
+                                        <ul class="flex flex-col gap-1">
+                                                <li>
+                                                        <a class="flex items-center px-4 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-sm text-body-sm transition-colors"
+                                                                href="#">
+                                                                Sub Sub Ledger
+                                                        </a>
+                                                </li>
+                                                <li>
+                                                        <a class="flex items-center px-4 py-2.5 rounded-lg bg-primary-container text-on-primary-container font-medium font-body-sm text-body-sm transition-colors"
+                                                                href="#">
+                                                                Delivery Process Register
+                                                        </a>
+                                                </li>
+                                                <li>
+                                                        <a class="flex items-center px-4 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-sm text-body-sm transition-colors"
+                                                                href="#">
+                                                                VAT-6.3 Report
+                                                        </a>
+                                                </li>
+                                                <li>
+                                                        <a class="flex items-center px-4 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-sm text-body-sm transition-colors"
+                                                                href="#">
+                                                                Cash Collection Statement
+                                                        </a>
+                                                </li>
+                                                <li>
+                                                        <a class="flex items-center px-4 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-body-sm text-body-sm transition-colors"
+                                                                href="#">
+                                                                Bill Collection Register
+                                                        </a>
+                                                </li>
+                                        </ul>
+                                </div>
+                        </aside>
+                        <!-- Main Canvas: Delivery Process Register -->
+                        <main class="flex-1 overflow-y-auto bg-background p-container-margin">
+                                <div class="max-w-7xl mx-auto space-y-section-gap pb-12">
+                                        <!-- Header & Actions -->
+                                        <div
+                                                class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                                                <div>
+                                                        <h2
+                                                                class="font-headline-md text-headline-md text-on-background">
+                                                                Delivery Process Register</h2>
+                                                        <p
+                                                                class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                                                                Track and manage delivery statuses.</p>
+                                                </div>
+                                                <div class="flex items-center gap-3">
+                                                        <button
+                                                                class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-primary font-label-caps text-label-caps hover:bg-surface-container transition-colors shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+                                                                <span
+                                                                        class="material-symbols-outlined text-[18px]">picture_as_pdf</span>
+                                                                Export PDF
+                                                        </button>
+                                                        <button
+                                                                class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-primary font-label-caps text-label-caps hover:bg-surface-container transition-colors shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+                                                                <span
+                                                                        class="material-symbols-outlined text-[18px]">table_chart</span>
+                                                                Export Excel
+                                                        </button>
+                                                        <button
+                                                                class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-lg font-label-caps text-label-caps shadow-[0_2px_0px_rgba(0,0,0,0.1)] hover:opacity-90 active:shadow-none active:translate-y-[2px] transition-all">
+                                                                <span
+                                                                        class="material-symbols-outlined text-[18px]">update</span>
+                                                                Update Status
+                                                        </button>
+                                                </div>
+                                        </div>
+                                        <!-- Summary Cards (Bento-ish) -->
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                                                <!-- Card 1 -->
+                                                <div
+                                                        class="bg-surface-container-lowest p-card-padding rounded-xl border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col justify-between relative overflow-hidden">
+                                                        <div class="absolute top-0 right-0 p-4 opacity-10">
+                                                                <span
+                                                                        class="material-symbols-outlined text-[64px]">local_shipping</span>
+                                                        </div>
+                                                        <h3
+                                                                class="font-label-caps text-label-caps text-on-surface-variant mb-4">
+                                                                Total Deliveries</h3>
+                                                        <div class="flex items-end gap-2">
+                                                                <span
+                                                                        class="font-display-lg text-display-lg text-on-background">145</span>
+                                                                <span
+                                                                        class="font-body-sm text-body-sm text-on-surface-variant mb-1">This
+                                                                        Month</span>
+                                                        </div>
+                                                </div>
+                                                <!-- Card 2 -->
+                                                <div
+                                                        class="bg-surface-container-lowest p-card-padding rounded-xl border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col justify-between relative overflow-hidden">
+                                                        <div class="absolute top-0 right-0 p-4 opacity-10">
+                                                                <span
+                                                                        class="material-symbols-outlined text-[64px]">check_circle</span>
+                                                        </div>
+                                                        <h3
+                                                                class="font-label-caps text-label-caps text-on-surface-variant mb-4">
+                                                                On-Time Delivery %</h3>
+                                                        <div class="flex items-end gap-2">
+                                                                <span
+                                                                        class="font-display-lg text-display-lg text-primary">94.2%</span>
+                                                                <span
+                                                                        class="font-body-sm text-body-sm text-on-surface-variant mb-1">Target:
+                                                                        95%</span>
+                                                        </div>
+                                                </div>
+                                                <!-- Card 3 -->
+                                                <div
+                                                        class="bg-surface-container-lowest p-card-padding rounded-xl border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col justify-between relative overflow-hidden">
+                                                        <div
+                                                                class="absolute top-0 right-0 p-4 opacity-10 text-tertiary">
+                                                                <span
+                                                                        class="material-symbols-outlined text-[64px]">pending_actions</span>
+                                                        </div>
+                                                        <h3
+                                                                class="font-label-caps text-label-caps text-on-surface-variant mb-4">
+                                                                Pending Deliveries</h3>
+                                                        <div class="flex items-end gap-2">
+                                                                <span
+                                                                        class="font-display-lg text-display-lg text-tertiary">12</span>
+                                                                <span
+                                                                        class="font-body-sm text-body-sm text-on-surface-variant mb-1">Action
+                                                                        Required</span>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <!-- Filters Section -->
+                                        <div
+                                                class="bg-surface-container-lowest p-card-padding rounded-xl border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+                                                <div class="flex flex-wrap gap-4 items-end">
+                                                        <div class="flex-1 min-w-[200px]">
+                                                                <label
+                                                                        class="block font-label-caps text-label-caps text-on-surface-variant mb-1.5">Date
+                                                                        Range</label>
+                                                                <div class="flex items-center gap-2">
+                                                                        <input class="w-full px-3 py-2 bg-surface border border-outline-variant rounded-lg font-body-sm text-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
+                                                                                type="date" />
+                                                                        <span
+                                                                                class="text-on-surface-variant font-body-sm text-body-sm">-</span>
+                                                                        <input class="w-full px-3 py-2 bg-surface border border-outline-variant rounded-lg font-body-sm text-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
+                                                                                type="date" />
+                                                                </div>
+                                                        </div>
+                                                        <div class="flex-1 min-w-[200px]">
+                                                                <label
+                                                                        class="block font-label-caps text-label-caps text-on-surface-variant mb-1.5">Client
+                                                                        Name</label>
+                                                                <div class="relative">
+                                                                        <select
+                                                                                class="w-full pl-3 pr-10 py-2 bg-surface border border-outline-variant rounded-lg font-body-sm text-body-sm appearance-none focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors">
+                                                                                <option>All Clients</option>
+                                                                                <option>Acme Corp Ltd.</option>
+                                                                                <option>Bengal Industries</option>
+                                                                                <option>Global Traders</option>
+                                                                        </select>
+                                                                        <span
+                                                                                class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">arrow_drop_down</span>
+                                                                </div>
+                                                        </div>
+                                                        <div class="flex-1 min-w-[200px]">
+                                                                <label
+                                                                        class="block font-label-caps text-label-caps text-on-surface-variant mb-1.5">Status</label>
+                                                                <div class="relative">
+                                                                        <select
+                                                                                class="w-full pl-3 pr-10 py-2 bg-surface border border-outline-variant rounded-lg font-body-sm text-body-sm appearance-none focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors">
+                                                                                <option>All Statuses</option>
+                                                                                <option>Pending</option>
+                                                                                <option>Shipped</option>
+                                                                                <option>Delivered</option>
+                                                                                <option>Canceled</option>
+                                                                        </select>
+                                                                        <span
+                                                                                class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">arrow_drop_down</span>
+                                                                </div>
+                                                        </div>
+                                                        <div>
+                                                                <button
+                                                                        class="px-6 py-2 bg-surface-container border border-outline-variant text-on-surface rounded-lg font-label-caps text-label-caps hover:bg-surface-variant transition-colors h-[38px] flex items-center">
+                                                                        Apply Filters
+                                                                </button>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <!-- Data Table -->
+                                        <div
+                                                class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] overflow-hidden">
+                                                <div class="overflow-x-auto">
+                                                        <table class="w-full text-left border-collapse">
+                                                                <thead
+                                                                        class="bg-surface-container-low border-b border-outline-variant">
+                                                                        <tr>
+                                                                                <th
+                                                                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant whitespace-nowrap">
+                                                                                        Order ID</th>
+                                                                                <th
+                                                                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant whitespace-nowrap">
+                                                                                        Order Date</th>
+                                                                                <th
+                                                                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant">
+                                                                                        Client Name</th>
+                                                                                <th
+                                                                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant whitespace-nowrap">
+                                                                                        Delivery Date</th>
+                                                                                <th
+                                                                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant">
+                                                                                        Delivery Address</th>
+                                                                                <th
+                                                                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant">
+                                                                                        Challan No.</th>
+                                                                                <th
+                                                                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant">
+                                                                                        Status</th>
+                                                                                <th
+                                                                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant text-right">
+                                                                                        Actions</th>
+                                                                        </tr>
+                                                                </thead>
+                                                                <tbody
+                                                                        class="font-table-data text-table-data text-on-background divide-y divide-outline-variant/50">
+                                                                        <tr
+                                                                                class="table-row-zebra hover:bg-surface-container-low/50 transition-colors">
+                                                                                <td
+                                                                                        class="p-table-cell-padding font-medium text-primary">
+                                                                                        ORD-2023-1042</td>
+                                                                                <td class="p-table-cell-padding">12 Oct
+                                                                                        2023</td>
+                                                                                <td
+                                                                                        class="p-table-cell-padding font-medium">
+                                                                                        Acme Corp Ltd.</td>
+                                                                                <td
+                                                                                        class="p-table-cell-padding text-on-surface-variant">
+                                                                                        14 Oct 2023</td>
+                                                                                <td class="p-table-cell-padding text-on-surface-variant truncate max-w-[200px]"
+                                                                                        title="45/A, Dilkusha C/A, Dhaka">
+                                                                                        45/A, Dilkusha C/A, Dhaka</td>
+                                                                                <td class="p-table-cell-padding">
+                                                                                        CHL-9982</td>
+                                                                                <td class="p-table-cell-padding">
+                                                                                        <span
+                                                                                                class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-green-100 text-green-800 border border-green-200">
+                                                                                                Delivered
+                                                                                        </span>
+                                                                                </td>
+                                                                                <td
+                                                                                        class="p-table-cell-padding text-right">
+                                                                                        <button class="text-on-surface-variant hover:text-primary transition-colors p-1"
+                                                                                                title="View Details">
+                                                                                                <span
+                                                                                                        class="material-symbols-outlined text-[20px]">visibility</span>
+                                                                                        </button>
+                                                                                </td>
+                                                                        </tr>
+                                                                        <tr
+                                                                                class="table-row-zebra hover:bg-surface-container-low/50 transition-colors">
+                                                                                <td
+                                                                                        class="p-table-cell-padding font-medium text-primary">
+                                                                                        ORD-2023-1045</td>
+                                                                                <td class="p-table-cell-padding">14 Oct
+                                                                                        2023</td>
+                                                                                <td
+                                                                                        class="p-table-cell-padding font-medium">
+                                                                                        Bengal Industries</td>
+                                                                                <td
+                                                                                        class="p-table-cell-padding text-on-surface-variant">
+                                                                                        Est: 16 Oct 2023</td>
+                                                                                <td class="p-table-cell-padding text-on-surface-variant truncate max-w-[200px]"
+                                                                                        title="Plot 12, Sector 3, Uttara, Dhaka">
+                                                                                        Plot 12, Sector 3, Uttara, Dhaka
+                                                                                </td>
+                                                                                <td class="p-table-cell-padding">
+                                                                                        CHL-9985</td>
+                                                                                <td class="p-table-cell-padding">
+                                                                                        <span
+                                                                                                class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-blue-100 text-blue-800 border border-blue-200">
+                                                                                                Shipped
+                                                                                        </span>
+                                                                                </td>
+                                                                                <td
+                                                                                        class="p-table-cell-padding text-right">
+                                                                                        <button class="text-on-surface-variant hover:text-primary transition-colors p-1"
+                                                                                                title="View Details">
+                                                                                                <span
+                                                                                                        class="material-symbols-outlined text-[20px]">visibility</span>
+                                                                                        </button>
+                                                                                </td>
+                                                                        </tr>
+                                                                        <tr
+                                                                                class="table-row-zebra hover:bg-surface-container-low/50 transition-colors">
+                                                                                <td
+                                                                                        class="p-table-cell-padding font-medium text-primary">
+                                                                                        ORD-2023-1048</td>
+                                                                                <td class="p-table-cell-padding">15 Oct
+                                                                                        2023</td>
+                                                                                <td
+                                                                                        class="p-table-cell-padding font-medium">
+                                                                                        Global Traders</td>
+                                                                                <td
+                                                                                        class="p-table-cell-padding text-on-surface-variant">
+                                                                                        TBD</td>
+                                                                                <td class="p-table-cell-padding text-on-surface-variant truncate max-w-[200px]"
+                                                                                        title="Agrabad C/A, Chattogram">
+                                                                                        Agrabad C/A, Chattogram</td>
+                                                                                <td
+                                                                                        class="p-table-cell-padding text-on-surface-variant italic">
+                                                                                        Pending</td>
+                                                                                <td class="p-table-cell-padding">
+                                                                                        <span
+                                                                                                class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-yellow-100 text-yellow-800 border border-yellow-200">
+                                                                                                Pending
+                                                                                        </span>
+                                                                                </td>
+                                                                                <td
+                                                                                        class="p-table-cell-padding text-right">
+                                                                                        <button class="text-on-surface-variant hover:text-primary transition-colors p-1"
+                                                                                                title="View Details">
+                                                                                                <span
+                                                                                                        class="material-symbols-outlined text-[20px]">visibility</span>
+                                                                                        </button>
+                                                                                </td>
+                                                                        </tr>
+                                                                        <tr
+                                                                                class="table-row-zebra hover:bg-surface-container-low/50 transition-colors">
+                                                                                <td
+                                                                                        class="p-table-cell-padding font-medium text-primary">
+                                                                                        ORD-2023-1050</td>
+                                                                                <td class="p-table-cell-padding">15 Oct
+                                                                                        2023</td>
+                                                                                <td
+                                                                                        class="p-table-cell-padding font-medium">
+                                                                                        Tech Solutions BD</td>
+                                                                                <td
+                                                                                        class="p-table-cell-padding text-on-surface-variant">
+                                                                                        -</td>
+                                                                                <td class="p-table-cell-padding text-on-surface-variant truncate max-w-[200px]"
+                                                                                        title="Banani, Road 11, Dhaka">
+                                                                                        Banani, Road 11, Dhaka</td>
+                                                                                <td
+                                                                                        class="p-table-cell-padding text-on-surface-variant">
+                                                                                        -</td>
+                                                                                <td class="p-table-cell-padding">
+                                                                                        <span
+                                                                                                class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-red-100 text-red-800 border border-red-200">
+                                                                                                Canceled
+                                                                                        </span>
+                                                                                </td>
+                                                                                <td
+                                                                                        class="p-table-cell-padding text-right">
+                                                                                        <button class="text-on-surface-variant hover:text-primary transition-colors p-1"
+                                                                                                title="View Details">
+                                                                                                <span
+                                                                                                        class="material-symbols-outlined text-[20px]">visibility</span>
+                                                                                        </button>
+                                                                                </td>
+                                                                        </tr>
+                                                                        <tr
+                                                                                class="table-row-zebra hover:bg-surface-container-low/50 transition-colors">
+                                                                                <td
+                                                                                        class="p-table-cell-padding font-medium text-primary">
+                                                                                        ORD-2023-1051</td>
+                                                                                <td class="p-table-cell-padding">16 Oct
+                                                                                        2023</td>
+                                                                                <td
+                                                                                        class="p-table-cell-padding font-medium">
+                                                                                        Acme Corp Ltd.</td>
+                                                                                <td
+                                                                                        class="p-table-cell-padding text-on-surface-variant">
+                                                                                        TBD</td>
+                                                                                <td class="p-table-cell-padding text-on-surface-variant truncate max-w-[200px]"
+                                                                                        title="45/A, Dilkusha C/A, Dhaka">
+                                                                                        45/A, Dilkusha C/A, Dhaka</td>
+                                                                                <td
+                                                                                        class="p-table-cell-padding text-on-surface-variant italic">
+                                                                                        Pending</td>
+                                                                                <td class="p-table-cell-padding">
+                                                                                        <span
+                                                                                                class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-yellow-100 text-yellow-800 border border-yellow-200">
+                                                                                                Pending
+                                                                                        </span>
+                                                                                </td>
+                                                                                <td
+                                                                                        class="p-table-cell-padding text-right">
+                                                                                        <button class="text-on-surface-variant hover:text-primary transition-colors p-1"
+                                                                                                title="View Details">
+                                                                                                <span
+                                                                                                        class="material-symbols-outlined text-[20px]">visibility</span>
+                                                                                        </button>
+                                                                                </td>
+                                                                        </tr>
+                                                                </tbody>
+                                                        </table>
+                                                </div>
+                                                <!-- Table Footer / Pagination -->
+                                                <div
+                                                        class="px-6 py-4 border-t border-outline-variant flex items-center justify-between bg-surface-container-lowest">
+                                                        <span class="font-body-sm text-body-sm text-on-surface-variant">Showing
+                                                                1 to 5 of 145 entries</span>
+                                                        <div class="flex items-center gap-1">
+                                                                <button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant hover:bg-surface-container disabled:opacity-50"
+                                                                        disabled="">
+                                                                        <span
+                                                                                class="material-symbols-outlined text-[18px]">chevron_left</span>
+                                                                </button>
+                                                                <button
+                                                                        class="w-8 h-8 flex items-center justify-center rounded bg-primary text-on-primary font-body-sm text-body-sm">1</button>
+                                                                <button
+                                                                        class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface hover:bg-surface-container font-body-sm text-body-sm">2</button>
+                                                                <button
+                                                                        class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface hover:bg-surface-container font-body-sm text-body-sm">3</button>
+                                                                <span class="px-2 text-on-surface-variant">...</span>
+                                                                <button
+                                                                        class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant hover:bg-surface-container">
+                                                                        <span
+                                                                                class="material-symbols-outlined text-[18px]">chevron_right</span>
+                                                                </button>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </main>
+                </div>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Monthly Sales Plan &amp; Target - Inventory Management</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+                rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet" />
+        <script id="tailwind-config">
+                tailwind.config = {
+                        darkMode: "class",
+                        theme: {
+                                extend: {
+                                        "colors": {
+                                                "tertiary-container": "#a36700",
+                                                "on-tertiary-fixed": "#2a1700",
+                                                "on-tertiary-container": "#fffbff",
+                                                "on-surface": "#0b1c30",
+                                                "error": "#ba1a1a",
+                                                "tertiary-fixed": "#ffddb8",
+                                                "surface-variant": "#d3e4fe",
+                                                "error-container": "#ffdad6",
+                                                "surface-tint": "#006a61",
+                                                "on-secondary-fixed": "#131b2e",
+                                                "on-primary-fixed": "#00201d",
+                                                "on-secondary-fixed-variant": "#3f465c",
+                                                "surface-container-high": "#dce9ff",
+                                                "primary-fixed": "#89f5e7",
+                                                "on-secondary-container": "#5c647a",
+                                                "inverse-on-surface": "#eaf1ff",
+                                                "surface-dim": "#cbdbf5",
+                                                "secondary-fixed-dim": "#bec6e0",
+                                                "primary": "#00685f",
+                                                "on-primary-container": "#f4fffc",
+                                                "primary-container": "#008378",
+                                                "outline": "#6d7a77",
+                                                "on-background": "#0b1c30",
+                                                "surface-container-highest": "#d3e4fe",
+                                                "secondary-fixed": "#dae2fd",
+                                                "tertiary-fixed-dim": "#ffb95f",
+                                                "on-primary-fixed-variant": "#005049",
+                                                "surface": "#f8f9ff",
+                                                "on-secondary": "#ffffff",
+                                                "on-tertiary-fixed-variant": "#653e00",
+                                                "tertiary": "#825100",
+                                                "on-error": "#ffffff",
+                                                "on-error-container": "#93000a",
+                                                "primary-fixed-dim": "#6bd8cb",
+                                                "surface-container-low": "#eff4ff",
+                                                "inverse-primary": "#6bd8cb",
+                                                "on-primary": "#ffffff",
+                                                "background": "#f8f9ff",
+                                                "surface-container": "#e5eeff",
+                                                "secondary-container": "#dae2fd",
+                                                "outline-variant": "#bcc9c6",
+                                                "surface-container-lowest": "#ffffff",
+                                                "secondary": "#565e74",
+                                                "on-tertiary": "#ffffff",
+                                                "inverse-surface": "#213145",
+                                                "surface-bright": "#f8f9ff",
+                                                "on-surface-variant": "#3d4947"
+                                        },
+                                        "borderRadius": {
+                                                "DEFAULT": "0.25rem",
+                                                "lg": "0.5rem",
+                                                "xl": "0.75rem",
+                                                "full": "9999px"
+                                        },
+                                        "spacing": {
+                                                "table-cell-padding": "12px 16px",
+                                                "gutter": "16px",
+                                                "card-padding": "20px",
+                                                "sidebar-width": "260px",
+                                                "section-gap": "32px",
+                                                "container-margin": "24px"
+                                        },
+                                        "fontFamily": {
+                                                "mushak-print": [
+                                                        "Inter"
+                                                ],
+                                                "title-sm": [
+                                                        "Inter"
+                                                ],
+                                                "label-caps": [
+                                                        "Inter"
+                                                ],
+                                                "display-lg": [
+                                                        "Inter"
+                                                ],
+                                                "table-data": [
+                                                        "Inter"
+                                                ],
+                                                "body-base": [
+                                                        "Inter"
+                                                ],
+                                                "headline-md": [
+                                                        "Inter"
+                                                ],
+                                                "body-sm": [
+                                                        "Inter"
+                                                ]
+                                        },
+                                        "fontSize": {
+                                                "mushak-print": [
+                                                        "11px",
+                                                        {
+                                                                "lineHeight": "14px",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "title-sm": [
+                                                        "18px",
+                                                        {
+                                                                "lineHeight": "24px",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "label-caps": [
+                                                        "12px",
+                                                        {
+                                                                "lineHeight": "16px",
+                                                                "letterSpacing": "0.05em",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "display-lg": [
+                                                        "32px",
+                                                        {
+                                                                "lineHeight": "40px",
+                                                                "letterSpacing": "-0.02em",
+                                                                "fontWeight": "700"
+                                                        }
+                                                ],
+                                                "table-data": [
+                                                        "13px",
+                                                        {
+                                                                "lineHeight": "16px",
+                                                                "fontWeight": "450"
+                                                        }
+                                                ],
+                                                "body-base": [
+                                                        "14px",
+                                                        {
+                                                                "lineHeight": "20px",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ],
+                                                "headline-md": [
+                                                        "24px",
+                                                        {
+                                                                "lineHeight": "32px",
+                                                                "letterSpacing": "-0.01em",
+                                                                "fontWeight": "600"
+                                                        }
+                                                ],
+                                                "body-sm": [
+                                                        "13px",
+                                                        {
+                                                                "lineHeight": "18px",
+                                                                "fontWeight": "400"
+                                                        }
+                                                ]
+                                        }
+                                },
+                        },
+                }
+        </script>
+        <style>
+                .material-symbols-outlined {
+                        font-variation-settings:
+                                'FILL' 0,
+                                'wght' 400,
+                                'GRAD' 0,
+                                'opsz' 24
+                }
+
+                .material-symbols-outlined[data-weight="fill"] {
+                        font-variation-settings: 'FILL' 1;
+                }
+        </style>
+</head>
+
+<body class="bg-background text-on-surface font-body-base antialiased">
+        <!-- SideNavBar (Shared Component) -->
+        <nav
+                class="bg-surface dark:bg-inverse-surface w-[260px] h-full fixed left-0 top-0 border-r border-outline-variant dark:border-outline shadow-sm flex flex-col h-full py-container-margin overflow-y-auto z-50">
+                <!-- Brand/Header -->
+                <div class="px-container-margin mb-section-gap flex items-center gap-3">
+                        <div
+                                class="w-10 h-10 rounded bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined fill text-[24px]">inventory_2</span>
+                        </div>
+                        <div>
+                                <h1
+                                        class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+                                        Product
+                                        Management</h1>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant">Operational Suite</p>
+                        </div>
+                </div>
+                <!-- Main Nav Links -->
+
+                <ul class="flex-1 px-3 space-y-1">
+                        <li>
+                                <a href="./Index.html"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
+                                        <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                                        <span class="font-body-base text-body-base font-medium">Home</span>
+                                </a>
+                        </li>
+                        <li>
+                                <a href="./Client.html"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
+                                        <span class="material-symbols-outlined" data-icon="groups">groups</span>
+                                        <span class="font-body-base text-body-base">Clients</span>
+                                </a>
+                        </li>
+                        <li>
+                                <a href="./Quotations.html"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
+                                        <span class="material-symbols-outlined"
+                                                data-icon="description">description</span>
+                                        <span class="font-body-base text-body-base font-medium">Quotations</span>
+                                </a>
+                        </li>
+                        <li>
+                                <a href="./allOrder.html"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
+                                        <span class="material-symbols-outlined"
+                                                data-icon="shopping_cart">shopping_cart</span>
+                                        <span class="font-body-base text-body-base font-medium">Orders</span>
+                                </a>
+                        </li>
+                        <li>
+                                <a href="./Stock-management.html"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
+                                        <span class="material-symbols-outlined"
+                                                data-icon="inventory_2">inventory_2</span>
+                                        <span class="font-body-base text-body-base font-medium">Stock</span>
+                                </a>
+                        </li>
+                        <li>
+                                <a href="./Sales-plan.html"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary dark:text-primary-fixed-dim font-bold border-r-4 border-primary dark:border-primary-fixed-dim bg-surface-container-low dark:bg-surface-container-highest scale-95 transition-transform">
+                                        <span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+                                        <span class="font-body-base text-body-base font-medium">Sales Plan</span>
+                                </a>
+                        </li>
+                        <li>
+                                <a href="./Financial-reports.html"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
+                                        <span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+                                        <span class="font-body-base text-body-base font-medium">Reports</span>
+                                </a>
+                        </li>
+                        <li>
+                                <a href="./Employee-management.html"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
+                                        <span class="material-symbols-outlined" data-icon="badge">badge</span>
+                                        <span class="font-body-base text-body-base font-medium">Employees</span>
+                                </a>
+                        </li>
+                        <li>
+                                <a href="./Vat.html"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
+                                        <span class="material-symbols-outlined"
+                                                data-icon="receipt_long">receipt_long</span>
+                                        <span class="font-body-base text-body-base font-medium">VAT</span>
+                                </a>
+                        </li>
+                </ul>
+
+                <!-- Footer Nav Links -->
+                <div class="mt-auto px-3 space-y-1 pt-4 border-t border-outline-variant dark:border-outline">
+                        <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200"
+                                href="#">
+                                <span class="material-symbols-outlined">settings</span>
+                                <span class="font-body-base text-body-base">Settings</span>
+                        </a>
+                        <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200"
+                                href="#">
+                                <span class="material-symbols-outlined">logout</span>
+                                <span class="font-body-base text-body-base">Logout</span>
+                        </a>
+                </div>
+        </nav>
+        <!-- SideNavBar (Shared Component) -->
+        <!-- TopNavBar -->
+<header
+        class="bg-white dark:bg-surface-container-lowest fixed top-0 right-0 left-[260px] h-16 border-b border-outline-variant dark:border-outline shadow-sm flex justify-between items-center px-gutter w-[calc(100%-260px)] z-40">
+        <!-- Search Bar on Left -->
+        <div class="flex items-center gap-4 w-1/3 min-w-[200px]">
+                <div class="relative w-full">
+                        <span
+                                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+                        <input class="w-full pl-10 pr-4 py-2 bg-surface border border-outline-variant rounded-md font-body-sm text-body-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                                placeholder="Search Inventory Management..." type="text" />
+                </div>
+        </div>
+        <!-- Actions -->
+        <div class="flex items-center gap-4">
+                <!-- Trailing Icon Actions -->
+                <button
+                        class="p-2 text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full transition-colors relative">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
+                </button>
+                <button
+                        class="p-2 text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full transition-colors">
+                        <span class="material-symbols-outlined">help_outline</span>
+                </button>
+                <!-- Secondary Action (Mushak) -->
+                <button
+                        class="flex items-center gap-2 px-4 py-2 bg-surface border border-outline-variant text-primary rounded-md font-label-caps text-label-caps hover:bg-surface-container-low transition-colors">
+                        <span class="material-symbols-outlined text-[18px]">print</span>
+                        Mushak-6.3
+                </button>
+                <!-- Primary Action -->
+                <a href="./Create-new-order.html"
+                        class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-md shadow-[0_2px_0_0_#005049] hover:bg-surface-tint hover:shadow-none translate-y-[2px] active:translate-y-0 transition-all font-label-caps text-label-caps">
+                        <span class="material-symbols-outlined text-[18px]">add</span>
+                        Create Order
+                </a>
+                <!-- User Profile -->
+                <div
+                        class="w-8 h-8 rounded-full bg-secondary-container overflow-hidden ml-2 cursor-pointer border border-outline-variant">
+                        <img alt="User Profile" class="w-full h-full object-cover"
+                                data-alt="A professional headshot of a business executive wearing a modern suit, bright even lighting, corporate environment, confident expression. Subtle teal accent in the background. Modern corporate aesthetic."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJi4laU4YVXMgsXyBv8Gpp0o4pVduNozAAspQzUjyIeKM-NCnVdvOgr8J3LJ22XFKYpoMYBnL2B7NSy9-8wdPzCPr_vkttsWS0sRjQDW3FzcqcgjiaCtDT4MzWsx5_kOzzp9tXONwKAVjMP3g3FphWLZWmJvTYJWxMbdVwe5_n6zr8ViEvoJVuWr5dtF_Y9Jggc97RaGrons5pgX0WPWJiFtKqO2pdiGm1bowxxOe0aJSgTuYTpgrJXkR2e56PzF4LGJC3BppJ-i8" />
+                </div>
+        </div>
+</header>
+        <!-- Main Content -->
+        <main class="ml-[260px] mt-16 p-container-margin max-w-7xl mx-auto">
+                <div class="mb-section-gap">
+                        <h2 class="font-display-lg text-display-lg text-on-surface">Monthly Sales Plan &amp; Target</h2>
+                </div>
+                <!-- Tabs -->
+                <div class="border-b border-outline-variant mb-6">
+                        <nav aria-label="Tabs" class="-mb-px flex space-x-8">
+                                <button aria-current="page"
+                                        class="border-primary text-primary border-b-2 py-4 px-1 font-label-caps text-label-caps">
+                                        Plan Setup
+                                </button>
+                                <button
+                                        class="border-transparent text-on-surface-variant hover:text-on-surface hover:border-outline-variant border-b-2 py-4 px-1 font-label-caps text-label-caps">
+                                        Performance
+                                </button>
+                        </nav>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <!-- Plan Setup Form -->
+                        <div class="lg:col-span-1 space-y-6">
+                                <div class="bg-white rounded-lg border border-outline-variant p-card-padding shadow-sm">
+                                        <h3 class="font-title-sm text-title-sm mb-6 text-on-surface">Set Monthly Target
+                                        </h3>
+                                        <form class="space-y-5">
+                                                <div>
+                                                        <label
+                                                                class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Select
+                                                                Month</label>
+                                                        <input class="w-full rounded border-outline-variant focus:border-primary focus:ring focus:ring-primary/20 text-body-base"
+                                                                type="month" value="2024-05" />
+                                                </div>
+                                                <div>
+                                                        <label
+                                                                class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Target
+                                                                Amount (BDT)</label>
+                                                        <div class="relative">
+                                                                <span
+                                                                        class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">৳</span>
+                                                                <input class="w-full rounded border-outline-variant focus:border-primary focus:ring focus:ring-primary/20 text-body-base pl-8"
+                                                                        placeholder="0.00" type="number" />
+                                                        </div>
+                                                </div>
+                                                <div class="border-t border-outline-variant pt-4 mt-2">
+                                                        <div class="flex items-center justify-between mb-4">
+                                                                <label
+                                                                        class="font-label-caps text-label-caps text-on-surface">Product-wise
+                                                                        Target (Optional)</label>
+                                                                <button class="text-primary hover:text-primary-container"
+                                                                        type="button">
+                                                                        <span
+                                                                                class="material-symbols-outlined text-[20px]">add_circle</span>
+                                                                </button>
+                                                        </div>
+                                                        <div class="space-y-3">
+                                                                <div class="flex gap-2 items-center">
+                                                                        <select
+                                                                                class="flex-1 rounded border-outline-variant focus:border-primary focus:ring focus:ring-primary/20 text-body-sm py-1.5">
+                                                                                <option>Select Product</option>
+                                                                                <option>Premium Widget A</option>
+                                                                                <option>Standard Part B</option>
+                                                                        </select>
+                                                                        <input class="w-24 rounded border-outline-variant focus:border-primary focus:ring focus:ring-primary/20 text-body-sm py-1.5"
+                                                                                placeholder="Qty" type="number" />
+                                                                        <button class="text-error hover:text-on-error-container"
+                                                                                type="button">
+                                                                                <span
+                                                                                        class="material-symbols-outlined text-[18px]">close</span>
+                                                                        </button>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="pt-4 flex flex-col gap-3">
+                                                        <button class="w-full py-2.5 bg-primary text-on-primary font-label-caps text-label-caps rounded shadow-sm hover:shadow-md transition-all active:scale-[0.98]"
+                                                                type="button">
+                                                                Save Plan
+                                                        </button>
+                                                        <button class="w-full py-2.5 bg-surface text-primary border border-primary/30 font-label-caps text-label-caps rounded hover:bg-surface-container-low transition-colors"
+                                                                type="button">
+                                                                Copy Previous Month Plan
+                                                        </button>
+                                                </div>
+                                        </form>
+                                </div>
+                        </div>
+                        <!-- Existing Plans Table -->
+                        <div class="lg:col-span-2">
+                                <div
+                                        class="bg-white rounded-lg border border-outline-variant shadow-sm overflow-hidden flex flex-col h-full">
+                                        <div
+                                                class="p-card-padding border-b border-outline-variant flex justify-between items-center bg-surface-bright">
+                                                <h3 class="font-title-sm text-title-sm text-on-surface">Existing Plans
+                                                </h3>
+                                                <button
+                                                        class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded">
+                                                        <span class="material-symbols-outlined">filter_list</span>
+                                                </button>
+                                        </div>
+                                        <div class="overflow-x-auto">
+                                                <table class="w-full text-left font-table-data text-table-data">
+                                                        <thead
+                                                                class="bg-surface-container-low text-on-surface-variant border-b border-outline-variant">
+                                                                <tr>
+                                                                        <th class="p-table-cell-padding font-semibold">
+                                                                                Month</th>
+                                                                        <th
+                                                                                class="p-table-cell-padding font-semibold text-right">
+                                                                                Target (BDT)</th>
+                                                                        <th class="p-table-cell-padding font-semibold">
+                                                                                Achieved (%)</th>
+                                                                        <th class="p-table-cell-padding font-semibold">
+                                                                                Status</th>
+                                                                        <th
+                                                                                class="p-table-cell-padding font-semibold text-right">
+                                                                                Actions</th>
+                                                                </tr>
+                                                        </thead>
+                                                        <tbody class="divide-y divide-outline-variant">
+                                                                <tr
+                                                                        class="hover:bg-surface-container-lowest transition-colors group">
+                                                                        <td
+                                                                                class="p-table-cell-padding font-medium text-on-surface">
+                                                                                April 2024</td>
+                                                                        <td class="p-table-cell-padding text-right">
+                                                                                1,250,000</td>
+                                                                        <td class="p-table-cell-padding">
+                                                                                <div class="flex items-center gap-3">
+                                                                                        <div
+                                                                                                class="w-24 h-2 bg-surface-variant rounded-full overflow-hidden">
+                                                                                                <div class="h-full bg-primary"
+                                                                                                        style="width: 85%">
+                                                                                                </div>
+                                                                                        </div>
+                                                                                        <span>85%</span>
+                                                                                </div>
+                                                                        </td>
+                                                                        <td class="p-table-cell-padding">
+                                                                                <span
+                                                                                        class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#e0f2f1] text-[#00695c]">
+                                                                                        On Track
+                                                                                </span>
+                                                                        </td>
+                                                                        <td class="p-table-cell-padding text-right">
+                                                                                <div
+                                                                                        class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                                                        <button
+                                                                                                class="text-on-surface-variant hover:text-primary"><span
+                                                                                                        class="material-symbols-outlined text-[18px]">edit</span></button>
+                                                                                        <button
+                                                                                                class="text-on-surface-variant hover:text-primary"><span
+                                                                                                        class="material-symbols-outlined text-[18px]">visibility</span></button>
+                                                                                </div>
+                                                                        </td>
+                                                                </tr>
+                                                                <tr
+                                                                        class="bg-[#f8fafc] hover:bg-surface-container-lowest transition-colors group">
+                                                                        <td
+                                                                                class="p-table-cell-padding font-medium text-on-surface">
+                                                                                March 2024</td>
+                                                                        <td class="p-table-cell-padding text-right">
+                                                                                1,100,000</td>
+                                                                        <td class="p-table-cell-padding">
+                                                                                <div class="flex items-center gap-3">
+                                                                                        <div
+                                                                                                class="w-24 h-2 bg-surface-variant rounded-full overflow-hidden">
+                                                                                                <div class="h-full bg-[#f59e0b]"
+                                                                                                        style="width: 42%">
+                                                                                                </div>
+                                                                                        </div>
+                                                                                        <span>42%</span>
+                                                                                </div>
+                                                                        </td>
+                                                                        <td class="p-table-cell-padding">
+                                                                                <span
+                                                                                        class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#fef3c7] text-[#92400e]">
+                                                                                        Behind
+                                                                                </span>
+                                                                        </td>
+                                                                        <td class="p-table-cell-padding text-right">
+                                                                                <div
+                                                                                        class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                                                        <button
+                                                                                                class="text-on-surface-variant hover:text-primary"><span
+                                                                                                        class="material-symbols-outlined text-[18px]">edit</span></button>
+                                                                                        <button
+                                                                                                class="text-on-surface-variant hover:text-primary"><span
+                                                                                                        class="material-symbols-outlined text-[18px]">visibility</span></button>
+                                                                                </div>
+                                                                        </td>
+                                                                </tr>
+                                                                <tr
+                                                                        class="hover:bg-surface-container-lowest transition-colors group">
+                                                                        <td
+                                                                                class="p-table-cell-padding font-medium text-on-surface">
+                                                                                February 2024</td>
+                                                                        <td class="p-table-cell-padding text-right">
+                                                                                950,000</td>
+                                                                        <td class="p-table-cell-padding">
+                                                                                <div class="flex items-center gap-3">
+                                                                                        <div
+                                                                                                class="w-24 h-2 bg-surface-variant rounded-full overflow-hidden">
+                                                                                                <div class="h-full bg-primary"
+                                                                                                        style="width: 100%">
+                                                                                                </div>
+                                                                                        </div>
+                                                                                        <span>102%</span>
+                                                                                </div>
+                                                                        </td>
+                                                                        <td class="p-table-cell-padding">
+                                                                                <span
+                                                                                        class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#e0f2f1] text-[#00695c]">
+                                                                                        Achieved
+                                                                                </span>
+                                                                        </td>
+                                                                        <td class="p-table-cell-padding text-right">
+                                                                                <div
+                                                                                        class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                                                        <button
+                                                                                                class="text-on-surface-variant hover:text-primary"><span
+                                                                                                        class="material-symbols-outlined text-[18px]">edit</span></button>
+                                                                                        <button
+                                                                                                class="text-on-surface-variant hover:text-primary"><span
+                                                                                                        class="material-symbols-outlined text-[18px]">visibility</span></button>
+                                                                                </div>
+                                                                        </td>
+                                                                </tr>
+                                                                <tr
+                                                                        class="bg-[#f8fafc] hover:bg-surface-container-lowest transition-colors group">
+                                                                        <td
+                                                                                class="p-table-cell-padding font-medium text-on-surface">
+                                                                                January 2024</td>
+                                                                        <td class="p-table-cell-padding text-right">
+                                                                                900,000</td>
+                                                                        <td class="p-table-cell-padding">
+                                                                                <div class="flex items-center gap-3">
+                                                                                        <div
+                                                                                                class="w-24 h-2 bg-surface-variant rounded-full overflow-hidden">
+                                                                                                <div class="h-full bg-primary"
+                                                                                                        style="width: 95%">
+                                                                                                </div>
+                                                                                        </div>
+                                                                                        <span>95%</span>
+                                                                                </div>
+                                                                        </td>
+                                                                        <td class="p-table-cell-padding">
+                                                                                <span
+                                                                                        class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#e0f2f1] text-[#00695c]">
+                                                                                        On Track
+                                                                                </span>
+                                                                        </td>
+                                                                        <td class="p-table-cell-padding text-right">
+                                                                                <div
+                                                                                        class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                                                        <button
+                                                                                                class="text-on-surface-variant hover:text-primary"><span
+                                                                                                        class="material-symbols-outlined text-[18px]">edit</span></button>
+                                                                                        <button
+                                                                                                class="text-on-surface-variant hover:text-primary"><span
+                                                                                                        class="material-symbols-outlined text-[18px]">visibility</span></button>
+                                                                                </div>
+                                                                        </td>
+                                                                </tr>
+                                                        </tbody>
+                                                </table>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </main>
+</body>
+
+</html>

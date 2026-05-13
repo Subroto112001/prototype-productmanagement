@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Create New Order - Inventory Management</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#005049",
+                        "outline-variant": "#bcc9c6",
+                        "surface-variant": "#d3e4fe",
+                        "surface-container-high": "#dce9ff",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#eff4ff",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#006a61",
+                        "on-background": "#0b1c30",
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9ff",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "secondary-container": "#dae2fd",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f8f9ff",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "tertiary": "#825100",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#a36700",
+                        "inverse-surface": "#213145",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-surface-variant": "#3d4947",
+                        "on-tertiary-fixed": "#2a1700",
+                        "surface-container-highest": "#d3e4fe",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "tertiary-fixed": "#ffddb8",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-primary": "#6bd8cb",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary": "#ffffff",
+                        "outline": "#6d7a77",
+                        "on-primary-fixed": "#00201d",
+                        "on-surface": "#0b1c30",
+                        "on-primary-container": "#f4fffc",
+                        "surface-container": "#e5eeff",
+                        "surface-bright": "#f8f9ff",
+                        "secondary": "#565e74",
+                        "secondary-fixed": "#dae2fd",
+                        "primary": "#00685f",
+                        "primary-container": "#008378",
+                        "primary-fixed-dim": "#6bd8cb",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#131b2e",
+                        "on-secondary-container": "#5c647a",
+                        "primary-fixed": "#89f5e7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sidebar-width": "260px",
+                        "container-margin": "24px",
+                        "card-padding": "20px",
+                        "table-cell-padding": "12px 16px",
+                        "gutter": "16px",
+                        "section-gap": "32px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "title-sm": ["Inter"],
+                        "table-data": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-base": ["Inter"],
+                        "mushak-print": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "title-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "table-data": ["13px", { "lineHeight": "16px", "fontWeight": "450" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-base": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "mushak-print": ["11px", { "lineHeight": "14px", "fontWeight": "400" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-background text-on-background font-body-base antialiased">
+    <!-- TopNavBar -->
+    <header
+        class="fixed top-0 right-0 left-[260px] h-16 bg-surface-container-lowest text-primary border-b border-outline-variant shadow-sm flex justify-between items-center px-gutter w-[calc(100%-260px)] z-40 hidden md:flex">
+        <div class="flex items-center gap-4">
+            <span class="font-title-sm text-title-sm text-on-surface">Inventory Management</span>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="relative hidden lg:block">
+                <span
+                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+                <input
+                    class="pl-10 pr-4 py-2 border border-outline-variant rounded-full text-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-64 bg-surface"
+                    placeholder="Search..." type="text" />
+            </div>
+            <button
+                class="text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full transition-colors duration-200">
+                <span class="material-symbols-outlined">notifications</span>
+            </button>
+            <button
+                class="text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full transition-colors duration-200">
+                <span class="material-symbols-outlined">help_outline</span>
+            </button>
+            <button
+                class="px-4 py-2 border border-outline-variant rounded text-primary font-label-caps text-label-caps hover:bg-surface-container-low transition-colors duration-200">
+                Mushak-6.3
+            </button>
+            <button
+                class="px-4 py-2 bg-primary text-on-primary rounded font-label-caps text-label-caps shadow-sm hover:opacity-90 transition-opacity">
+                Create Order
+            </button>
+            <img alt="User Profile" class="w-8 h-8 rounded-full border border-outline-variant"
+                data-alt="A professional headshot of a business user in a corporate setting."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_uw4VRL5fEoV_3bLOWIE-uFg-HXEp-QU43pbF4P3RKIL_nd_vMsVsRBtfgGzlnAdTbbIfYh0x6mInlc27l6CZJYqSjj5jKSPmuQaVcSXbeXwA-dDJIlD3AglaasF1LFfNQWf72cnvikfd5QtmeyNykkyPZkSi4GI5BxL30IC587AUmHNA9Tw7a_GTHYLaQEWOl6Y9u0SqGcjzcjueYE0d6PCeSKWC7JFbRtnYHoFpukwIfheQmY3yVoDj_HVM4UBacuxrHpO4c9c" />
+        </div>
+    </header>
+    <!-- SideNavBar -->
+    <nav
+        class="w-[260px] h-full fixed left-0 top-0 bg-surface border-r border-outline-variant shadow-sm flex flex-col py-container-margin overflow-y-auto hidden md:flex z-50">
+        <div class="px-6 mb-8 flex items-center gap-3">
+            <div
+                class="w-10 h-10 bg-primary-container rounded flex items-center justify-center text-on-primary-container">
+                <span class="material-symbols-outlined"
+                    style="font-variation-settings: 'FILL' 1;">business_center</span>
+            </div>
+            <div>
+                <h1 class="font-headline-md text-headline-md text-primary">VAT Inventory</h1>
+                <p class="font-label-caps text-label-caps text-on-surface-variant">Operational Suite</p>
+            </div>
+        </div>
+        <div class="flex-1 flex flex-col gap-1 px-4">
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
+                href="./Index.html">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span class="font-body-base text-body-base">Home</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
+                href="./Client.html">
+                <span class="material-symbols-outlined">groups</span>
+                <span class="font-body-base text-body-base">Clients</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
+                href="./Quotations.html">
+                <span class="material-symbols-outlined">description</span>
+                <span class="font-body-base text-body-base">Quotations</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary font-bold border-r-4 border-primary bg-surface-container-low transition-transform scale-95"
+                href="./allOrder.html">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+                <span class="font-body-base text-body-base">Orders</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
+                href="./Stock-management.html">
+                <span class="material-symbols-outlined">inventory_2</span>
+                <span class="font-body-base text-body-base">Stock</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
+                href="./Sales-plan.html">
+                <span class="material-symbols-outlined">event_note</span>
+                <span class="font-body-base text-body-base">Sales Plan</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
+                href="./Financial-reports.html">
+                <span class="material-symbols-outlined">bar_chart</span>
+                <span class="font-body-base text-body-base">Reports</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
+                href="./Employee-management.html">
+                <span class="material-symbols-outlined">badge</span>
+                <span class="font-body-base text-body-base">Employees</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
+                href="./Vat.html">
+                <span class="material-symbols-outlined">receipt_long</span>
+                <span class="font-body-base text-body-base">VAT</span>
+            </a>
+        </div>
+        <div class="mt-auto flex flex-col gap-1 px-4 border-t border-outline-variant pt-4">
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
+                href="#">
+                <span class="material-symbols-outlined">settings</span>
+                <span class="font-body-base text-body-base">Settings</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
+                href="#">
+                <span class="material-symbols-outlined">logout</span>
+                <span class="font-body-base text-body-base">Logout</span>
+            </a>
+        </div>
+    </nav>
+    <!-- Main Content Canvas -->
+    <main class="md:ml-[260px] pt-16 min-h-screen bg-background">
+        <div class="p-container-margin max-w-[1600px] mx-auto">
+            <!-- Header & Breadcrumbs -->
+            <div class="mb-section-gap">
+                <div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm mb-2">
+                    <a class="hover:text-primary" href="#">Orders</a>
+                    <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+                    <span class="text-on-surface">Create Order</span>
+                </div>
+                <h1 class="font-display-lg text-display-lg text-on-surface">Create New Order</h1>
+            </div>
+            <div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter">
+                <!-- Left Column (Order Form) -->
+                <div class="xl:col-span-8 flex flex-col gap-6">
+                    <!-- Client Selection Card -->
+                    <section
+                        class="bg-surface-container-lowest rounded-lg border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] p-card-padding">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="font-title-sm text-title-sm text-on-surface flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">person</span>
+                                Client Details
+                            </h2>
+                            <button
+                                class="text-primary font-label-caps text-label-caps flex items-center gap-1 hover:text-primary-container">
+                                <span class="material-symbols-outlined text-[18px]">add</span>
+                                Add New Client
+                            </button>
+                        </div>
+                        <div class="relative mb-6">
+                            <span
+                                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+                            <input
+                                class="w-full pl-10 pr-4 py-2 border border-outline-variant rounded focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-surface font-body-base text-body-base"
+                                placeholder="Search clients by name, business or phone..." type="text"
+                                value="Rahim Steel" />
+                        </div>
+                        <!-- Selected Client Compact Display -->
+                        <div
+                            class="bg-surface rounded border border-outline-variant p-4 flex justify-between items-start">
+                            <div>
+                                <div class="flex items-center gap-2 mb-1">
+                                    <h3 class="font-title-sm text-title-sm text-on-surface">Rahim Steel Mills Ltd.</h3>
+                                    <span
+                                        class="bg-surface-container-low text-primary px-2 py-0.5 rounded text-xs font-semibold">VAT
+                                        Verified</span>
+                                </div>
+                                <div
+                                    class="grid grid-cols-2 gap-x-8 gap-y-2 mt-3 text-on-surface-variant font-body-sm text-body-sm">
+                                    <div class="flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-[16px]">person</span>
+                                        Abdur Rahim (Contact)
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-[16px]">call</span>
+                                        +880 1711-223344
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-[16px]">mail</span>
+                                        procurement@rahimsteel.com
+                                    </div>
+                                    <div class="flex items-center gap-2 text-error">
+                                        <span
+                                            class="material-symbols-outlined text-[16px]">account_balance_wallet</span>
+                                        Due: ৳ 45,000
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="text-outline hover:text-primary">
+                                <span class="material-symbols-outlined">edit</span>
+                            </button>
+                        </div>
+                    </section>
+                    <!-- Order Items Card -->
+                    <section
+                        class="bg-surface-container-lowest rounded-lg border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] p-card-padding">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="font-title-sm text-title-sm text-on-surface flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">inventory_2</span>
+                                Order Items
+                            </h2>
+                            <button
+                                class="text-primary font-label-caps text-label-caps flex items-center gap-1 hover:text-primary-container">
+                                <span class="material-symbols-outlined text-[18px]">add</span>
+                                Add Item
+                            </button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr
+                                        class="bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps border-y border-outline-variant">
+                                        <th class="p-table-cell-padding font-semibold">Product Name</th>
+                                        <th class="p-table-cell-padding font-semibold w-24">Qty</th>
+                                        <th class="p-table-cell-padding font-semibold w-32">Unit Price (৳)</th>
+                                        <th class="p-table-cell-padding font-semibold w-24">Disc %</th>
+                                        <th class="p-table-cell-padding font-semibold w-32 text-right">Total (৳)</th>
+                                        <th class="p-table-cell-padding w-12"></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="font-table-data text-table-data">
+                                    <tr
+                                        class="border-b border-outline-variant hover:bg-surface-bright transition-colors">
+                                        <td class="p-table-cell-padding">
+                                            <select
+                                                class="w-full border border-outline-variant rounded p-1.5 focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest">
+                                                <option>Industrial Grade Valve (IGV-200)</option>
+                                            </select>
+                                        </td>
+                                        <td class="p-table-cell-padding">
+                                            <input
+                                                class="w-full border border-outline-variant rounded p-1.5 text-center focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest"
+                                                type="number" value="50" />
+                                        </td>
+                                        <td class="p-table-cell-padding">
+                                            <input
+                                                class="w-full border border-outline-variant rounded p-1.5 text-right focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest"
+                                                type="number" value="1200" />
+                                        </td>
+                                        <td class="p-table-cell-padding">
+                                            <input
+                                                class="w-full border border-outline-variant rounded p-1.5 text-center focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest"
+                                                type="number" value="5" />
+                                        </td>
+                                        <td class="p-table-cell-padding text-right font-medium text-on-surface">
+                                            57,000
+                                        </td>
+                                        <td class="p-table-cell-padding text-center">
+                                            <button class="text-outline hover:text-error"><span
+                                                    class="material-symbols-outlined text-[18px]">delete</span></button>
+                                        </td>
+                                    </tr>
+                                    <tr
+                                        class="border-b border-outline-variant hover:bg-surface-bright transition-colors">
+                                        <td class="p-table-cell-padding">
+                                            <select
+                                                class="w-full border border-outline-variant rounded p-1.5 focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest">
+                                                <option>Steel Pipe Fitting (SPF-10)</option>
+                                            </select>
+                                        </td>
+                                        <td class="p-table-cell-padding">
+                                            <input
+                                                class="w-full border border-outline-variant rounded p-1.5 text-center focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest"
+                                                type="number" value="200" />
+                                        </td>
+                                        <td class="p-table-cell-padding">
+                                            <input
+                                                class="w-full border border-outline-variant rounded p-1.5 text-right focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest"
+                                                type="number" value="350" />
+                                        </td>
+                                        <td class="p-table-cell-padding">
+                                            <input
+                                                class="w-full border border-outline-variant rounded p-1.5 text-center focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest"
+                                                type="number" value="0" />
+                                        </td>
+                                        <td class="p-table-cell-padding text-right font-medium text-on-surface">
+                                            70,000
+                                        </td>
+                                        <td class="p-table-cell-padding text-center">
+                                            <button class="text-outline hover:text-error"><span
+                                                    class="material-symbols-outlined text-[18px]">delete</span></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Calculations Area -->
+                        <div class="mt-6 flex flex-col items-end gap-3 w-full border-t border-outline-variant pt-4">
+                            <div class="flex justify-between w-64 text-on-surface-variant font-body-sm text-body-sm">
+                                <span>Subtotal:</span>
+                                <span class="font-medium text-on-surface">৳ 127,000</span>
+                            </div>
+                            <div
+                                class="flex justify-between items-center w-64 text-on-surface-variant font-body-sm text-body-sm">
+                                <span>Shipping Cost:</span>
+                                <input
+                                    class="w-24 border border-outline-variant rounded p-1 text-right focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest"
+                                    type="number" value="1500" />
+                            </div>
+                            <div
+                                class="flex justify-between items-center w-64 text-on-surface-variant font-body-sm text-body-sm">
+                                <span>Tax Rate (VAT):</span>
+                                <div class="relative w-24">
+                                    <input
+                                        class="w-full border border-outline-variant rounded p-1 text-right pr-6 focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest"
+                                        type="number" value="15" />
+                                    <span class="absolute right-2 top-1/2 -translate-y-1/2 text-outline">%</span>
+                                </div>
+                            </div>
+                            <div
+                                class="flex justify-between w-64 font-title-sm text-title-sm text-primary border-t border-outline-variant pt-2 mt-1">
+                                <span>Grand Total:</span>
+                                <span>৳ 147,775</span>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Additional Details -->
+                    <section
+                        class="bg-surface-container-lowest rounded-lg border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] p-card-padding grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div>
+                                <label
+                                    class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Delivery
+                                    Date</label>
+                                <div class="relative">
+                                    <span
+                                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">calendar_month</span>
+                                    <input
+                                        class="w-full pl-10 pr-4 py-2 border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest font-body-base text-body-base text-on-surface"
+                                        type="date" />
+                                </div>
+                            </div>
+                            <div>
+                                <label
+                                    class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Remarks /
+                                    Notes</label>
+                                <textarea
+                                    class="w-full p-3 border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest font-body-base text-body-base text-on-surface resize-none"
+                                    placeholder="Enter any special instructions..." rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Attach
+                                Quotation</label>
+                            <div
+                                class="border-2 border-dashed border-outline-variant rounded-lg p-6 flex flex-col items-center justify-center text-center bg-surface hover:bg-surface-container-low transition-colors cursor-pointer h-[140px]">
+                                <span class="material-symbols-outlined text-outline text-[32px] mb-2">upload_file</span>
+                                <span class="font-body-sm text-body-sm text-on-surface-variant">Drag and drop file here
+                                    or <span class="text-primary font-medium">browse</span></span>
+                                <span class="font-body-sm text-body-sm text-outline mt-1 text-[11px]">PDF, JPG, PNG (Max
+                                    5MB)</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- Right Column (Order Preview) -->
+                <div class="xl:col-span-4">
+                    <aside
+                        class="sticky top-[88px] bg-surface-container-lowest rounded-lg border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] p-card-padding flex flex-col gap-6">
+                        <div class="border-b border-outline-variant pb-4">
+                            <h2 class="font-title-sm text-title-sm text-on-surface mb-1">Order Preview</h2>
+                            <div class="flex items-center gap-2">
+                                <span class="font-body-sm text-body-sm text-on-surface-variant">Draft ID:</span>
+                                <span
+                                    class="font-label-caps text-label-caps bg-surface-container px-2 py-1 rounded text-on-surface">ORD-2025-001</span>
+                            </div>
+                        </div>
+                        <!-- Summary Sections -->
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-label-caps text-label-caps text-outline mb-2">Client</h4>
+                                <p class="font-body-base text-body-base text-on-surface font-medium">Rahim Steel Mills
+                                    Ltd.</p>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant">TIN/BIN: 002938475-0101</p>
+                            </div>
+                            <div>
+                                <h4 class="font-label-caps text-label-caps text-outline mb-2">Items (2)</h4>
+                                <ul class="font-body-sm text-body-sm text-on-surface-variant space-y-1">
+                                    <li class="flex justify-between">
+                                        <span class="truncate pr-2">50x Ind. Grade Valve</span>
+                                        <span>৳ 57k</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span class="truncate pr-2">200x Steel Pipe Fit.</span>
+                                        <span>৳ 70k</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Total & Badges -->
+                        <div class="bg-surface rounded p-4 border border-outline-variant">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="font-body-base text-body-base text-on-surface-variant">Grand Total</span>
+                                <span class="font-headline-md text-headline-md text-primary">৳ 147,775</span>
+                            </div>
+                            <div class="space-y-2">
+                                <div
+                                    class="flex items-center gap-2 bg-secondary-container text-on-secondary-container px-3 py-1.5 rounded text-xs font-medium">
+                                    <span class="material-symbols-outlined text-[16px]">receipt</span>
+                                    Invoice will be generated
+                                </div>
+                                <div
+                                    class="flex items-center gap-2 bg-primary-fixed text-on-primary-fixed px-3 py-1.5 rounded text-xs font-medium">
+                                    <span class="material-symbols-outlined text-[16px]">verified</span>
+                                    Mushak-6.3 will be generated
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Form Actions -->
+                        <div class="flex flex-col gap-3 mt-2">
+                            <button
+                                class="w-full bg-primary text-on-primary py-2.5 rounded font-label-caps text-label-caps shadow-[0_2px_0_rgba(0,0,0,0.1)] hover:shadow-none hover:translate-y-[1px] transition-all flex justify-center items-center gap-2">
+                                <span class="material-symbols-outlined text-[18px]">check_circle</span>
+                                Confirm Order
+                            </button>
+                            <button
+                                class="w-full bg-surface-container-lowest text-primary border border-outline-variant py-2.5 rounded font-label-caps text-label-caps hover:bg-surface-container-low transition-colors">
+                                Save as Draft
+                            </button>
+                            <button
+                                class="w-full text-outline hover:text-error py-2 font-label-caps text-label-caps transition-colors">
+                                Cancel
+                            </button>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Modal Overlay (Hidden by default, shown for demonstration structure) -->
+    <!-- Add New Client Modal -->
+    <div class="fixed inset-0 bg-inverse-surface/50 z-50 flex items-center justify-center hidden">
+        <div class="bg-surface-container-lowest rounded-xl shadow-lg w-full max-w-lg p-6 border border-outline-variant">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="font-title-sm text-title-sm text-on-surface">Add New Client</h2>
+                <button class="text-outline hover:text-on-surface"><span
+                        class="material-symbols-outlined">close</span></button>
+            </div>
+            <form class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Full
+                            Name</label>
+                        <input
+                            class="w-full border border-outline-variant rounded p-2 focus:border-primary focus:ring-1 focus:ring-primary bg-surface font-body-base"
+                            type="text" />
+                    </div>
+                    <div>
+                        <label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Business
+                            Name</label>
+                        <input
+                            class="w-full border border-outline-variant rounded p-2 focus:border-primary focus:ring-1 focus:ring-primary bg-surface font-body-base"
+                            type="text" />
+                    </div>
+                    <div>
+                        <label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Phone</label>
+                        <input
+                            class="w-full border border-outline-variant rounded p-2 focus:border-primary focus:ring-1 focus:ring-primary bg-surface font-body-base"
+                            type="tel" />
+                    </div>
+                    <div>
+                        <label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Email</label>
+                        <input
+                            class="w-full border border-outline-variant rounded p-2 focus:border-primary focus:ring-1 focus:ring-primary bg-surface font-body-base"
+                            type="email" />
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Tax / VAT ID
+                            (BIN)</label>
+                        <input
+                            class="w-full border border-outline-variant rounded p-2 focus:border-primary focus:ring-1 focus:ring-primary bg-surface font-body-base"
+                            type="text" />
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Primary
+                            Address</label>
+                        <textarea
+                            class="w-full border border-outline-variant rounded p-2 focus:border-primary focus:ring-1 focus:ring-primary bg-surface font-body-base resize-none"
+                            rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="flex justify-end gap-3 mt-6 pt-4 border-t border-outline-variant">
+                    <button
+                        class="px-4 py-2 text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container rounded"
+                        type="button">Cancel</button>
+                    <button
+                        class="px-4 py-2 bg-primary text-on-primary font-label-caps text-label-caps rounded shadow-sm hover:opacity-90"
+                        type="button">Save Client</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Confirm Order Modal (Hidden) -->
+    <div class="fixed inset-0 bg-inverse-surface/50 z-50 flex items-center justify-center hidden">
+        <div
+            class="bg-surface-container-lowest rounded-xl shadow-lg w-full max-w-md p-6 border border-outline-variant text-center">
+            <div
+                class="w-12 h-12 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="material-symbols-outlined text-[24px]">info</span>
+            </div>
+            <h2 class="font-title-sm text-title-sm text-on-surface mb-2">Confirm Order</h2>
+            <p class="font-body-base text-body-base text-on-surface-variant mb-6">Order will be confirmed. Invoice,
+                Mushak-6.3 Challan, and Order Number will be generated automatically. Proceed?</p>
+            <div class="flex gap-3 justify-center">
+                <button
+                    class="px-6 py-2.5 border border-outline-variant text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container rounded"
+                    type="button">Cancel</button>
+                <button
+                    class="px-6 py-2.5 bg-primary text-on-primary font-label-caps text-label-caps rounded shadow-[0_2px_0_rgba(0,0,0,0.1)] hover:shadow-none hover:translate-y-[1px]"
+                    type="button">Proceed</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

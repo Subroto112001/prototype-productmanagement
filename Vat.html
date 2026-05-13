@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>VAT Control Hub - VAT Management (Mushak-6.3)</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container": "#e5eeff",
+                        "outline": "#6d7a77",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#0b1c30",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-tertiary-fixed": "#2a1700",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-container-high": "#dce9ff",
+                        "secondary-container": "#dae2fd",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#89f5e7",
+                        "outline-variant": "#bcc9c6",
+                        "secondary": "#565e74",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "background": "#f8f9ff",
+                        "tertiary-container": "#a36700",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary": "#825100",
+                        "primary-fixed-dim": "#6bd8cb",
+                        "surface-variant": "#d3e4fe",
+                        "surface-container-low": "#eff4ff",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "on-primary-container": "#f4fffc",
+                        "surface": "#f8f9ff",
+                        "on-error-container": "#93000a",
+                        "on-background": "#0b1c30",
+                        "inverse-primary": "#6bd8cb",
+                        "on-secondary-container": "#5c647a",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "on-primary-fixed-variant": "#005049",
+                        "surface-tint": "#006a61",
+                        "on-surface-variant": "#3d4947",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "on-secondary-fixed": "#131b2e",
+                        "on-primary-fixed": "#00201d",
+                        "surface-bright": "#f8f9ff",
+                        "primary-container": "#008378",
+                        "primary": "#00685f",
+                        "inverse-surface": "#213145",
+                        "tertiary-fixed": "#ffddb8",
+                        "surface-dim": "#cbdbf5",
+                        "secondary-fixed": "#dae2fd"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "section-gap": "32px",
+                        "gutter": "16px",
+                        "table-cell-padding": "12px 16px",
+                        "sidebar-width": "260px",
+                        "card-padding": "20px",
+                        "container-margin": "24px"
+                    },
+                    fontFamily: {
+                        "table-data": ["Inter"],
+                        "mushak-print": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "title-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-base": ["Inter"]
+                    },
+                    fontSize: {
+                        "table-data": ["13px", { lineHeight: "16px", fontWeight: "450" }],
+                        "mushak-print": ["11px", { lineHeight: "14px", fontWeight: "400" }],
+                        "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "display-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "title-sm": ["18px", { lineHeight: "24px", fontWeight: "600" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+                        "body-base": ["14px", { lineHeight: "20px", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+
+        /* Custom scrollbar for sidebar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #bcc9c6;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6d7a77;
+        }
+    </style>
+</head>
+
+<body class="bg-surface font-body-base text-on-surface antialiased flex h-screen overflow-hidden">
+    <!-- SideNavBar (Shared Component) -->
+    <nav
+        class="bg-surface dark:bg-inverse-surface w-[260px] h-full fixed left-0 top-0 border-r border-outline-variant dark:border-outline shadow-sm flex flex-col h-full py-container-margin overflow-y-auto z-50">
+        <!-- Brand/Header -->
+        <div class="px-container-margin mb-section-gap flex items-center gap-3">
+            <div
+                class="w-10 h-10 rounded bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined fill text-[24px]">inventory_2</span>
+            </div>
+            <div>
+                <h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">Product
+                    Management</h1>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Operational Suite</p>
+            </div>
+        </div>
+        <!-- Main Nav Links -->
+    
+        <ul class="flex-1 px-3 space-y-1">
+            <li>
+                <a href="./Index.html"
+                     class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
+                    <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    <span class="font-body-base text-body-base font-medium">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="./Client.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
+                    <span class="material-symbols-outlined" data-icon="groups">groups</span>
+                    <span class="font-body-base text-body-base">Clients</span>
+                </a>
+            </li>
+            <li>
+                <a href="./Quotations.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
+                    <span class="material-symbols-outlined" data-icon="description">description</span>
+                    <span class="font-body-base text-body-base font-medium">Quotations</span>
+                </a>
+            </li>
+            <li>
+                <a href="./allOrder.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
+                    <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+                    <span class="font-body-base text-body-base font-medium">Orders</span>
+                </a>
+            </li>
+            <li>
+                <a href="./Stock-management.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
+                    <span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                    <span class="font-body-base text-body-base font-medium">Stock</span>
+                </a>
+            </li>
+            <li>
+                <a href="./Sales-plan.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
+                    <span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+                    <span class="font-body-base text-body-base font-medium">Sales Plan</span>
+                </a>
+            </li>
+            <li>
+                <a href="./Financial-reports.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
+                    <span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+                    <span class="font-body-base text-body-base font-medium">Reports</span>
+                </a>
+            </li>
+            <li>
+                <a href="./Employee-management.html"
+                    class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
+                    <span class="material-symbols-outlined" data-icon="badge">badge</span>
+                    <span class="font-body-base text-body-base font-medium">Employees</span>
+                </a>
+            </li>
+            <li>
+                <a href="./Vat.html"
+                  class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary dark:text-primary-fixed-dim font-bold border-r-4 border-primary dark:border-primary-fixed-dim bg-surface-container-low dark:bg-surface-container-highest scale-95 transition-transform">
+                    <span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+                    <span class="font-body-base text-body-base font-medium">VAT</span>
+                </a>
+            </li>
+        </ul>
+    
+        <!-- Footer Nav Links -->
+        <div class="mt-auto px-3 space-y-1 pt-4 border-t border-outline-variant dark:border-outline">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200"
+                href="#">
+                <span class="material-symbols-outlined">settings</span>
+                <span class="font-body-base text-body-base">Settings</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200"
+                href="#">
+                <span class="material-symbols-outlined">logout</span>
+                <span class="font-body-base text-body-base">Logout</span>
+            </a>
+        </div>
+    </nav>
+    <!-- SideNavBar (Shared Component) -->
+    <!-- Main Content Wrapper -->
+    <div class="ml-sidebar-width flex-1 flex flex-col h-screen overflow-hidden">
+        <!-- TopNavBar -->
+    <header
+        class="bg-white dark:bg-surface-container-lowest fixed top-0 right-0 left-[260px] h-16 border-b border-outline-variant dark:border-outline shadow-sm flex justify-between items-center px-gutter w-[calc(100%-260px)] z-40">
+        <!-- Search Bar on Left -->
+        <div class="flex items-center gap-4 w-1/3 min-w-[200px]">
+            <div class="relative w-full">
+                <span
+                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+                <input
+                    class="w-full pl-10 pr-4 py-2 bg-surface border border-outline-variant rounded-md font-body-sm text-body-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                    placeholder="Search Inventory Management..." type="text" />
+            </div>
+        </div>
+        <!-- Actions -->
+        <div class="flex items-center gap-4">
+            <!-- Trailing Icon Actions -->
+            <button
+                class="p-2 text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full transition-colors relative">
+                <span class="material-symbols-outlined">notifications</span>
+                <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
+            </button>
+            <button
+                class="p-2 text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full transition-colors">
+                <span class="material-symbols-outlined">help_outline</span>
+            </button>
+            <!-- Secondary Action (Mushak) -->
+            <button
+                class="flex items-center gap-2 px-4 py-2 bg-surface border border-outline-variant text-primary rounded-md font-label-caps text-label-caps hover:bg-surface-container-low transition-colors">
+                <span class="material-symbols-outlined text-[18px]">print</span>
+                Mushak-6.3
+            </button>
+            <!-- Primary Action -->
+            <a href="./Create-new-order.html"
+                class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-md shadow-[0_2px_0_0_#005049] hover:bg-surface-tint hover:shadow-none translate-y-[2px] active:translate-y-0 transition-all font-label-caps text-label-caps">
+                <span class="material-symbols-outlined text-[18px]">add</span>
+                Create Order
+            </a>
+            <!-- User Profile -->
+            <div
+                class="w-8 h-8 rounded-full bg-secondary-container overflow-hidden ml-2 cursor-pointer border border-outline-variant">
+                <img alt="User Profile" class="w-full h-full object-cover"
+                    data-alt="A professional headshot of a business executive wearing a modern suit, bright even lighting, corporate environment, confident expression. Subtle teal accent in the background. Modern corporate aesthetic."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJi4laU4YVXMgsXyBv8Gpp0o4pVduNozAAspQzUjyIeKM-NCnVdvOgr8J3LJ22XFKYpoMYBnL2B7NSy9-8wdPzCPr_vkttsWS0sRjQDW3FzcqcgjiaCtDT4MzWsx5_kOzzp9tXONwKAVjMP3g3FphWLZWmJvTYJWxMbdVwe5_n6zr8ViEvoJVuWr5dtF_Y9Jggc97RaGrons5pgX0WPWJiFtKqO2pdiGm1bowxxOe0aJSgTuYTpgrJXkR2e56PzF4LGJC3BppJ-i8" />
+            </div>
+        </div>
+    </header>
+        <!-- Page Content -->
+        <main class="flex-1 overflow-y-auto p-container-margin bg-surface mt-[50px]">
+            <!-- Page Header & Workflow Info -->
+            <div class="flex justify-between items-end mb-section-gap">
+                <div>
+                    <h2 class="font-display-lg text-2xl text-on-surface mb-1">VAT Management (Mushak-6.3)</h2>
+                    <p class="font-body-sm text-on-surface-variant">Generate and manage compliant VAT Challans for
+                        outbound deliveries.</p>
+                </div>
+                <!-- Workflow Diagram Embed Trigger -->
+                <button
+                    class="flex items-center gap-2 text-primary hover:text-primary-container transition-colors bg-surface-container-low px-4 py-2 rounded-lg border border-outline-variant/50">
+                    <span class="material-symbols-outlined text-[20px]">account_tree</span>
+                    <span class="font-label-caps text-[12px]">View Mushak-6.3 Workflow</span>
+                </button>
+            </div>
+            <!-- Bento Grid Layout -->
+            <div class="grid grid-cols-12 gap-container-margin">
+                <!-- LEFT COLUMN: Generate Mushak -->
+                <div class="col-span-12 xl:col-span-8 flex flex-col gap-6">
+                    <!-- Controls Card -->
+                    <div
+                        class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+                        <div class="flex items-center gap-2 mb-4 pb-4 border-b border-outline-variant/50">
+                            <span class="material-symbols-outlined text-primary">post_add</span>
+                            <h3 class="font-title-sm text-title-sm text-on-surface">Generate New Challan</h3>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+                            <div class="flex flex-col gap-1.5 md:col-span-2">
+                                <label class="font-label-caps text-label-caps text-on-surface-variant">Select Confirmed
+                                    Order</label>
+                                <div class="relative">
+                                    <select
+                                        class="w-full appearance-none bg-surface border border-outline-variant rounded-lg px-4 py-2.5 text-body-base focus:outline-none focus:border-[#0D9488] focus:ring-1 focus:ring-[#0D9488] transition-colors pr-10">
+                                        <option value="">Select an order pending delivery...</option>
+                                        <option value="ORD-2023-8901">ORD-2023-8901 - TechCorp Ltd.</option>
+                                        <option value="ORD-2023-8905">ORD-2023-8905 - Global Industries</option>
+                                        <option value="ORD-2023-8912">ORD-2023-8912 - Nexus Solutions</option>
+                                    </select>
+                                    <span
+                                        class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
+                                </div>
+                            </div>
+                            <button
+                                class="bg-[#0D9488] hover:bg-[#0f766e] text-white px-6 py-2.5 rounded-lg font-title-sm text-[14px] shadow-[0_2px_0_rgba(0,0,0,0.05)] active:shadow-none active:translate-y-[2px] transition-all flex items-center justify-center gap-2 h-[42px]">
+                                <span class="material-symbols-outlined text-[18px]">receipt_long</span>
+                                Generate Draft
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Print Preview Canvas -->
+                    <div
+                        class="bg-surface-container-low border border-outline-variant rounded-xl p-4 flex-1 min-h-[600px] flex flex-col shadow-inner">
+                        <div class="flex justify-between items-center mb-4 px-2">
+                            <span class="font-label-caps text-outline">Document Preview (Mushak-6.3)</span>
+                            <div class="flex gap-2">
+                                <button
+                                    class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-md transition-colors"
+                                    title="Zoom In">
+                                    <span class="material-symbols-outlined text-[20px]">zoom_in</span>
+                                </button>
+                                <button
+                                    class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-md transition-colors"
+                                    title="Download PDF">
+                                    <span class="material-symbols-outlined text-[20px]">download</span>
+                                </button>
+                                <button
+                                    class="flex items-center gap-2 px-3 py-1.5 bg-white border border-outline-variant text-[#0D9488] hover:bg-surface-container-lowest rounded-md font-label-caps transition-colors shadow-sm">
+                                    <span class="material-symbols-outlined text-[18px]">print</span>
+                                    Print Challan
+                                </button>
+                            </div>
+                        </div>
+                        <!-- The A4 Sheet Simulation -->
+                        <div
+                            class="bg-white mx-auto w-full max-w-[800px] flex-1 p-8 border border-outline-variant shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)] font-mushak-print text-mushak-print text-black overflow-y-auto print:shadow-none print:border-none print:w-full print:max-w-none print:p-0">
+                            <!-- Govt Header -->
+                            <div class="text-center mb-6 border-b-2 border-black pb-4">
+                                <h1 class="font-bold text-[16px] mb-1">Government of the People's Republic of Bangladesh
+                                </h1>
+                                <h2 class="font-bold text-[14px] mb-1">National Board of Revenue</h2>
+                                <div class="inline-block border border-black px-4 py-1 mt-2 font-bold text-[14px]">
+                                    Mushak-6.3</div>
+                                <p class="mt-2 text-[12px] font-bold">Tax Invoice / Challan</p>
+                                <p class="text-[10px]">[See Rules 40(1)(a) &amp; 40(1)(c)]</p>
+                            </div>
+                            <!-- Parties Info -->
+                            <div class="grid grid-cols-2 gap-8 mb-6">
+                                <div>
+                                    <h3 class="font-bold underline mb-2">Registered Person Details (Supplier):</h3>
+                                    <p><span class="font-semibold">Name:</span> Inventory Pro Ltd.</p>
+                                    <p><span class="font-semibold">BIN:</span> 001122334-0101</p>
+                                    <p><span class="font-semibold">Address:</span> Level-5, Navana Tower, Gulshan-1,
+                                        Dhaka-1212, Bangladesh.</p>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold underline mb-2">Purchaser Details:</h3>
+                                    <p><span class="font-semibold">Name:</span> TechCorp Ltd.</p>
+                                    <p><span class="font-semibold">BIN:</span> 998877665-0202</p>
+                                    <p><span class="font-semibold">Address:</span> 45/A, Dilkusha C/A, Motijheel,
+                                        Dhaka-1000.</p>
+                                    <p><span class="font-semibold">Destination:</span> Same as above</p>
+                                </div>
+                            </div>
+                            <!-- Invoice Meta -->
+                            <div class="grid grid-cols-2 gap-8 mb-6 text-[12px]">
+                                <div>
+                                    <p><span class="font-semibold">Challan No:</span> M-63/23/1042</p>
+                                    <p><span class="font-semibold">Date of Issue:</span> 24 Oct 2023</p>
+                                </div>
+                                <div>
+                                    <p><span class="font-semibold">Time of Issue:</span> 14:30 BDT</p>
+                                    <p><span class="font-semibold">Vehicle Nature &amp; Reg No:</span> Covered Van
+                                        (D-11-2233)</p>
+                                </div>
+                            </div>
+                            <!-- Product Table -->
+                            <table class="w-full border-collapse border border-black mb-6 text-left">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="border border-black p-2 font-bold w-10 text-center">Sl</th>
+                                        <th class="border border-black p-2 font-bold">Description of Goods/Services</th>
+                                        <th class="border border-black p-2 font-bold w-16 text-center">UoM</th>
+                                        <th class="border border-black p-2 font-bold w-20 text-right">Qty</th>
+                                        <th class="border border-black p-2 font-bold w-24 text-right">Unit Price (Tk)
+                                        </th>
+                                        <th class="border border-black p-2 font-bold w-28 text-right">Total Value (Tk)
+                                        </th>
+                                        <th class="border border-black p-2 font-bold w-20 text-center">SD Rate</th>
+                                        <th class="border border-black p-2 font-bold w-24 text-right">SD Amt (Tk)</th>
+                                        <th class="border border-black p-2 font-bold w-20 text-center">VAT Rate</th>
+                                        <th class="border border-black p-2 font-bold w-24 text-right">VAT Amt (Tk)</th>
+                                        <th class="border border-black p-2 font-bold w-28 text-right">Total (Tk)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border border-black p-2 text-center">1</td>
+                                        <td class="border border-black p-2">Enterprise Server Rack 42U</td>
+                                        <td class="border border-black p-2 text-center">Pcs</td>
+                                        <td class="border border-black p-2 text-right">2.00</td>
+                                        <td class="border border-black p-2 text-right">45,000.00</td>
+                                        <td class="border border-black p-2 text-right">90,000.00</td>
+                                        <td class="border border-black p-2 text-center">-</td>
+                                        <td class="border border-black p-2 text-right">0.00</td>
+                                        <td class="border border-black p-2 text-center">15%</td>
+                                        <td class="border border-black p-2 text-right">13,500.00</td>
+                                        <td class="border border-black p-2 text-right">103,500.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-black p-2 text-center">2</td>
+                                        <td class="border border-black p-2">Cisco Managed Switch 24-Port</td>
+                                        <td class="border border-black p-2 text-center">Pcs</td>
+                                        <td class="border border-black p-2 text-right">5.00</td>
+                                        <td class="border border-black p-2 text-right">12,000.00</td>
+                                        <td class="border border-black p-2 text-right">60,000.00</td>
+                                        <td class="border border-black p-2 text-center">-</td>
+                                        <td class="border border-black p-2 text-right">0.00</td>
+                                        <td class="border border-black p-2 text-center">15%</td>
+                                        <td class="border border-black p-2 text-right">9,000.00</td>
+                                        <td class="border border-black p-2 text-right">69,000.00</td>
+                                    </tr>
+                                    <!-- Totals -->
+                                    <tr class="font-bold bg-gray-50">
+                                        <td class="border border-black p-2 text-right" colspan="5">Grand Total:</td>
+                                        <td class="border border-black p-2 text-right">150,000.00</td>
+                                        <td class="border border-black p-2 text-center"></td>
+                                        <td class="border border-black p-2 text-right">0.00</td>
+                                        <td class="border border-black p-2 text-center"></td>
+                                        <td class="border border-black p-2 text-right">22,500.00</td>
+                                        <td class="border border-black p-2 text-right">172,500.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- Signatures -->
+                            <div class="mt-16 grid grid-cols-2 gap-8 text-center">
+                                <div>
+                                    <div class="border-b border-black w-48 mx-auto mb-2"></div>
+                                    <p>Authorized Signature (Supplier)</p>
+                                    <p class="text-[10px] mt-1">Name: Md. Rahman</p>
+                                    <p class="text-[10px]">Designation: VAT Officer</p>
+                                </div>
+                                <div>
+                                    <div class="border-b border-black w-48 mx-auto mb-2"></div>
+                                    <p>Receiver's Signature</p>
+                                    <p class="text-[10px] mt-1">Name:</p>
+                                    <p class="text-[10px]">Date:</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- RIGHT COLUMN: Reports & Context -->
+                <div class="col-span-12 xl:col-span-4 flex flex-col gap-6">
+                    <!-- KPI Summary -->
+                    <div
+                        class="bg-gradient-to-br from-primary-container to-surface-tint rounded-xl p-card-padding text-on-primary-container shadow-md relative overflow-hidden">
+                        <!-- Decor abstract shape -->
+                        <div class="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+                        <div class="flex items-center gap-2 mb-2 opacity-90 relative z-10">
+                            <span class="material-symbols-outlined text-[20px]">account_balance</span>
+                            <h3 class="font-label-caps text-label-caps">Total VAT Collected (Oct)</h3>
+                        </div>
+                        <div class="text-[32px] font-bold tracking-tight mb-1 relative z-10">৳ 1,245,600</div>
+                        <div class="flex items-center gap-1 text-[12px] text-primary-fixed-dim relative z-10">
+                            <span class="material-symbols-outlined text-[14px]">trending_up</span>
+                            <span>+12.5% from last month</span>
+                        </div>
+                    </div>
+                    <!-- Recent Summary Table -->
+                    <div
+                        class="bg-surface-container-lowest border border-outline-variant rounded-xl flex-1 flex flex-col shadow-[0_1px_3px_rgba(0,0,0,0.05)] overflow-hidden">
+                        <div
+                            class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-bright">
+                            <h3 class="font-title-sm text-title-sm text-on-surface">VAT-6.3 Summary</h3>
+                            <button
+                                class="flex items-center gap-1.5 text-[#0D9488] hover:bg-surface-container-low px-2 py-1 rounded text-sm transition-colors">
+                                <span class="material-symbols-outlined text-[18px]">table_view</span>
+                                Export Excel
+                            </button>
+                        </div>
+                        <div class="overflow-x-auto flex-1">
+                            <table class="w-full text-left border-collapse">
+                                <thead class="bg-[#F8FAFC] border-b border-outline-variant sticky top-0">
+                                    <tr>
+                                        <th
+                                            class="p-table-cell-padding font-label-caps text-outline text-xs whitespace-nowrap">
+                                            Challan #</th>
+                                        <th
+                                            class="p-table-cell-padding font-label-caps text-outline text-xs whitespace-nowrap">
+                                            Client</th>
+                                        <th
+                                            class="p-table-cell-padding font-label-caps text-outline text-xs text-right whitespace-nowrap">
+                                            Net Amt</th>
+                                        <th
+                                            class="p-table-cell-padding font-label-caps text-outline text-xs text-right whitespace-nowrap">
+                                            VAT</th>
+                                        <th
+                                            class="p-table-cell-padding font-label-caps text-outline text-xs text-center whitespace-nowrap">
+                                            Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="font-table-data text-table-data divide-y divide-outline-variant/50">
+                                    <tr class="hover:bg-surface-container-low transition-colors">
+                                        <td class="p-table-cell-padding text-primary font-medium">M-1041</td>
+                                        <td class="p-table-cell-padding truncate max-w-[100px]" title="Delta Textiles">
+                                            Delta Tex...</td>
+                                        <td class="p-table-cell-padding text-right">45k</td>
+                                        <td class="p-table-cell-padding text-right">6.7k</td>
+                                        <td class="p-table-cell-padding text-center">
+                                            <span
+                                                class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#0D9488] text-white">Verified</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-surface-container-low transition-colors bg-[#F8FAFC]">
+                                        <td class="p-table-cell-padding text-primary font-medium">M-1040</td>
+                                        <td class="p-table-cell-padding truncate max-w-[100px]" title="MegaMart BD">
+                                            MegaMart...</td>
+                                        <td class="p-table-cell-padding text-right">120k</td>
+                                        <td class="p-table-cell-padding text-right">18k</td>
+                                        <td class="p-table-cell-padding text-center">
+                                            <span
+                                                class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#0D9488] text-white">Verified</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-surface-container-low transition-colors">
+                                        <td class="p-table-cell-padding text-primary font-medium">M-1039</td>
+                                        <td class="p-table-cell-padding truncate max-w-[100px]" title="City Corp">City
+                                            Corp</td>
+                                        <td class="p-table-cell-padding text-right">25k</td>
+                                        <td class="p-table-cell-padding text-right">3.7k</td>
+                                        <td class="p-table-cell-padding text-center">
+                                            <span
+                                                class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#0D9488] text-white">Verified</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-surface-container-low transition-colors bg-[#F8FAFC]">
+                                        <td class="p-table-cell-padding text-primary font-medium">M-1038</td>
+                                        <td class="p-table-cell-padding truncate max-w-[100px]" title="Apex Build">Apex
+                                            Build</td>
+                                        <td class="p-table-cell-padding text-right">500k</td>
+                                        <td class="p-table-cell-padding text-right">75k</td>
+                                        <td class="p-table-cell-padding text-center">
+                                            <span
+                                                class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#0D9488] text-white">Verified</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="p-3 border-t border-outline-variant bg-surface-bright text-center">
+                            <a class="text-[13px] font-medium text-primary hover:underline" href="#">View Full Register
+                                (Mushak-6.2.1)</a>
+                        </div>
+                    </div>
+                    <!-- Context Image Box (Workflow) -->
+                    <div
+                        class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+                        <h4 class="font-title-sm text-[14px] text-on-surface mb-3 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[18px] text-primary">schema</span>
+                            Compliance Workflow
+                        </h4>
+                        <div
+                            class="rounded-lg overflow-hidden border border-outline-variant/50 bg-surface-container-low flex items-center justify-center min-h-[120px]">
+                            <img alt="Mushak-6.3 VAT Workflow Diagram showing Quotation to Delivery"
+                                class="w-full h-auto object-contain max-h-[160px]"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUjmo5c1PHw-rrTS_JZWwvThg0CzMMdFWL-ovUesw0GKR5hho8oU8QzPxbx8UTOgVvVzQ_gcNYx8bYubWHYPU0IB9BuNYMwnwVAAnIMOq1l5XQHhQhO9qmwH7JmP27u86nOXmwbeI-FfBJaYMbYENT4TKtEccQYKLcjpYqON8tOwymwUPOohX_7oo4IzKLodQUfWA3_mLp2IUbDKQM3Eevowj_H5UaFMcV5Za6aQvhCvRiqFQzIZtk2NKeDtnewMMwPRfsbgYUek8" />
+                        </div>
+                        <p class="text-[11px] text-on-surface-variant mt-2 text-center">Standard path from Quotation to
+                            Legal Delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
