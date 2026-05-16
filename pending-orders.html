@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pending Orders</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="./js/tailwind-config.js"></script>
+</head>
+
+<body class="bg-content flex h-screen overflow-hidden">
+    <main class="flex-1 flex flex-col overflow-y-auto bg-content">
+        <div id="header-root"></div>
+
+        <div class="p-8 space-y-8 mt-[70px]">
+            <section class="flex flex-col gap-2">
+                <p class="text-sm text-slate-500">Orders</p>
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                    <div>
+                        <h1 class="text-2xl font-semibold text-slate-800">Pending Orders</h1>
+                        <p class="text-sm text-slate-500">Orders awaiting approval or processing.</p>
+                    </div>
+                    <button class="px-4 py-2 bg-primary text-white rounded-md text-sm font-semibold">Approve
+                        All</button>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-lg card-shadow overflow-hidden">
+                <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-slate-800">Pending Queue</h3>
+                    <button class="text-sm text-primary font-semibold hover:underline">Export CSV</button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-slate-50 text-slate-500 uppercase font-semibold">
+                            <tr>
+                                <th class="px-6 py-3">Order ID</th>
+                                <th class="px-6 py-3">Client</th>
+                                <th class="px-6 py-3">Submitted</th>
+                                <th class="px-6 py-3">Owner</th>
+                                <th class="px-6 py-3 text-right">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <tr>
+                                <td class="px-6 py-4 font-medium">ORD-9101</td>
+                                <td class="px-6 py-4">Atlas Manufacturing</td>
+                                <td class="px-6 py-4">2026-05-15</td>
+                                <td class="px-6 py-4">S. Rahman</td>
+                                <td class="px-6 py-4 text-right font-semibold">$16,400</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 font-medium">ORD-9100</td>
+                                <td class="px-6 py-4">Metro Digital</td>
+                                <td class="px-6 py-4">2026-05-14</td>
+                                <td class="px-6 py-4">L. Ahmed</td>
+                                <td class="px-6 py-4 text-right font-semibold">$9,250</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 font-medium">ORD-9098</td>
+                                <td class="px-6 py-4">Horizon Ventures</td>
+                                <td class="px-6 py-4">2026-05-13</td>
+                                <td class="px-6 py-4">J. Khan</td>
+                                <td class="px-6 py-4 text-right font-semibold">$7,880</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="./js/sidebar.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (window.lucide && typeof window.lucide.createIcons === "function") {
+                window.lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+
+</html>

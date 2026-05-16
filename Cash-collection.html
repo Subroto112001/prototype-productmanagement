@@ -1,454 +1,111 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Cash Collection Statement - Inventory Pro</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "error": "#ba1a1a",
-                        "surface-tint": "#006a61",
-                        "surface-container-low": "#eff4ff",
-                        "on-secondary": "#ffffff",
-                        "on-primary": "#ffffff",
-                        "on-error": "#ffffff",
-                        "on-background": "#0b1c30",
-                        "background": "#f8f9ff",
-                        "outline": "#6d7a77",
-                        "inverse-surface": "#213145",
-                        "inverse-on-surface": "#eaf1ff",
-                        "primary": "#00685f",
-                        "on-secondary-fixed-variant": "#3f465c",
-                        "on-secondary-container": "#5c647a",
-                        "outline-variant": "#bcc9c6",
-                        "on-surface-variant": "#3d4947",
-                        "surface": "#f8f9ff",
-                        "primary-fixed": "#89f5e7",
-                        "on-tertiary-container": "#fffbff",
-                        "surface-container-highest": "#d3e4fe",
-                        "inverse-primary": "#6bd8cb",
-                        "on-tertiary-fixed-variant": "#653e00",
-                        "surface-dim": "#cbdbf5",
-                        "secondary-fixed-dim": "#bec6e0",
-                        "surface-container-lowest": "#ffffff",
-                        "on-primary-container": "#f4fffc",
-                        "on-error-container": "#93000a",
-                        "surface-variant": "#d3e4fe",
-                        "on-primary-fixed-variant": "#005049",
-                        "tertiary-fixed-dim": "#ffb95f",
-                        "error-container": "#ffdad6",
-                        "tertiary-container": "#a36700",
-                        "surface-container-high": "#dce9ff",
-                        "on-secondary-fixed": "#131b2e",
-                        "on-surface": "#0b1c30",
-                        "tertiary": "#825100",
-                        "primary-fixed-dim": "#6bd8cb",
-                        "surface-bright": "#f8f9ff",
-                        "secondary-container": "#dae2fd",
-                        "on-tertiary-fixed": "#2a1700",
-                        "primary-container": "#008378",
-                        "tertiary-fixed": "#ffddb8",
-                        "surface-container": "#e5eeff",
-                        "secondary-fixed": "#dae2fd",
-                        "on-tertiary": "#ffffff",
-                        "secondary": "#565e74",
-                        "on-primary-fixed": "#00201d"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "sidebar-width": "260px",
-                        "section-gap": "32px",
-                        "card-padding": "20px",
-                        "table-cell-padding": "12px 16px",
-                        "gutter": "16px",
-                        "container-margin": "24px"
-                    },
-                    "fontFamily": {
-                        "mushak-print": ["Inter"],
-                        "headline-md": ["Inter"],
-                        "table-data": ["Inter"],
-                        "body-sm": ["Inter"],
-                        "body-base": ["Inter"],
-                        "title-sm": ["Inter"],
-                        "display-lg": ["Inter"],
-                        "label-caps": ["Inter"]
-                    },
-                    "fontSize": {
-                        "mushak-print": ["11px", { "lineHeight": "14px", "fontWeight": "400" }],
-                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-                        "table-data": ["13px", { "lineHeight": "16px", "fontWeight": "450" }],
-                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
-                        "body-base": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
-                        "title-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
-                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
-                    }
-                }
-            }
-        }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-    </style>
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Cash Collection Statement</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="./js/tailwind-config.js"></script>
 </head>
-<body class="bg-background text-on-background font-body-base min-h-screen flex">
-<!-- Global Primary Sidebar -->
-<nav class="fixed left-0 top-0 h-full w-sidebar-width bg-white dark:bg-inverse-surface border-r border-outline-variant dark:border-outline shadow-sm flex flex-col z-40">
-<div class="p-6">
-<h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim">Inventory Pro</h1>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">VAT Management System</p>
-</div>
-<div class="flex-1 overflow-y-auto py-4">
-<ul class="space-y-1">
-<li>
-<a class="flex items-center px-6 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-200" href="#">
-<span class="material-symbols-outlined mr-4">home</span>
-<span class="font-body-base text-body-base">Home</span>
-</a>
-</li>
-<li>
-<a class="flex items-center px-6 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-200" href="#">
-<span class="material-symbols-outlined mr-4">groups</span>
-<span class="font-body-base text-body-base">Clients</span>
-</a>
-</li>
-<li>
-<a class="flex items-center px-6 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-200" href="#">
-<span class="material-symbols-outlined mr-4">description</span>
-<span class="font-body-base text-body-base">Quotations</span>
-</a>
-</li>
-<li>
-<a class="flex items-center px-6 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-200" href="#">
-<span class="material-symbols-outlined mr-4">shopping_cart</span>
-<span class="font-body-base text-body-base">Orders</span>
-</a>
-</li>
-<li>
-<a class="flex items-center px-6 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-200" href="#">
-<span class="material-symbols-outlined mr-4">inventory_2</span>
-<span class="font-body-base text-body-base">Stock</span>
-</a>
-</li>
-<li>
-<a class="flex items-center px-6 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-200" href="#">
-<span class="material-symbols-outlined mr-4">trending_up</span>
-<span class="font-body-base text-body-base">Sales Plan</span>
-</a>
-</li>
-<li>
-<a class="flex items-center px-6 py-3 text-primary dark:text-primary-fixed-dim font-bold border-r-4 border-primary bg-surface-container-low dark:bg-surface-variant transition-colors duration-200" href="#">
-<span class="material-symbols-outlined mr-4" style="font-variation-settings: 'FILL' 1;">assessment</span>
-<span class="font-body-base text-body-base">Reports</span>
-</a>
-</li>
-<li>
-<a class="flex items-center px-6 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-200" href="#">
-<span class="material-symbols-outlined mr-4">badge</span>
-<span class="font-body-base text-body-base">Employees</span>
-</a>
-</li>
-<li>
-<a class="flex items-center px-6 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors duration-200" href="#">
-<span class="material-symbols-outlined mr-4">receipt_long</span>
-<span class="font-body-base text-body-base">VAT</span>
-</a>
-</li>
-</ul>
-</div>
-<div class="p-6 mt-auto">
-<div class="flex items-center">
-<img alt="User Profile Avatar" class="w-10 h-10 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNLOAVIGjv7Xg9asPjU6vGBzUo3NC1F1wrF4NNW6GLqwbknG32CemorMls9f2OHN-2PpXsxrMoe4bOmRdKw1QhtM_V_bnNjg9JN5IAUIYpWjWoK9WyrQf4A1k_dWc-gJCCagmE1QplwymWNpEeZd8BPTYUrokHTrfaDBQ3bIFmWjNLkyJ_EMBfZGSVoYo4PDMVjv6xx4TLNlMyuxvLlGWErqJQOE9psidHLijRgqdsDqr-y1dI9_xx18eyyCFTymzBbuhjzbI5qU0"/>
-<div class="ml-3">
-<p class="font-title-sm text-title-sm text-on-surface">Admin User</p>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Administrator</p>
-</div>
-</div>
-</div>
-</nav>
-<!-- Secondary Reports Sidebar -->
-<nav class="fixed left-[260px] top-0 h-full w-[240px] bg-surface-container-low dark:bg-surface-container-highest border-r border-outline-variant dark:border-outline flex flex-col z-30">
-<div class="p-6 pb-4 border-b border-outline-variant/30">
-<h2 class="font-title-sm text-title-sm text-secondary">Reports Menu</h2>
-</div>
-<div class="flex-1 overflow-y-auto py-4">
-<ul class="space-y-1">
-<li>
-<a class="flex items-center px-6 py-2.5 text-on-surface-variant dark:text-on-secondary-container hover:bg-surface-container-high dark:hover:bg-surface-container transition-all duration-150" href="#">
-<span class="material-symbols-outlined mr-3 text-[20px]">menu_book</span>
-<span class="font-body-sm text-body-sm">Sub Sub Ledger</span>
-</a>
-</li>
-<li>
-<a class="flex items-center px-6 py-2.5 text-on-surface-variant dark:text-on-secondary-container hover:bg-surface-container-high dark:hover:bg-surface-container transition-all duration-150" href="#">
-<span class="material-symbols-outlined mr-3 text-[20px]">local_shipping</span>
-<span class="font-body-sm text-body-sm">Delivery Process Register</span>
-</a>
-</li>
-<li>
-<a class="flex items-center px-6 py-2.5 text-on-surface-variant dark:text-on-secondary-container hover:bg-surface-container-high dark:hover:bg-surface-container transition-all duration-150" href="#">
-<span class="material-symbols-outlined mr-3 text-[20px]">article</span>
-<span class="font-body-sm text-body-sm">VAT-6.3 Report</span>
-</a>
-</li>
-<li>
-<a class="flex items-center px-6 py-2.5 text-primary dark:text-primary-fixed-dim font-semibold bg-surface-container-high transition-all duration-150" href="#">
-<span class="material-symbols-outlined mr-3 text-[20px]" style="font-variation-settings: 'FILL' 1;">payments</span>
-<span class="font-body-sm text-body-sm">Cash Collection Statement</span>
-</a>
-</li>
-<li>
-<a class="flex items-center px-6 py-2.5 text-on-surface-variant dark:text-on-secondary-container hover:bg-surface-container-high dark:hover:bg-surface-container transition-all duration-150" href="#">
-<span class="material-symbols-outlined mr-3 text-[20px]">history_edu</span>
-<span class="font-body-sm text-body-sm">Bill Collection Register</span>
-</a>
-</li>
-</ul>
-</div>
-</nav>
-<!-- Main Content Area -->
-<main class="ml-[500px] flex-1 flex flex-col min-h-screen pb-12">
-<!-- Top App Bar -->
-<header class="h-16 flex items-center justify-between px-container-margin border-b border-outline-variant bg-white shadow-sm sticky top-0 z-20">
-<div class="flex items-center">
-<!-- Search bar placeholder if needed, per shared JSON search is on left -->
-<div class="relative w-64">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-<input class="w-full pl-10 pr-4 py-1.5 rounded-full border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none font-body-sm text-body-sm" placeholder="Search..." type="text"/>
-</div>
-</div>
-<div class="flex items-center space-x-4">
-<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
-<span class="material-symbols-outlined">notifications</span>
-</button>
-<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
-<span class="material-symbols-outlined">settings</span>
-</button>
-</div>
-</header>
-<div class="p-container-margin space-y-section-gap max-w-7xl mx-auto w-full">
-<!-- Page Header -->
-<div class="flex justify-between items-end">
-<div>
-<h2 class="font-headline-md text-headline-md text-on-surface">Cash Collection Statement</h2>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Review and manage received payments across all channels.</p>
-</div>
-<button class="bg-primary text-on-primary px-4 py-2 rounded shadow-[0_2px_0_0_rgba(0,0,0,0.1)] hover:shadow-none translate-y-0 hover:translate-y-[1px] transition-all font-label-caps text-label-caps flex items-center">
-<span class="material-symbols-outlined text-[18px] mr-2">add</span>
-                    Record Collection
-                </button>
-</div>
-<!-- Filters Section -->
-<div class="bg-white rounded-lg border border-outline-variant p-card-padding shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter items-end">
-<div>
-<label class="block font-label-caps text-label-caps text-on-surface-variant mb-2">Date Range</label>
-<div class="relative">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">calendar_month</span>
-<input class="w-full pl-10 pr-3 py-2 border border-outline-variant rounded font-body-sm text-body-sm focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" type="text" value="01 Nov 2023 - 30 Nov 2023"/>
-</div>
-</div>
-<div>
-<label class="block font-label-caps text-label-caps text-on-surface-variant mb-2">Payment Mode</label>
-<select class="w-full px-3 py-2 border border-outline-variant rounded font-body-sm text-body-sm focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none bg-white">
-<option>All Modes</option>
-<option>Cash</option>
-<option>Cheque</option>
-<option>Online</option>
-</select>
-</div>
-<div>
-<label class="block font-label-caps text-label-caps text-on-surface-variant mb-2">Client</label>
-<select class="w-full px-3 py-2 border border-outline-variant rounded font-body-sm text-body-sm focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none bg-white">
-<option>All Clients</option>
-<option>Acme Corp</option>
-<option>Globex</option>
-</select>
-</div>
-<div>
-<button class="w-full bg-surface-container-high text-primary border border-outline-variant px-4 py-2 rounded font-label-caps text-label-caps hover:bg-surface-container transition-colors">
-                            Generate Statement
-                        </button>
-</div>
-</div>
-</div>
-<!-- Summary Cards & Chart Row -->
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
-<!-- Summary Cards Grid -->
-<div class="lg:col-span-2 grid grid-cols-2 gap-gutter">
-<div class="bg-white rounded-lg border border-outline-variant p-card-padding shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
-<p class="font-label-caps text-label-caps text-on-surface-variant">Total Collected</p>
-<p class="font-display-lg text-display-lg text-on-surface mt-2">৳ 1,245,000</p>
-<p class="font-body-sm text-body-sm text-primary mt-1 flex items-center">
-<span class="material-symbols-outlined text-[16px] mr-1">trending_up</span>
-                            +12% vs last month
-                        </p>
-</div>
-<div class="bg-white rounded-lg border border-outline-variant p-card-padding shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
-<p class="font-label-caps text-label-caps text-on-surface-variant flex items-center">
-<span class="w-2 h-2 rounded-full bg-primary mr-2"></span> Total Cash
-                        </p>
-<p class="font-headline-md text-headline-md text-on-surface mt-2">৳ 450,000</p>
-</div>
-<div class="bg-white rounded-lg border border-outline-variant p-card-padding shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
-<p class="font-label-caps text-label-caps text-on-surface-variant flex items-center">
-<span class="w-2 h-2 rounded-full bg-tertiary mr-2"></span> Total Cheque
-                        </p>
-<p class="font-headline-md text-headline-md text-on-surface mt-2">৳ 580,000</p>
-</div>
-<div class="bg-white rounded-lg border border-outline-variant p-card-padding shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
-<p class="font-label-caps text-label-caps text-on-surface-variant flex items-center">
-<span class="w-2 h-2 rounded-full bg-secondary mr-2"></span> Total Online
-                        </p>
-<p class="font-headline-md text-headline-md text-on-surface mt-2">৳ 215,000</p>
-</div>
-</div>
-<!-- Analytics Chart Placeholder -->
-<div class="bg-white rounded-lg border border-outline-variant p-card-padding shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col items-center justify-center relative">
-<h3 class="font-title-sm text-title-sm text-on-surface absolute top-4 left-4">Distribution</h3>
-<!-- Simple CSS Donut Chart Representation -->
-<div class="w-32 h-32 rounded-full mt-6" style="background: conic-gradient(theme('colors.primary') 0% 36%, theme('colors.tertiary') 36% 82%, theme('colors.secondary') 82% 100%); mask: radial-gradient(transparent 60%, black 60%); -webkit-mask: radial-gradient(transparent 60%, black 60%);"></div>
-<div class="mt-6 flex space-x-4">
-<div class="text-center">
-<p class="font-label-caps text-label-caps text-on-surface-variant">Cash</p>
-<p class="font-body-sm text-body-sm font-semibold">36%</p>
-</div>
-<div class="text-center">
-<p class="font-label-caps text-label-caps text-on-surface-variant">Cheq</p>
-<p class="font-body-sm text-body-sm font-semibold">46%</p>
-</div>
-<div class="text-center">
-<p class="font-label-caps text-label-caps text-on-surface-variant">Web</p>
-<p class="font-body-sm text-body-sm font-semibold">18%</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Table Section -->
-<div class="bg-white rounded-lg border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] overflow-hidden">
-<div class="p-card-padding border-b border-outline-variant flex justify-between items-center bg-surface-bright">
-<h3 class="font-title-sm text-title-sm text-on-surface">Detailed Statement</h3>
-<div class="flex space-x-2">
-<button class="flex items-center px-3 py-1.5 border border-outline-variant rounded bg-white text-secondary hover:bg-surface-container-low transition-colors font-label-caps text-label-caps">
-<span class="material-symbols-outlined text-[16px] mr-1">download</span> Excel
-                        </button>
-<button class="flex items-center px-3 py-1.5 border border-outline-variant rounded bg-white text-secondary hover:bg-surface-container-low transition-colors font-label-caps text-label-caps">
-<span class="material-symbols-outlined text-[16px] mr-1">picture_as_pdf</span> PDF
-                        </button>
-<button class="flex items-center px-3 py-1.5 border border-primary rounded bg-white text-primary hover:bg-surface-container-low transition-colors font-label-caps text-label-caps">
-<span class="material-symbols-outlined text-[16px] mr-1">print</span> Print
-                        </button>
-</div>
-</div>
-<div class="overflow-x-auto">
-<table class="w-full text-left border-collapse">
-<thead class="bg-surface-container-low border-b border-outline-variant font-label-caps text-label-caps text-on-surface-variant sticky top-0">
-<tr>
-<th class="p-table-cell-padding font-semibold">Date</th>
-<th class="p-table-cell-padding font-semibold">Receipt No.</th>
-<th class="p-table-cell-padding font-semibold">Client Name</th>
-<th class="p-table-cell-padding font-semibold">Invoice No.</th>
-<th class="p-table-cell-padding font-semibold">Mode</th>
-<th class="p-table-cell-padding font-semibold text-right">Amount (৳)</th>
-<th class="p-table-cell-padding font-semibold">Collected By</th>
-<th class="p-table-cell-padding font-semibold text-center">Action</th>
-</tr>
-</thead>
-<tbody class="font-table-data text-table-data text-on-surface divide-y divide-outline-variant/30">
-<!-- Row 1 -->
-<tr class="hover:bg-surface-container-lowest bg-white">
-<td class="p-table-cell-padding whitespace-nowrap">15 Nov 2023</td>
-<td class="p-table-cell-padding font-medium">RCT-2023-0891</td>
-<td class="p-table-cell-padding">Acme Corporation Ltd.</td>
-<td class="p-table-cell-padding text-on-surface-variant">INV-1045</td>
-<td class="p-table-cell-padding">
-<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container text-primary">
-<span class="material-symbols-outlined text-[14px] mr-1">account_balance_wallet</span> Cash
-                                    </span>
-</td>
-<td class="p-table-cell-padding text-right font-medium">45,000.00</td>
-<td class="p-table-cell-padding text-on-surface-variant">Rahim Uddin</td>
-<td class="p-table-cell-padding text-center">
-<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
-</td>
-</tr>
-<!-- Row 2 -->
-<tr class="hover:bg-surface-container-lowest bg-[#F8FAFC]">
-<td class="p-table-cell-padding whitespace-nowrap">15 Nov 2023</td>
-<td class="p-table-cell-padding font-medium">RCT-2023-0892</td>
-<td class="p-table-cell-padding">Global Tech Traders</td>
-<td class="p-table-cell-padding text-on-surface-variant">INV-1042</td>
-<td class="p-table-cell-padding">
-<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-[#FFF7ED] text-[#9A3412]">
-<span class="material-symbols-outlined text-[14px] mr-1">payments</span> Cheque
-                                    </span>
-</td>
-<td class="p-table-cell-padding text-right font-medium">120,500.00</td>
-<td class="p-table-cell-padding text-on-surface-variant">Karim Hassan</td>
-<td class="p-table-cell-padding text-center">
-<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
-</td>
-</tr>
-<!-- Row 3 -->
-<tr class="hover:bg-surface-container-lowest bg-white">
-<td class="p-table-cell-padding whitespace-nowrap">14 Nov 2023</td>
-<td class="p-table-cell-padding font-medium">RCT-2023-0890</td>
-<td class="p-table-cell-padding">Bengal Industries</td>
-<td class="p-table-cell-padding text-on-surface-variant">INV-1038</td>
-<td class="p-table-cell-padding">
-<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-surface-container-highest text-secondary">
-<span class="material-symbols-outlined text-[14px] mr-1">language</span> Online
-                                    </span>
-</td>
-<td class="p-table-cell-padding text-right font-medium">85,200.00</td>
-<td class="p-table-cell-padding text-on-surface-variant">System Auth</td>
-<td class="p-table-cell-padding text-center">
-<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
-</td>
-</tr>
-<!-- Row 4 -->
-<tr class="hover:bg-surface-container-lowest bg-[#F8FAFC]">
-<td class="p-table-cell-padding whitespace-nowrap">14 Nov 2023</td>
-<td class="p-table-cell-padding font-medium">RCT-2023-0889</td>
-<td class="p-table-cell-padding">Desh Builders</td>
-<td class="p-table-cell-padding text-on-surface-variant">INV-1039</td>
-<td class="p-table-cell-padding">
-<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-[#FFF7ED] text-[#9A3412]">
-<span class="material-symbols-outlined text-[14px] mr-1">payments</span> Cheque
-                                    </span>
-</td>
-<td class="p-table-cell-padding text-right font-medium">210,000.00</td>
-<td class="p-table-cell-padding text-on-surface-variant">Rahim Uddin</td>
-<td class="p-table-cell-padding text-center">
-<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
-</td>
-</tr>
-</tbody>
-<tfoot class="bg-surface-container-low border-t-2 border-outline font-title-sm text-title-sm">
-<tr>
-<td class="p-table-cell-padding text-right font-semibold" colspan="5">Total for selected period:</td>
-<td class="p-table-cell-padding text-right font-bold text-primary">৳ 460,700.00</td>
-<td colspan="2"></td>
-</tr>
-</tfoot>
-</table>
-</div>
-</div>
-</div>
-</main>
-</body></html>
+
+<body class="bg-content flex h-screen overflow-hidden">
+    <main class="flex-1 flex flex-col overflow-y-auto bg-content">
+        <div id="header-root"></div>
+
+        <div class="p-8 space-y-8 mt-[70px]">
+            <section class="flex flex-col gap-2">
+                <p class="text-sm text-slate-500">Reports</p>
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                    <div>
+                        <h1 class="text-2xl font-semibold text-slate-800">Cash Collection Statement</h1>
+                        <p class="text-sm text-slate-500">Track daily cash collections by client and region.</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <button
+                            class="px-4 py-2 bg-white border border-slate-200 rounded-md text-sm font-semibold text-slate-600 hover:bg-slate-50">Export
+                            PDF</button>
+                        <button class="px-4 py-2 bg-primary text-white rounded-md text-sm font-semibold">Add
+                            Entry</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg card-shadow border-l-4 border-primary">
+                    <p class="text-sm text-slate-500">Collected Today</p>
+                    <p class="text-2xl font-bold text-slate-800 mt-1">$72,400</p>
+                    <p class="text-xs text-slate-400 mt-2">18 receipts posted</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg card-shadow border-l-4 border-emerald-500">
+                    <p class="text-sm text-slate-500">Collected This Week</p>
+                    <p class="text-2xl font-bold text-slate-800 mt-1">$312,600</p>
+                    <p class="text-xs text-emerald-600 mt-2">+9% vs last week</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg card-shadow border-l-4 border-amber-500">
+                    <p class="text-sm text-slate-500">Outstanding</p>
+                    <p class="text-2xl font-bold text-slate-800 mt-1">$124,800</p>
+                    <p class="text-xs text-slate-400 mt-2">27 invoices pending</p>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-lg card-shadow overflow-hidden">
+                <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-slate-800">Cash Collection Log</h3>
+                    <button class="text-sm text-primary font-semibold hover:underline">Download CSV</button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-slate-50 text-slate-500 uppercase font-semibold">
+                            <tr>
+                                <th class="px-6 py-3">Receipt</th>
+                                <th class="px-6 py-3">Client</th>
+                                <th class="px-6 py-3">Date</th>
+                                <th class="px-6 py-3">Method</th>
+                                <th class="px-6 py-3 text-right">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <tr>
+                                <td class="px-6 py-4 font-medium">RCPT-6203</td>
+                                <td class="px-6 py-4">Rahim Steel Mills</td>
+                                <td class="px-6 py-4">2026-05-15</td>
+                                <td class="px-6 py-4">Bank Transfer</td>
+                                <td class="px-6 py-4 text-right font-semibold">$28,500</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 font-medium">RCPT-6201</td>
+                                <td class="px-6 py-4">Bengal Plastics</td>
+                                <td class="px-6 py-4">2026-05-14</td>
+                                <td class="px-6 py-4">Cash</td>
+                                <td class="px-6 py-4 text-right font-semibold">$12,750</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 font-medium">RCPT-6198</td>
+                                <td class="px-6 py-4">Square Pharma</td>
+                                <td class="px-6 py-4">2026-05-13</td>
+                                <td class="px-6 py-4">Cheque</td>
+                                <td class="px-6 py-4 text-right font-semibold">$31,200</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="./js/sidebar.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (window.lucide && typeof window.lucide.createIcons === "function") {
+                window.lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+
+</html>

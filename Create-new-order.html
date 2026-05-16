@@ -6,219 +6,18 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Create New Order - Inventory Management</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-primary-fixed-variant": "#005049",
-                        "outline-variant": "#bcc9c6",
-                        "surface-variant": "#d3e4fe",
-                        "surface-container-high": "#dce9ff",
-                        "error": "#ba1a1a",
-                        "surface-container-low": "#eff4ff",
-                        "tertiary-fixed-dim": "#ffb95f",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-tint": "#006a61",
-                        "on-background": "#0b1c30",
-                        "error-container": "#ffdad6",
-                        "surface": "#f8f9ff",
-                        "on-secondary-fixed-variant": "#3f465c",
-                        "secondary-container": "#dae2fd",
-                        "on-error": "#ffffff",
-                        "on-tertiary": "#ffffff",
-                        "background": "#f8f9ff",
-                        "on-tertiary-fixed-variant": "#653e00",
-                        "tertiary": "#825100",
-                        "on-primary": "#ffffff",
-                        "tertiary-container": "#a36700",
-                        "inverse-surface": "#213145",
-                        "inverse-on-surface": "#eaf1ff",
-                        "on-surface-variant": "#3d4947",
-                        "on-tertiary-fixed": "#2a1700",
-                        "surface-container-highest": "#d3e4fe",
-                        "secondary-fixed-dim": "#bec6e0",
-                        "tertiary-fixed": "#ffddb8",
-                        "surface-dim": "#cbdbf5",
-                        "inverse-primary": "#6bd8cb",
-                        "on-tertiary-container": "#fffbff",
-                        "on-secondary": "#ffffff",
-                        "outline": "#6d7a77",
-                        "on-primary-fixed": "#00201d",
-                        "on-surface": "#0b1c30",
-                        "on-primary-container": "#f4fffc",
-                        "surface-container": "#e5eeff",
-                        "surface-bright": "#f8f9ff",
-                        "secondary": "#565e74",
-                        "secondary-fixed": "#dae2fd",
-                        "primary": "#00685f",
-                        "primary-container": "#008378",
-                        "primary-fixed-dim": "#6bd8cb",
-                        "on-error-container": "#93000a",
-                        "on-secondary-fixed": "#131b2e",
-                        "on-secondary-container": "#5c647a",
-                        "primary-fixed": "#89f5e7"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "sidebar-width": "260px",
-                        "container-margin": "24px",
-                        "card-padding": "20px",
-                        "table-cell-padding": "12px 16px",
-                        "gutter": "16px",
-                        "section-gap": "32px"
-                    },
-                    "fontFamily": {
-                        "display-lg": ["Inter"],
-                        "title-sm": ["Inter"],
-                        "table-data": ["Inter"],
-                        "label-caps": ["Inter"],
-                        "headline-md": ["Inter"],
-                        "body-base": ["Inter"],
-                        "mushak-print": ["Inter"],
-                        "body-sm": ["Inter"]
-                    },
-                    "fontSize": {
-                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-                        "title-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
-                        "table-data": ["13px", { "lineHeight": "16px", "fontWeight": "450" }],
-                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
-                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-                        "body-base": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
-                        "mushak-print": ["11px", { "lineHeight": "14px", "fontWeight": "400" }],
-                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }]
-                    }
-                }
-            }
-        }
-    </script>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="./js/tailwind-config.js"></script>
 </head>
 
 <body class="bg-background text-on-background font-body-base antialiased">
     <!-- TopNavBar -->
-    <header
-        class="fixed top-0 right-0 left-[260px] h-16 bg-surface-container-lowest text-primary border-b border-outline-variant shadow-sm flex justify-between items-center px-gutter w-[calc(100%-260px)] z-40 hidden md:flex">
-        <div class="flex items-center gap-4">
-            <span class="font-title-sm text-title-sm text-on-surface">Inventory Management</span>
-        </div>
-        <div class="flex items-center gap-4">
-            <div class="relative hidden lg:block">
-                <span
-                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
-                <input
-                    class="pl-10 pr-4 py-2 border border-outline-variant rounded-full text-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-64 bg-surface"
-                    placeholder="Search..." type="text" />
-            </div>
-            <button
-                class="text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full transition-colors duration-200">
-                <span class="material-symbols-outlined">notifications</span>
-            </button>
-            <button
-                class="text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full transition-colors duration-200">
-                <span class="material-symbols-outlined">help_outline</span>
-            </button>
-            <button
-                class="px-4 py-2 border border-outline-variant rounded text-primary font-label-caps text-label-caps hover:bg-surface-container-low transition-colors duration-200">
-                Mushak-6.3
-            </button>
-            <button
-                class="px-4 py-2 bg-primary text-on-primary rounded font-label-caps text-label-caps shadow-sm hover:opacity-90 transition-opacity">
-                Create Order
-            </button>
-            <img alt="User Profile" class="w-8 h-8 rounded-full border border-outline-variant"
-                data-alt="A professional headshot of a business user in a corporate setting."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_uw4VRL5fEoV_3bLOWIE-uFg-HXEp-QU43pbF4P3RKIL_nd_vMsVsRBtfgGzlnAdTbbIfYh0x6mInlc27l6CZJYqSjj5jKSPmuQaVcSXbeXwA-dDJIlD3AglaasF1LFfNQWf72cnvikfd5QtmeyNykkyPZkSi4GI5BxL30IC587AUmHNA9Tw7a_GTHYLaQEWOl6Y9u0SqGcjzcjueYE0d6PCeSKWC7JFbRtnYHoFpukwIfheQmY3yVoDj_HVM4UBacuxrHpO4c9c" />
-        </div>
-    </header>
-    <!-- SideNavBar -->
-    <nav
-        class="w-[260px] h-full fixed left-0 top-0 bg-surface border-r border-outline-variant shadow-sm flex flex-col py-container-margin overflow-y-auto hidden md:flex z-50">
-        <div class="px-6 mb-8 flex items-center gap-3">
-            <div
-                class="w-10 h-10 bg-primary-container rounded flex items-center justify-center text-on-primary-container">
-                <span class="material-symbols-outlined"
-                    style="font-variation-settings: 'FILL' 1;">business_center</span>
-            </div>
-            <div>
-                <h1 class="font-headline-md text-headline-md text-primary">VAT Inventory</h1>
-                <p class="font-label-caps text-label-caps text-on-surface-variant">Operational Suite</p>
-            </div>
-        </div>
-        <div class="flex-1 flex flex-col gap-1 px-4">
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
-                href="./Index.html">
-                <span class="material-symbols-outlined">dashboard</span>
-                <span class="font-body-base text-body-base">Home</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
-                href="./Client.html">
-                <span class="material-symbols-outlined">groups</span>
-                <span class="font-body-base text-body-base">Clients</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
-                href="./Quotations.html">
-                <span class="material-symbols-outlined">description</span>
-                <span class="font-body-base text-body-base">Quotations</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary font-bold border-r-4 border-primary bg-surface-container-low transition-transform scale-95"
-                href="./allOrder.html">
-                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
-                <span class="font-body-base text-body-base">Orders</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
-                href="./Stock-management.html">
-                <span class="material-symbols-outlined">inventory_2</span>
-                <span class="font-body-base text-body-base">Stock</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
-                href="./Sales-plan.html">
-                <span class="material-symbols-outlined">event_note</span>
-                <span class="font-body-base text-body-base">Sales Plan</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
-                href="./Financial-reports.html">
-                <span class="material-symbols-outlined">bar_chart</span>
-                <span class="font-body-base text-body-base">Reports</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
-                href="./Employee-management.html">
-                <span class="material-symbols-outlined">badge</span>
-                <span class="font-body-base text-body-base">Employees</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
-                href="./Vat.html">
-                <span class="material-symbols-outlined">receipt_long</span>
-                <span class="font-body-base text-body-base">VAT</span>
-            </a>
-        </div>
-        <div class="mt-auto flex flex-col gap-1 px-4 border-t border-outline-variant pt-4">
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
-                href="#">
-                <span class="material-symbols-outlined">settings</span>
-                <span class="font-body-base text-body-base">Settings</span>
-            </a>
-            <a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors duration-200"
-                href="#">
-                <span class="material-symbols-outlined">logout</span>
-                <span class="font-body-base text-body-base">Logout</span>
-            </a>
-        </div>
-    </nav>
+    <div id="header-root"></div>
     <!-- Main Content Canvas -->
     <main class="md:ml-[260px] pt-16 min-h-screen bg-background">
         <div class="p-container-margin max-w-[1600px] mx-auto">
@@ -243,7 +42,8 @@
                                 Client Details
                             </h2>
                             <button
-                                class="text-primary font-label-caps text-label-caps flex items-center gap-1 hover:text-primary-container">
+                                class="text-primary font-label-caps text-label-caps flex items-center gap-1 hover:text-primary-container"
+                                type="button" data-modal-open="add-client">
                                 <span class="material-symbols-outlined text-[18px]">add</span>
                                 Add New Client
                             </button>
@@ -510,7 +310,8 @@
                         <!-- Form Actions -->
                         <div class="flex flex-col gap-3 mt-2">
                             <button
-                                class="w-full bg-primary text-on-primary py-2.5 rounded font-label-caps text-label-caps shadow-[0_2px_0_rgba(0,0,0,0.1)] hover:shadow-none hover:translate-y-[1px] transition-all flex justify-center items-center gap-2">
+                                class="w-full bg-primary text-on-primary py-2.5 rounded font-label-caps text-label-caps shadow-[0_2px_0_rgba(0,0,0,0.1)] hover:shadow-none hover:translate-y-[1px] transition-all flex justify-center items-center gap-2"
+                                type="button" data-modal-open="confirm-order">
                                 <span class="material-symbols-outlined text-[18px]">check_circle</span>
                                 Confirm Order
                             </button>
@@ -530,40 +331,42 @@
     </main>
     <!-- Modal Overlay (Hidden by default, shown for demonstration structure) -->
     <!-- Add New Client Modal -->
-    <div class="fixed inset-0 bg-inverse-surface/50 z-50 flex items-center justify-center hidden">
+    <div class="fixed inset-0 bg-inverse-surface/50 z-50 flex items-center justify-center hidden"
+        data-modal="add-client" aria-hidden="true">
         <div class="bg-surface-container-lowest rounded-xl shadow-lg w-full max-w-lg p-6 border border-outline-variant">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="font-title-sm text-title-sm text-on-surface">Add New Client</h2>
-                <button class="text-outline hover:text-on-surface"><span
-                        class="material-symbols-outlined">close</span></button>
+                <button class="text-outline hover:text-on-surface" type="button" data-modal-close>
+                    <span class="material-symbols-outlined">close</span>
+                </button>
             </div>
-            <form class="space-y-4">
+            <form class="space-y-4" data-validate data-success-message="Client saved successfully.">
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Full
                             Name</label>
                         <input
                             class="w-full border border-outline-variant rounded p-2 focus:border-primary focus:ring-1 focus:ring-primary bg-surface font-body-base"
-                            type="text" />
+                            type="text" required />
                     </div>
                     <div>
                         <label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Business
                             Name</label>
                         <input
                             class="w-full border border-outline-variant rounded p-2 focus:border-primary focus:ring-1 focus:ring-primary bg-surface font-body-base"
-                            type="text" />
+                            type="text" required />
                     </div>
                     <div>
                         <label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Phone</label>
                         <input
                             class="w-full border border-outline-variant rounded p-2 focus:border-primary focus:ring-1 focus:ring-primary bg-surface font-body-base"
-                            type="tel" />
+                            type="tel" required />
                     </div>
                     <div>
                         <label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Email</label>
                         <input
                             class="w-full border border-outline-variant rounded p-2 focus:border-primary focus:ring-1 focus:ring-primary bg-surface font-body-base"
-                            type="email" />
+                            type="email" required />
                     </div>
                     <div class="col-span-2">
                         <label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Tax / VAT ID
@@ -577,22 +380,23 @@
                             Address</label>
                         <textarea
                             class="w-full border border-outline-variant rounded p-2 focus:border-primary focus:ring-1 focus:ring-primary bg-surface font-body-base resize-none"
-                            rows="2"></textarea>
+                            rows="2" required></textarea>
                     </div>
                 </div>
                 <div class="flex justify-end gap-3 mt-6 pt-4 border-t border-outline-variant">
                     <button
                         class="px-4 py-2 text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container rounded"
-                        type="button">Cancel</button>
+                        type="button" data-modal-close>Cancel</button>
                     <button
                         class="px-4 py-2 bg-primary text-on-primary font-label-caps text-label-caps rounded shadow-sm hover:opacity-90"
-                        type="button">Save Client</button>
+                        type="submit">Save Client</button>
                 </div>
             </form>
         </div>
     </div>
     <!-- Confirm Order Modal (Hidden) -->
-    <div class="fixed inset-0 bg-inverse-surface/50 z-50 flex items-center justify-center hidden">
+    <div class="fixed inset-0 bg-inverse-surface/50 z-50 flex items-center justify-center hidden"
+        data-modal="confirm-order" aria-hidden="true">
         <div
             class="bg-surface-container-lowest rounded-xl shadow-lg w-full max-w-md p-6 border border-outline-variant text-center">
             <div
@@ -605,13 +409,14 @@
             <div class="flex gap-3 justify-center">
                 <button
                     class="px-6 py-2.5 border border-outline-variant text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container rounded"
-                    type="button">Cancel</button>
+                    type="button" data-modal-close>Cancel</button>
                 <button
                     class="px-6 py-2.5 bg-primary text-on-primary font-label-caps text-label-caps rounded shadow-[0_2px_0_rgba(0,0,0,0.1)] hover:shadow-none hover:translate-y-[1px]"
-                    type="button">Proceed</button>
+                    type="button" data-modal-close data-success-message="Order confirmed.">Proceed</button>
             </div>
         </div>
     </div>
+    <script src="./js/sidebar.js" defer></script>
 </body>
 
 </html>

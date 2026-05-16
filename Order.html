@@ -1,287 +1,313 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en">
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Manage, track, and process client orders in the VAT Inventory system." />
     <title>Orders - VAT Inventory</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap"
-        rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = { darkMode: "class" }
-    </script>
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
 
-        body {
-            background-color: #f8f9ff;
+    <!-- Tailwind CSS v3 CDN -->
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="./js/tailwind-config.js"></script>
+
+    <style>
+        .card-shadow {
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
         }
     </style>
 </head>
 
-<body class="bg-background text-on-background font-body-base antialiased">
-    <div class="flex h-screen overflow-hidden">
-        <!-- SideNavBar -->
-        <nav
-            class="bg-white w-[260px] h-screen fixed left-0 top-0 border-r border-outline-variant py-6 px-4 hidden md:flex">
-            <div class="mb-8 px-2 flex items-center gap-3">
-                <div
-                    class="w-10 h-10 rounded bg-primary-container flex items-center justify-center text-on-primary-container">
-                    <span class="material-symbols-outlined">storefront</span>
-                </div>
-                <div>
-                    <h1 class="font-display-lg text-[20px] font-bold text-primary">VAT Inventory</h1>
-                    <p class="font-body-sm text-body-sm text-secondary">Operational Hub</p>
-                </div>
-            </div>
-            <button class="w-full mb-6 bg-primary text-on-primary py-2.5 px-4 rounded-lg">Generate Mushak-6.3</button>
-            <ul class="flex-1 px-3 space-y-1">
-                <li><a href="./Index.html" class="flex items-center gap-3 px-4 py-3 rounded-lg">Home</a></li>
-                <li><a href="./Client.html" class="flex items-center gap-3 px-4 py-3 rounded-lg">Clients</a></li>
-                <li><a href="./Quotations.html" class="flex items-center gap-3 px-4 py-3 rounded-lg">Quotations</a></li>
-                <li><a href="./Order.html"
-                        class="flex items-center gap-3 px-4 py-3 rounded-lg font-bold border-r-4 border-primary bg-surface-container-low">Orders</a>
-                </li>
-                <li><a href="./Stock-management.html" class="flex items-center gap-3 px-4 py-3 rounded-lg">Stock</a>
-                </li>
-                <li><a href="./Sales-plan.html" class="flex items-center gap-3 px-4 py-3 rounded-lg">Sales Plan</a></li>
-                <li><a href="./Financial-reports.html" class="flex items-center gap-3 px-4 py-3 rounded-lg">Reports</a>
-                </li>
-                <li><a href="./Employee-management.html"
-                        class="flex items-center gap-3 px-4 py-3 rounded-lg">Employees</a></li>
-                <li><a href="./Vat.html" class="flex items-center gap-3 px-4 py-3 rounded-lg">VAT</a></li>
-            </ul>
-            <div class="mt-auto pt-4 border-t">
-                <a href="#" class="flex items-center gap-3 px-3 py-2.5">Settings</a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2.5">Support</a>
-            </div>
-        </nav>
+<body class="bg-content flex h-screen overflow-hidden font-sans antialiased text-slate-700">
 
-        <div class="flex-1 ml-0 md:ml-[260px] flex flex-col h-screen overflow-hidden">
-            <header class="bg-surface border-b h-16 flex justify-between items-center px-gutter sticky top-0 z-10">
-                <div class="flex items-center gap-4 w-1/3">
-                    <div class="relative w-full max-w-md">
-                        <input class="w-full pl-4 pr-4 py-2 rounded-lg" placeholder="Search orders..." />
-                    </div>
-                </div>
-                <div class="flex items-center justify-center"><span class="font-headline-md">VAT Inventory</span></div>
-                <div class="flex items-center gap-4 justify-end w-1/3">
-                    <button class="p-2">notifications</button>
-                    <button class="bg-primary text-on-primary px-4 py-2 rounded-lg">New Transaction</button>
-                </div>
-            </header>
+    <!-- BEGIN: Main Content Area -->
+    <main class="flex-1 flex flex-col overflow-y-auto bg-content md:ml-[260px]">
 
-            <main class="flex-1 overflow-y-auto p-container-margin">
-                <nav aria-label="Breadcrumb" class="flex text-sm text-secondary mb-4">
+        <!-- Header -->
+        <div id="header-root"></div>
+
+        <div class="p-8 space-y-8 mt-[70px]">
+
+            <!-- Page Header & Breadcrumbs -->
+            <div>
+                <nav aria-label="Breadcrumb" class="flex text-sm text-slate-500 mb-4 font-medium">
                     <ol class="inline-flex items-center space-x-1">
-                        <li>Orders</li>
-                        <li><span class="material-symbols-outlined">chevron_right</span> All Orders</li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Orders</a></li>
+                        <li><span class="material-symbols-outlined text-[16px] mx-1"
+                                aria-hidden="true">chevron_right</span></li>
+                        <li class="text-primary" aria-current="page">All Orders</li>
                     </ol>
                 </nav>
 
-                <div class="flex justify-between items-center mb-section-gap">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <div>
-                        <h2 class="font-display-lg">All Orders</h2>
-                        <p class="text-secondary">Manage, track, and process client orders.</p>
+                        <h1 class="text-2xl font-bold text-slate-800">All Orders</h1>
+                        <p class="text-sm text-slate-500 mt-1">Manage, track, and process client orders.</p>
                     </div>
-                    <div class="flex items-center gap-3">
-                        <button class="px-4 py-2 rounded border">Export</button>
-                        <a href="./Create-new-order.html" class="px-4 py-2 rounded bg-[#0D9488] text-white">Create New
-                            Order</a>
+                    <div class="flex items-center gap-3 w-full md:w-auto">
+                        <button
+                            class="w-full md:w-auto px-4 py-2 rounded-md border border-slate-300 text-slate-700 hover:bg-slate-50 font-semibold text-sm transition-colors flex items-center justify-center gap-2">
+                            <i class="w-4 h-4" data-lucide="download"></i> Export
+                        </button>
+                        <a href="./Create-new-order.html"
+                            class="w-full md:w-auto flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white rounded-md shadow-[0_2px_0_0_#005049] hover:bg-teal-700 hover:shadow-none translate-y-[2px] active:translate-y-0 transition-all text-sm font-semibold">
+                            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">add</span>
+                            Create New Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BEGIN: Summary Cards -->
+            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" aria-label="Order Summary Statistics">
+
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-lg card-shadow border-l-4 border-blue-500">
+                    <div class="flex items-center justify-between mb-2">
+                        <p class="text-sm text-slate-500 font-medium">Total Orders</p>
+                        <span class="material-symbols-outlined text-blue-600 bg-blue-50 p-1.5 rounded-md text-[20px]"
+                            aria-hidden="true">shopping_cart</span>
+                    </div>
+                    <p class="text-2xl font-bold text-slate-800">1,248</p>
+                    <div class="mt-2 text-xs text-blue-600 font-medium flex items-center">
+                        <i class="w-3 h-3 mr-1" data-lucide="trending-up"></i> +12% from last month
                     </div>
                 </div>
 
-                <!-- Summary Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-section-gap">
-                    <div class="bg-white border border-outline-variant rounded p-card-padding shadow-sm">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-secondary font-body-sm">Total Orders</span>
-                            <span
-                                class="material-symbols-outlined bg-primary-container/10 p-1.5 rounded">shopping_cart</span>
-                        </div>
-                        <div class="text-2xl font-bold text-on-surface">1,248</div>
-                        <div class="text-xs text-primary flex items-center mt-1"><span
-                                class="material-symbols-outlined text-[14px]">trending_up</span> +12%</div>
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-lg card-shadow border-l-4 border-emerald-500">
+                    <div class="flex items-center justify-between mb-2">
+                        <p class="text-sm text-slate-500 font-medium">Total Collected (BDT)</p>
+                        <span
+                            class="material-symbols-outlined text-emerald-600 bg-emerald-50 p-1.5 rounded-md text-[20px]"
+                            aria-hidden="true">account_balance_wallet</span>
                     </div>
-                    <div class="bg-white border border-outline-variant rounded p-card-padding shadow-sm">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-secondary font-body-sm">Total Collected (BDT)</span>
-                            <span
-                                class="material-symbols-outlined bg-primary-container/10 p-1.5 rounded">account_balance_wallet</span>
-                        </div>
-                        <div class="text-2xl font-bold text-on-surface">৳45.2M</div>
-                        <div class="text-xs text-primary flex items-center mt-1"><span
-                                class="material-symbols-outlined text-[14px]">trending_up</span> +8.2%</div>
-                    </div>
-                    <div class="bg-white border border-outline-variant rounded p-card-padding shadow-sm">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-secondary font-body-sm">Total Due (BDT)</span>
-                            <span
-                                class="material-symbols-outlined bg-error-container/20 p-1.5 rounded text-error">pending_actions</span>
-                        </div>
-                        <div class="text-2xl font-bold text-on-surface">৳8.7M</div>
-                        <div class="text-xs text-error flex items-center mt-1"><span
-                                class="material-symbols-outlined text-[14px]">trending_down</span> -2.4%</div>
-                    </div>
-                    <div class="bg-yellow-50 border border-yellow-200 rounded p-card-padding shadow-sm">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-yellow-900 font-body-sm">Low Stock Alert</span>
-                            <span
-                                class="material-symbols-outlined bg-yellow-100 p-1.5 rounded text-yellow-700">warning</span>
-                        </div>
-                        <div class="text-2xl font-bold text-yellow-900">24 SKU</div>
-                        <a href="./Stock-management.html" class="text-xs text-yellow-700 flex items-center mt-1">View
-                            All <span class="material-symbols-outlined text-[14px]">chevron_right</span></a>
+                    <p class="text-2xl font-bold text-slate-800">৳45.2M</p>
+                    <div class="mt-2 text-xs text-emerald-600 font-medium flex items-center">
+                        <i class="w-3 h-3 mr-1" data-lucide="trending-up"></i> +8.2% from last month
                     </div>
                 </div>
 
-                <!-- Filters -->
-                <div class="bg-white border border-outline-variant rounded p-4 mb-section-gap shadow-sm">
-                    <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
-                        <div class="flex gap-4 flex-wrap">
-                            <div>
-                                <label
-                                    class="font-label-caps text-label-caps text-on-surface-variant uppercase text-xs">Status</label>
-                                <select
-                                    class="border border-outline-variant rounded px-3 py-2 bg-white text-sm mt-1 w-40">
-                                    <option>All Orders</option>
-                                    <option>Pending</option>
-                                    <option>Confirmed</option>
-                                    <option>Processing</option>
-                                    <option>Delivered</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label
-                                    class="font-label-caps text-label-caps text-on-surface-variant uppercase text-xs">Date
-                                    Range</label>
-                                <input type="date"
-                                    class="border border-outline-variant rounded px-3 py-2 bg-white text-sm mt-1 w-40" />
-                            </div>
-                        </div>
-                        <button class="bg-primary text-on-primary px-4 py-2 rounded font-label-caps text-sm">Apply
-                            Filters</button>
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-lg card-shadow border-l-4 border-rose-500">
+                    <div class="flex items-center justify-between mb-2">
+                        <p class="text-sm text-slate-500 font-medium">Total Due (BDT)</p>
+                        <span class="material-symbols-outlined text-rose-600 bg-rose-50 p-1.5 rounded-md text-[20px]"
+                            aria-hidden="true">pending_actions</span>
+                    </div>
+                    <p class="text-2xl font-bold text-slate-800">৳8.7M</p>
+                    <div class="mt-2 text-xs text-rose-600 font-medium flex items-center">
+                        <i class="w-3 h-3 mr-1" data-lucide="trending-down"></i> -2.4% from last month
                     </div>
                 </div>
 
-                <!-- Orders Table -->
-                <div class="bg-white border border-outline-variant rounded shadow-sm overflow-hidden">
-                    <div class="border-b border-outline-variant p-4 flex justify-between items-center">
-                        <h3 class="font-title-sm text-on-surface">Orders List</h3>
-                        <button class="text-primary hover:bg-primary-container/10 p-2 rounded"><span
-                                class="material-symbols-outlined">filter_list</span></button>
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-lg card-shadow border-l-4 border-amber-500">
+                    <div class="flex items-center justify-between mb-2">
+                        <p class="text-sm text-slate-500 font-medium">Low Stock Alert</p>
+                        <span class="material-symbols-outlined text-amber-600 bg-amber-50 p-1.5 rounded-md text-[20px]"
+                            aria-hidden="true">warning</span>
                     </div>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse">
-                            <thead>
-                                <tr class="bg-surface border-b border-outline-variant">
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant text-xs uppercase">
-                                        Order ID</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant text-xs uppercase">
-                                        Client</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant text-xs uppercase">
-                                        Date</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant text-xs uppercase text-right">
-                                        Amount (BDT)</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant text-xs uppercase">
-                                        Status</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant text-xs uppercase">
-                                        Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody class="font-table-data text-table-data text-on-surface">
-                                <tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors">
-                                    <td class="p-table-cell-padding font-semibold">#ORD-2026-001</td>
-                                    <td class="p-table-cell-padding">Acme Corp Ltd.</td>
-                                    <td class="p-table-cell-padding">May 12, 2026</td>
-                                    <td class="p-table-cell-padding text-right">৳125,000</td>
-                                    <td class="p-table-cell-padding"><span
-                                            class="inline-block px-2 py-1 rounded bg-green-100 text-green-800 text-xs font-semibold">Delivered</span>
-                                    </td>
-                                    <td class="p-table-cell-padding"><button
-                                            class="text-primary hover:underline text-sm">View</button></td>
-                                </tr>
-                                <tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors">
-                                    <td class="p-table-cell-padding font-semibold">#ORD-2026-002</td>
-                                    <td class="p-table-cell-padding">TechFlow Industries</td>
-                                    <td class="p-table-cell-padding">May 11, 2026</td>
-                                    <td class="p-table-cell-padding text-right">৳85,500</td>
-                                    <td class="p-table-cell-padding"><span
-                                            class="inline-block px-2 py-1 rounded bg-blue-100 text-blue-800 text-xs font-semibold">Processing</span>
-                                    </td>
-                                    <td class="p-table-cell-padding"><button
-                                            class="text-primary hover:underline text-sm">View</button></td>
-                                </tr>
-                                <tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors">
-                                    <td class="p-table-cell-padding font-semibold">#ORD-2026-003</td>
-                                    <td class="p-table-cell-padding">Global Logistics</td>
-                                    <td class="p-table-cell-padding">May 10, 2026</td>
-                                    <td class="p-table-cell-padding text-right">৳250,000</td>
-                                    <td class="p-table-cell-padding"><span
-                                            class="inline-block px-2 py-1 rounded bg-orange-100 text-orange-800 text-xs font-semibold">Pending</span>
-                                    </td>
-                                    <td class="p-table-cell-padding"><button
-                                            class="text-primary hover:underline text-sm">View</button></td>
-                                </tr>
-                                <tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors">
-                                    <td class="p-table-cell-padding font-semibold">#ORD-2026-004</td>
-                                    <td class="p-table-cell-padding">Metro Trading Co.</td>
-                                    <td class="p-table-cell-padding">May 09, 2026</td>
-                                    <td class="p-table-cell-padding text-right">৳45,000</td>
-                                    <td class="p-table-cell-padding"><span
-                                            class="inline-block px-2 py-1 rounded bg-green-100 text-green-800 text-xs font-semibold">Delivered</span>
-                                    </td>
-                                    <td class="p-table-cell-padding"><button
-                                            class="text-primary hover:underline text-sm">View</button></td>
-                                </tr>
-                                <tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors">
-                                    <td class="p-table-cell-padding font-semibold">#ORD-2026-005</td>
-                                    <td class="p-table-cell-padding">Export Solutions Ltd.</td>
-                                    <td class="p-table-cell-padding">May 08, 2026</td>
-                                    <td class="p-table-cell-padding text-right">৳180,750</td>
-                                    <td class="p-table-cell-padding"><span
-                                            class="inline-block px-2 py-1 rounded bg-green-100 text-green-800 text-xs font-semibold">Delivered</span>
-                                    </td>
-                                    <td class="p-table-cell-padding"><button
-                                            class="text-primary hover:underline text-sm">View</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <p class="text-2xl font-bold text-slate-800">24 SKU</p>
+                    <a href="./Stock-management.html"
+                        class="mt-2 text-xs text-amber-600 font-medium flex items-center hover:underline">
+                        View All <span class="material-symbols-outlined text-[14px] ml-1"
+                            aria-hidden="true">chevron_right</span>
+                    </a>
+                </div>
+
+            </section>
+            <!-- END: Summary Cards -->
+
+            <!-- BEGIN: Filters -->
+            <section class="bg-white p-6 rounded-lg card-shadow" aria-label="Filter Orders">
+                <div class="flex flex-col md:flex-row gap-6 items-end justify-between">
+                    <div class="flex flex-col md:flex-row gap-6 w-full md:w-auto">
+
+                        <div class="w-full md:w-48">
+                            <label for="statusFilter"
+                                class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">Status</label>
+                            <select id="statusFilter"
+                                class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-md text-sm text-slate-700 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors cursor-pointer">
+                                <option value="all">All Orders</option>
+                                <option value="pending">Pending</option>
+                                <option value="confirmed">Confirmed</option>
+                                <option value="processing">Processing</option>
+                                <option value="delivered">Delivered</option>
+                            </select>
+                        </div>
+
+                        <div class="w-full md:w-48">
+                            <label for="dateFilter"
+                                class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">Date
+                                Range</label>
+                            <input type="date" id="dateFilter"
+                                class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-md text-sm text-slate-700 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors cursor-pointer" />
+                        </div>
+
                     </div>
+                    <button
+                        class="w-full md:w-auto bg-slate-800 text-white px-6 py-2.5 rounded-md text-sm font-semibold hover:bg-slate-700 transition-colors">
+                        Apply Filters
+                    </button>
+                </div>
+            </section>
+            <!-- END: Filters -->
+
+            <!-- BEGIN: Orders Table -->
+            <section class="bg-white rounded-lg card-shadow overflow-hidden" aria-label="Orders Data Table">
+                <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center">
+                    <h3 class="text-lg font-semibold text-slate-800">Orders List</h3>
+                    <button class="text-slate-400 hover:text-primary transition-colors" aria-label="Advanced filters">
+                        <span class="material-symbols-outlined text-[20px]">filter_list</span>
+                    </button>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead class="bg-slate-50 text-slate-500 text-sm uppercase font-semibold">
+                            <tr>
+                                <th scope="col" class="px-6 py-4">Order ID</th>
+                                <th scope="col" class="px-6 py-4">Client Name</th>
+                                <th scope="col" class="px-6 py-4">Date</th>
+                                <th scope="col" class="px-6 py-4 text-right">Amount (BDT)</th>
+                                <th scope="col" class="px-6 py-4">Status</th>
+                                <th scope="col" class="px-6 py-4 text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-sm text-slate-700">
+
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4 font-semibold text-slate-800">#ORD-2026-001</td>
+                                <td class="px-6 py-4">Acme Corp Ltd.</td>
+                                <td class="px-6 py-4">May 12, 2026</td>
+                                <td class="px-6 py-4 text-right font-medium">৳125,000</td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">Delivered</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <button
+                                        class="text-primary font-medium hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 rounded px-1"
+                                        aria-label="View Order #ORD-2026-001">View</button>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4 font-semibold text-slate-800">#ORD-2026-002</td>
+                                <td class="px-6 py-4">TechFlow Industries</td>
+                                <td class="px-6 py-4">May 11, 2026</td>
+                                <td class="px-6 py-4 text-right font-medium">৳85,500</td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">Processing</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <button
+                                        class="text-primary font-medium hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 rounded px-1"
+                                        aria-label="View Order #ORD-2026-002">View</button>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4 font-semibold text-slate-800">#ORD-2026-003</td>
+                                <td class="px-6 py-4">Global Logistics</td>
+                                <td class="px-6 py-4">May 10, 2026</td>
+                                <td class="px-6 py-4 text-right font-medium">৳250,000</td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800">Pending</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <button
+                                        class="text-primary font-medium hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 rounded px-1"
+                                        aria-label="View Order #ORD-2026-003">View</button>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4 font-semibold text-slate-800">#ORD-2026-004</td>
+                                <td class="px-6 py-4">Metro Trading Co.</td>
+                                <td class="px-6 py-4">May 09, 2026</td>
+                                <td class="px-6 py-4 text-right font-medium">৳45,000</td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">Delivered</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <button
+                                        class="text-primary font-medium hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 rounded px-1"
+                                        aria-label="View Order #ORD-2026-004">View</button>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4 font-semibold text-slate-800">#ORD-2026-005</td>
+                                <td class="px-6 py-4">Export Solutions Ltd.</td>
+                                <td class="px-6 py-4">May 08, 2026</td>
+                                <td class="px-6 py-4 text-right font-medium">৳180,750</td>
+                                <td class="px-6 py-4">
+                                    <span
+                                        class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">Delivered</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <button
+                                        class="text-primary font-medium hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 rounded px-1"
+                                        aria-label="View Order #ORD-2026-005">View</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
                 </div>
 
                 <!-- Pagination -->
-                <div class="mt-6 flex items-center justify-between">
-                    <p class="text-sm text-on-surface-variant">Showing 5 of 1,248 orders</p>
-                    <div class="flex gap-2">
+                <div
+                    class="px-6 py-4 border-t border-slate-100 bg-white flex flex-col md:flex-row items-center justify-between gap-4">
+                    <p class="text-sm text-slate-500 font-medium">Showing <span
+                            class="font-bold text-slate-800">1</span> to <span class="font-bold text-slate-800">5</span>
+                        of <span class="font-bold text-slate-800">1,248</span> orders</p>
+                    <nav aria-label="Pagination" class="inline-flex rounded-md shadow-sm">
                         <button
-                            class="px-3 py-2 border border-outline-variant rounded hover:bg-surface-container text-sm">Previous</button>
+                            class="px-3 py-2 rounded-l-md border border-slate-300 bg-white text-sm font-medium text-slate-500 hover:bg-slate-50 transition-colors focus:z-10 focus:ring-1 focus:ring-primary">
+                            Previous
+                        </button>
                         <button
-                            class="px-3 py-2 border border-outline-variant rounded bg-primary text-on-primary text-sm">1</button>
+                            class="px-4 py-2 border-y border-r border-slate-300 bg-primary text-white text-sm font-bold focus:z-10 focus:ring-1 focus:ring-primary"
+                            aria-current="page">
+                            1
+                        </button>
                         <button
-                            class="px-3 py-2 border border-outline-variant rounded hover:bg-surface-container text-sm">2</button>
+                            class="px-4 py-2 border-y border-r border-slate-300 bg-white text-slate-500 hover:bg-slate-50 text-sm font-medium transition-colors focus:z-10 focus:ring-1 focus:ring-primary">
+                            2
+                        </button>
                         <button
-                            class="px-3 py-2 border border-outline-variant rounded hover:bg-surface-container text-sm">3</button>
+                            class="px-4 py-2 border-y border-slate-300 bg-white text-slate-500 hover:bg-slate-50 text-sm font-medium transition-colors focus:z-10 focus:ring-1 focus:ring-primary">
+                            3
+                        </button>
                         <button
-                            class="px-3 py-2 border border-outline-variant rounded hover:bg-surface-container text-sm">Next</button>
-                    </div>
+                            class="px-3 py-2 rounded-r-md border border-l-0 border-slate-300 bg-white text-sm font-medium text-slate-500 hover:bg-slate-50 transition-colors focus:z-10 focus:ring-1 focus:ring-primary">
+                            Next
+                        </button>
+                    </nav>
                 </div>
-            </main>
+            </section>
+            <!-- END: Orders Table -->
+
         </div>
-    </div>
+    </main>
+    <!-- END: Main Content Area -->
+
+    <script src="./js/sidebar.js" defer></script>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
 </body>
 
 </html>

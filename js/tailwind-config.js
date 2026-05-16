@@ -1,0 +1,92 @@
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+        extend: {
+            "colors": {
+                "error": "#ba1a1a",
+                "on-tertiary-fixed-variant": "#653e00",
+                "on-secondary-fixed": "#131b2e",
+                "tertiary-fixed": "#ffddb8",
+                "tertiary-container": "#a36700",
+                "on-primary-fixed-variant": "#005049",
+                "tertiary-fixed-dim": "#ffb95f",
+                "primary-container": "#008378",
+                "on-tertiary-container": "#fffbff",
+                "on-primary-fixed": "#00201d",
+                "surface-container-lowest": "#ffffff",
+                "on-error-container": "#93000a",
+                "on-primary": "#ffffff",
+                "on-tertiary-fixed": "#2a1700",
+                "on-error": "#ffffff",
+                "on-background": "#0b1c30",
+                "surface-container-low": "#eff4ff",
+                "primary": "#0d9488",
+                "inverse-primary": "#6bd8cb",
+                "on-tertiary": "#ffffff",
+                "primary-fixed-dim": "#6bd8cb",
+                "surface": "#f8f9ff",
+                "on-secondary-container": "#5c647a",
+                "outline-variant": "#bcc9c6",
+                "surface-variant": "#d3e4fe",
+                "secondary-fixed": "#dae2fd",
+                "secondary-fixed-dim": "#bec6e0",
+                "secondary-container": "#dae2fd",
+                "secondary": "#565e74",
+                "primary-fixed": "#89f5e7",
+                "surface-container": "#e5eeff",
+                "error-container": "#ffdad6",
+                "on-surface-variant": "#3d4947",
+                "inverse-surface": "#213145",
+                "surface-container-high": "#dce9ff",
+                "on-secondary-fixed-variant": "#3f465c",
+                "tertiary": "#825100",
+                "surface-bright": "#f8f9ff",
+                "inverse-on-surface": "#eaf1ff",
+                "on-secondary": "#ffffff",
+                "background": "#f8f9ff",
+                "on-primary-container": "#f4fffc",
+                "surface-tint": "#006a61",
+                "surface-dim": "#cbdbf5",
+                "surface-container-highest": "#d3e4fe",
+                "outline": "#6d7a77",
+                "on-surface": "#0b1c30",
+                "sidebar": "#0f172a",
+                "content": "#f1f5f9"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "table-cell-padding": "12px 16px",
+                "section-gap": "32px",
+                "gutter": "16px",
+                "card-padding": "20px",
+                "sidebar-width": "260px",
+                "container-margin": "24px"
+            },
+            "fontFamily": {
+                "table-data": ["Inter"],
+                "mushak-print": ["Inter"],
+                "body-sm": ["Inter"],
+                "title-sm": ["Inter"],
+                "label-caps": ["Inter"],
+                "display-lg": ["Inter"],
+                "body-base": ["Inter"],
+                "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                "table-data": ["13px", { "lineHeight": "16px", "fontWeight": "450" }],
+                "mushak-print": ["11px", { "lineHeight": "14px", "fontWeight": "400" }],
+                "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                "title-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                "body-base": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+            }
+        }
+    }
+}

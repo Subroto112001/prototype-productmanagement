@@ -1,179 +1,17 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Orders - VAT Inventory Pro</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "surface-dim": "#cbdbf5",
-                        "inverse-surface": "#213145",
-                        "on-surface": "#0b1c30",
-                        "on-secondary-fixed": "#131b2e",
-                        "tertiary-fixed-dim": "#ffb95f",
-                        "on-primary-container": "#f4fffc",
-                        "surface-tint": "#006a61",
-                        "primary-fixed": "#89f5e7",
-                        "on-background": "#0b1c30",
-                        "primary": "#00685f",
-                        "on-error": "#ffffff",
-                        "on-surface-variant": "#3d4947",
-                        "tertiary-fixed": "#ffddb8",
-                        "surface-variant": "#d3e4fe",
-                        "error": "#ba1a1a",
-                        "outline": "#6d7a77",
-                        "on-primary-fixed": "#00201d",
-                        "tertiary": "#825100",
-                        "on-tertiary-container": "#fffbff",
-                        "on-secondary-fixed-variant": "#3f465c",
-                        "background": "#f8f9ff",
-                        "on-error-container": "#93000a",
-                        "surface": "#f8f9ff",
-                        "on-secondary-container": "#5c647a",
-                        "primary-fixed-dim": "#6bd8cb",
-                        "primary-container": "#008378",
-                        "outline-variant": "#bcc9c6",
-                        "tertiary-container": "#a36700",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-container-low": "#eff4ff",
-                        "surface-container-high": "#dce9ff",
-                        "secondary-fixed-dim": "#bec6e0",
-                        "on-tertiary": "#ffffff",
-                        "on-primary": "#ffffff",
-                        "secondary": "#565e74",
-                        "on-tertiary-fixed-variant": "#653e00",
-                        "inverse-on-surface": "#eaf1ff",
-                        "surface-container": "#e5eeff",
-                        "secondary-container": "#dae2fd",
-                        "on-tertiary-fixed": "#2a1700",
-                        "on-secondary": "#ffffff",
-                        "on-primary-fixed-variant": "#005049",
-                        "error-container": "#ffdad6",
-                        "surface-container-highest": "#d3e4fe",
-                        "surface-bright": "#f8f9ff",
-                        "secondary-fixed": "#dae2fd",
-                        "inverse-primary": "#6bd8cb"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "table-cell-padding": "12px 16px",
-                        "section-gap": "32px",
-                        "card-padding": "20px",
-                        "sidebar-width": "260px",
-                        "gutter": "16px",
-                        "container-margin": "24px"
-                    },
-                    "fontFamily": {
-                        "label-caps": [
-                            "Inter"
-                        ],
-                        "table-data": [
-                            "Inter"
-                        ],
-                        "headline-md": [
-                            "Inter"
-                        ],
-                        "title-sm": [
-                            "Inter"
-                        ],
-                        "display-lg": [
-                            "Inter"
-                        ],
-                        "body-sm": [
-                            "Inter"
-                        ],
-                        "mushak-print": [
-                            "Inter"
-                        ],
-                        "body-base": [
-                            "Inter"
-                        ]
-                    },
-                    "fontSize": {
-                        "label-caps": [
-                            "12px",
-                            {
-                                "lineHeight": "16px",
-                                "letterSpacing": "0.05em",
-                                "fontWeight": "600"
-                            }
-                        ],
-                        "table-data": [
-                            "13px",
-                            {
-                                "lineHeight": "16px",
-                                "fontWeight": "450"
-                            }
-                        ],
-                        "headline-md": [
-                            "24px",
-                            {
-                                "lineHeight": "32px",
-                                "letterSpacing": "-0.01em",
-                                "fontWeight": "600"
-                            }
-                        ],
-                        "title-sm": [
-                            "18px",
-                            {
-                                "lineHeight": "24px",
-                                "fontWeight": "600"
-                            }
-                        ],
-                        "display-lg": [
-                            "32px",
-                            {
-                                "lineHeight": "40px",
-                                "letterSpacing": "-0.02em",
-                                "fontWeight": "700"
-                            }
-                        ],
-                        "body-sm": [
-                            "13px",
-                            {
-                                "lineHeight": "18px",
-                                "fontWeight": "400"
-                            }
-                        ],
-                        "mushak-print": [
-                            "11px",
-                            {
-                                "lineHeight": "14px",
-                                "fontWeight": "400"
-                            }
-                        ],
-                        "body-base": [
-                            "14px",
-                            {
-                                "lineHeight": "20px",
-                                "fontWeight": "400"
-                            }
-                        ]
-                    }
-                },
-            },
-        }
-    </script>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="./js/tailwind-config.js"></script>
     <style>
         .material-symbols-outlined {
             font-family: 'Material Symbols Outlined';
@@ -193,537 +31,422 @@
 
         body {
             background-color: #f8f9ff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
 
-<body class="bg-background text-on-background font-body-base antialiased">
+<body class="text-slate-800 antialiased">
     <div class="flex h-screen overflow-hidden">
-        <!-- SideNavBar (Shared Component) -->
-        <nav
-            class="bg-surface dark:bg-inverse-surface w-[260px] h-full fixed left-0 top-0 border-r border-outline-variant dark:border-outline shadow-sm flex flex-col h-full py-container-margin overflow-y-auto z-50">
-            <!-- Brand/Header -->
-            <div class="px-container-margin mb-section-gap flex items-center gap-3">
-                <div
-                    class="w-10 h-10 rounded bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0">
-                    <span class="material-symbols-outlined fill text-[24px]">inventory_2</span>
-                </div>
-                <div>
-                    <h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">FR TRADING</h1>
-                    <p class="font-body-sm text-body-sm text-on-surface-variant">Operational Suite</p>
-                </div>
-            </div>
-            <!-- Main Nav Links -->
-        
-            <ul class="flex-1 px-3 space-y-1">
-                <li>
-                    <a href="./Index.html"
-                       class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
-                        <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-                        <span class="font-body-base text-body-base font-medium">Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="./Client.html"
-                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
-                        <span class="material-symbols-outlined" data-icon="groups">groups</span>
-                        <span class="font-body-base text-body-base">Clients</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="./Quotations.html"
-                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
-                        <span class="material-symbols-outlined" data-icon="description">description</span>
-                        <span class="font-body-base text-body-base font-medium">Quotations</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="./allOrder.html"
-                      class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary dark:text-primary-fixed-dim font-bold border-r-4 border-primary dark:border-primary-fixed-dim bg-surface-container-low dark:bg-surface-container-highest scale-95 transition-transform">
-                        <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
-                        <span class="font-body-base text-body-base font-medium">Orders</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="./Stock-management.html"
-                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
-                        <span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
-                        <span class="font-body-base text-body-base font-medium">Stock</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="./Sales-plan.html"
-                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
-                        <span class="material-symbols-outlined" data-icon="event_note">event_note</span>
-                        <span class="font-body-base text-body-base font-medium">Sales Plan</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="./Financial-reports.html"
-                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
-                        <span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
-                        <span class="font-body-base text-body-base font-medium">Reports</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="./Employee-management.html"
-                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
-                        <span class="material-symbols-outlined" data-icon="badge">badge</span>
-                        <span class="font-body-base text-body-base font-medium">Employees</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="./Vat.html"
-                        class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
-                        <span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
-                        <span class="font-body-base text-body-base font-medium">VAT</span>
-                    </a>
-                </li>
-            </ul>
-        
-            <!-- Footer Nav Links -->
-            <div class="mt-auto px-3 space-y-1 pt-4 border-t border-outline-variant dark:border-outline">
-                <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200"
-                    href="#">
-                    <span class="material-symbols-outlined">settings</span>
-                    <span class="font-body-base text-body-base">Settings</span>
-                </a>
-                <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200"
-                    href="#">
-                    <span class="material-symbols-outlined">logout</span>
-                    <span class="font-body-base text-body-base">Logout</span>
-                </a>
-            </div>
-        </nav>
-        <!-- SideNavBar (Shared Component) -->
+
         <!-- Main Content Area -->
-        <div class="flex-1 ml-0 md:ml-[260px] flex flex-col h-screen overflow-hidden">
-            <!-- TopNavBar -->
-            <header
-                class="bg-white dark:bg-surface-container-lowest fixed top-0 right-0 left-[260px] h-16 border-b border-outline-variant dark:border-outline shadow-sm flex justify-between items-center px-gutter w-[calc(100%-260px)] z-40">
-                <!-- Search Bar on Left -->
-                <div class="flex items-center gap-4 w-1/3 min-w-[200px]">
-                    <div class="relative w-full">
-                        <span
-                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-                        <input
-                            class="w-full pl-10 pr-4 py-2 bg-surface border border-outline-variant rounded-md font-body-sm text-body-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
-                            placeholder="Search Inventory Management..." type="text" />
-                    </div>
-                </div>
-                <!-- Actions -->
-                <div class="flex items-center gap-4">
-                    <!-- Trailing Icon Actions -->
-                    <button
-                        class="p-2 text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full transition-colors relative">
-                        <span class="material-symbols-outlined">notifications</span>
-                        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
-                    </button>
-                    <button
-                        class="p-2 text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full transition-colors">
-                        <span class="material-symbols-outlined">help_outline</span>
-                    </button>
-                    <!-- Secondary Action (Mushak) -->
-                    <button
-                        class="flex items-center gap-2 px-4 py-2 bg-surface border border-outline-variant text-primary rounded-md font-label-caps text-label-caps hover:bg-surface-container-low transition-colors">
-                        <span class="material-symbols-outlined text-[18px]">print</span>
-                        Mushak-6.3
-                    </button>
-                    <!-- Primary Action -->
-                    <a href="./Create-new-order.html"
-                        class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-md shadow-[0_2px_0_0_#005049] hover:bg-surface-tint hover:shadow-none translate-y-[2px] active:translate-y-0 transition-all font-label-caps text-label-caps">
-                        <span class="material-symbols-outlined text-[18px]">add</span>
-                        Create Order
-                    </a>
-                    <!-- User Profile -->
-                    <div
-                        class="w-8 h-8 rounded-full bg-secondary-container overflow-hidden ml-2 cursor-pointer border border-outline-variant">
-                        <img alt="User Profile" class="w-full h-full object-cover"
-                            data-alt="A professional headshot of a business executive wearing a modern suit, bright even lighting, corporate environment, confident expression. Subtle teal accent in the background. Modern corporate aesthetic."
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJi4laU4YVXMgsXyBv8Gpp0o4pVduNozAAspQzUjyIeKM-NCnVdvOgr8J3LJ22XFKYpoMYBnL2B7NSy9-8wdPzCPr_vkttsWS0sRjQDW3FzcqcgjiaCtDT4MzWsx5_kOzzp9tXONwKAVjMP3g3FphWLZWmJvTYJWxMbdVwe5_n6zr8ViEvoJVuWr5dtF_Y9Jggc97RaGrons5pgX0WPWJiFtKqO2pdiGm1bowxxOe0aJSgTuYTpgrJXkR2e56PzF4LGJC3BppJ-i8" />
-                    </div>
-                </div>
-            </header>
+        <div class="flex-1 flex flex-col h-screen overflow-hidden">
+
+            <!-- Top Nav Bar -->
+            <div id="header-root"></div>
+
             <!-- Scrollable Content -->
-            <main class="flex-1 overflow-y-auto p-container-margin mt-[50px]">
+            <main class="flex-1 overflow-y-auto p-8 mt-16">
+
                 <!-- Breadcrumb -->
-                <nav aria-label="Breadcrumb" class="flex text-sm text-secondary mb-4 font-body-sm">
+                <nav aria-label="Breadcrumb" class="flex text-sm text-slate-400 mb-4">
                     <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                        <li class="inline-flex items-center">
-                            <a class="inline-flex items-center hover:text-primary transition-colors" href="#">
-                                Orders
-                            </a>
+                        <li>
+                            <a class="hover:text-teal-600 transition-colors" href="#">Orders</a>
                         </li>
                         <li>
                             <div class="flex items-center">
                                 <span class="material-symbols-outlined text-[16px] mx-1">chevron_right</span>
-                                <span class="text-on-surface font-medium">All Orders</span>
+                                <span class="text-slate-700 font-medium">All Orders</span>
                             </div>
                         </li>
                     </ol>
                 </nav>
+
                 <!-- Page Header -->
-                <div class="flex flex-col md:flex-row md:items-center justify-between mb-section-gap gap-4">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
                     <div>
-                        <h2 class="font-display-lg text-display-lg font-bold text-on-surface">All Orders</h2>
-                        <p class="text-secondary font-body-sm mt-1">Manage, track, and process client orders.</p>
+                        <h2 class="text-3xl font-bold text-slate-800 tracking-tight">All Orders</h2>
+                        <p class="text-slate-400 text-sm mt-1">Manage, track, and process client orders.</p>
                     </div>
                     <div class="flex items-center gap-3">
                         <button
-                            class="bg-surface-container-lowest border border-outline text-on-surface px-4 py-2 rounded-lg font-title-sm text-sm font-medium hover:bg-surface-container-low transition-colors flex items-center gap-2 shadow-sm">
+                            class="bg-white border border-slate-200 text-slate-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-50 transition-colors flex items-center gap-2 shadow-sm">
                             <span class="material-symbols-outlined text-[18px]">download</span>
                             Export
                         </button>
                         <a href="./Create-new-order.html"
-                            class="bg-[#0D9488] text-white px-4 py-2 rounded-lg font-title-sm text-sm font-semibold hover:bg-teal-700 transition-colors flex items-center gap-2 shadow-[0_2px_0_0_#0f766e] hover:translate-y-[1px] hover:shadow-none">
+                            class="bg-teal-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-teal-700 transition-colors flex items-center gap-2 shadow-[0_2px_0_0_#0f766e] hover:translate-y-[1px] hover:shadow-none">
                             <span class="material-symbols-outlined text-[18px]">add</span>
                             Create New Order
-                    </a>
+                        </a>
                     </div>
                 </div>
+
                 <!-- Summary Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-section-gap">
-                    <div
-                        class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
                         <div class="flex items-center justify-between mb-2">
-                            <span class="text-secondary font-body-sm font-medium">Total Orders</span>
+                            <span class="text-slate-500 text-sm font-medium">Total Orders</span>
                             <span
-                                class="material-symbols-outlined text-primary bg-primary-container/10 p-1.5 rounded-lg">receipt_long</span>
+                                class="material-symbols-outlined text-teal-600 bg-teal-50 p-1.5 rounded-lg text-[20px]">receipt_long</span>
                         </div>
                         <div class="flex items-baseline gap-2">
-                            <span class="text-2xl font-bold text-on-surface">1,248</span>
-                            <span class="text-xs text-primary font-medium flex items-center"><span
-                                    class="material-symbols-outlined text-[14px]">arrow_upward</span> 12%</span>
+                            <span class="text-2xl font-bold text-slate-800">1,248</span>
+                            <span class="text-xs text-teal-600 font-medium flex items-center">
+                                <span class="material-symbols-outlined text-[14px]">arrow_upward</span> 12%
+                            </span>
                         </div>
                     </div>
-                    <div
-                        class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+                    <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
                         <div class="flex items-center justify-between mb-2">
-                            <span class="text-secondary font-body-sm font-medium">Successful</span>
+                            <span class="text-slate-500 text-sm font-medium">Successful</span>
                             <span
-                                class="material-symbols-outlined text-green-600 bg-green-50 p-1.5 rounded-lg">check_circle</span>
+                                class="material-symbols-outlined text-emerald-600 bg-emerald-50 p-1.5 rounded-lg text-[20px]">check_circle</span>
                         </div>
                         <div class="flex items-baseline gap-2">
-                            <span class="text-2xl font-bold text-on-surface">982</span>
-                            <span class="text-xs text-secondary font-medium">This month</span>
+                            <span class="text-2xl font-bold text-slate-800">982</span>
+                            <span class="text-xs text-slate-400 font-medium">This month</span>
                         </div>
                     </div>
-                    <div
-                        class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+                    <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
                         <div class="flex items-center justify-between mb-2">
-                            <span class="text-secondary font-body-sm font-medium">Canceled</span>
+                            <span class="text-slate-500 text-sm font-medium">Canceled</span>
                             <span
-                                class="material-symbols-outlined text-error bg-error-container/30 p-1.5 rounded-lg">cancel</span>
+                                class="material-symbols-outlined text-red-500 bg-red-50 p-1.5 rounded-lg text-[20px]">cancel</span>
                         </div>
                         <div class="flex items-baseline gap-2">
-                            <span class="text-2xl font-bold text-on-surface">45</span>
-                            <span class="text-xs text-error font-medium flex items-center"><span
-                                    class="material-symbols-outlined text-[14px]">arrow_upward</span> 2%</span>
+                            <span class="text-2xl font-bold text-slate-800">45</span>
+                            <span class="text-xs text-red-500 font-medium flex items-center">
+                                <span class="material-symbols-outlined text-[14px]">arrow_upward</span> 2%
+                            </span>
                         </div>
                     </div>
-                    <div
-                        class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+                    <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
                         <div class="flex items-center justify-between mb-2">
-                            <span class="text-secondary font-body-sm font-medium">Total Revenue</span>
+                            <span class="text-slate-500 text-sm font-medium">Total Revenue</span>
                             <span
-                                class="material-symbols-outlined text-tertiary bg-tertiary-container/10 p-1.5 rounded-lg">payments</span>
+                                class="material-symbols-outlined text-violet-500 bg-violet-50 p-1.5 rounded-lg text-[20px]">payments</span>
                         </div>
                         <div class="flex items-baseline gap-2">
-                            <span class="text-2xl font-bold text-on-surface">৳ 4.2M</span>
-                            <span class="text-xs text-primary font-medium flex items-center"><span
-                                    class="material-symbols-outlined text-[14px]">arrow_upward</span> 8%</span>
+                            <span class="text-2xl font-bold text-slate-800">৳ 4.2M</span>
+                            <span class="text-xs text-teal-600 font-medium flex items-center">
+                                <span class="material-symbols-outlined text-[14px]">arrow_upward</span> 8%
+                            </span>
                         </div>
                     </div>
                 </div>
+
                 <!-- Main Content Card -->
-                <div
-                    class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0_1px_3px_rgba(0,0,0,0.05)] overflow-hidden">
+                <div class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
+
                     <!-- Tabs -->
-                    <div class="border-b border-outline-variant px-2 flex overflow-x-auto hide-scrollbar">
+                    <div class="border-b border-slate-200 px-2 flex overflow-x-auto hide-scrollbar">
                         <button
-                            class="px-4 py-3 font-title-sm text-sm font-semibold text-primary border-b-2 border-primary whitespace-nowrap">All
+                            class="px-4 py-3 text-sm font-semibold text-teal-600 border-b-2 border-teal-600 whitespace-nowrap">All
                             Orders</button>
                         <button
-                            class="px-4 py-3 font-title-sm text-sm font-medium text-secondary hover:text-on-surface transition-colors whitespace-nowrap">Pending
-                            <span
-                                class="bg-surface-container-high text-xs px-2 py-0.5 rounded-full ml-1">12</span></button>
+                            class="px-4 py-3 text-sm font-medium text-slate-400 hover:text-slate-700 transition-colors whitespace-nowrap">
+                            Pending <span
+                                class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded-full ml-1">12</span>
+                        </button>
                         <button
-                            class="px-4 py-3 font-title-sm text-sm font-medium text-secondary hover:text-on-surface transition-colors whitespace-nowrap">Confirmed</button>
+                            class="px-4 py-3 text-sm font-medium text-slate-400 hover:text-slate-700 transition-colors whitespace-nowrap">Confirmed</button>
                         <button
-                            class="px-4 py-3 font-title-sm text-sm font-medium text-secondary hover:text-on-surface transition-colors whitespace-nowrap">Successful</button>
+                            class="px-4 py-3 text-sm font-medium text-slate-400 hover:text-slate-700 transition-colors whitespace-nowrap">Successful</button>
                         <button
-                            class="px-4 py-3 font-title-sm text-sm font-medium text-secondary hover:text-on-surface transition-colors whitespace-nowrap">Canceled</button>
+                            class="px-4 py-3 text-sm font-medium text-slate-400 hover:text-slate-700 transition-colors whitespace-nowrap">Canceled</button>
                     </div>
+
                     <!-- Filter Bar -->
-                    <div class="p-4 bg-surface-bright border-b border-outline-variant flex flex-wrap gap-3 items-end">
+                    <div class="p-4 bg-slate-50 border-b border-slate-200 flex flex-wrap gap-3 items-end">
                         <div class="flex-1 min-w-[200px]">
-                            <label class="block font-label-caps text-label-caps text-secondary mb-1">Search</label>
+                            <label
+                                class="block text-xs font-semibold tracking-wider uppercase text-slate-400 mb-1">Search</label>
                             <div class="relative">
                                 <span
-                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[18px]">search</span>
                                 <input
-                                    class="w-full pl-9 pr-3 py-2 border border-outline-variant rounded-lg text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
+                                    class="w-full pl-9 pr-3 py-2 border border-slate-200 rounded-lg text-sm focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none transition-colors bg-white"
                                     placeholder="Order ID or Client Name..." type="text" />
                             </div>
                         </div>
                         <div class="w-full md:w-auto">
-                            <label class="block font-label-caps text-label-caps text-secondary mb-1">Status</label>
+                            <label
+                                class="block text-xs font-semibold tracking-wider uppercase text-slate-400 mb-1">Status</label>
                             <select
-                                class="w-full md:w-36 px-3 py-2 border border-outline-variant rounded-lg text-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none bg-white">
+                                class="w-full md:w-36 px-3 py-2 border border-slate-200 rounded-lg text-sm text-slate-700 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none bg-white">
                                 <option>All Status</option>
                                 <option>Pending</option>
                                 <option>Confirmed</option>
                                 <option>Successful</option>
+                                <option>Canceled</option>
                             </select>
                         </div>
                         <div class="w-full md:w-auto">
-                            <label class="block font-label-caps text-label-caps text-secondary mb-1">Date Range</label>
+                            <label class="block text-xs font-semibold tracking-wider uppercase text-slate-400 mb-1">Date
+                                Range</label>
                             <div class="relative">
                                 <span
-                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">calendar_month</span>
+                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[18px]">calendar_month</span>
                                 <input
-                                    class="w-full md:w-48 pl-9 pr-3 py-2 border border-outline-variant rounded-lg text-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none bg-white cursor-pointer"
-                                    placeholder="Last 30 Days" readonly="" type="text" />
+                                    class="w-full md:w-48 pl-9 pr-3 py-2 border border-slate-200 rounded-lg text-sm text-slate-700 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none bg-white cursor-pointer"
+                                    placeholder="Last 30 Days" readonly type="text" />
                             </div>
                         </div>
                         <div class="w-full md:w-auto">
-                            <label class="block font-label-caps text-label-caps text-secondary mb-1">Client</label>
+                            <label
+                                class="block text-xs font-semibold tracking-wider uppercase text-slate-400 mb-1">Client</label>
                             <select
-                                class="w-full md:w-48 px-3 py-2 border border-outline-variant rounded-lg text-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none bg-white">
+                                class="w-full md:w-48 px-3 py-2 border border-slate-200 rounded-lg text-sm text-slate-700 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none bg-white">
                                 <option>All Clients</option>
                                 <option>Acme Corp Ltd.</option>
                                 <option>Global Tech BD</option>
                             </select>
                         </div>
-                        <div class="flex gap-2 w-full md:w-auto mt-2 md:mt-0">
+                        <div class="flex gap-2 w-full md:w-auto">
                             <button
-                                class="bg-surface-container border border-outline-variant text-on-surface px-4 py-2 rounded-lg text-sm font-medium hover:bg-surface-container-high transition-colors">
+                                class="bg-white border border-slate-200 text-slate-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-100 transition-colors">
                                 Reset
                             </button>
                             <button
-                                class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-container transition-colors">
+                                class="bg-teal-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-teal-700 transition-colors">
                                 Apply
                             </button>
                         </div>
                     </div>
+
                     <!-- Data Table -->
                     <div class="overflow-x-auto">
                         <table class="w-full text-left border-collapse">
                             <thead>
-                                <tr class="bg-surface text-secondary border-b border-outline-variant">
-                                    <th class="p-table-cell-padding w-10">
-                                        <input class="rounded border-outline-variant text-primary focus:ring-primary"
+                                <tr class="bg-slate-50 text-slate-400 border-b border-slate-200">
+                                    <th class="px-4 py-3 w-10">
+                                        <input class="rounded border-slate-300 text-teal-600 focus:ring-teal-500"
                                             type="checkbox" />
                                     </th>
-                                    <th class="p-table-cell-padding font-label-caps text-label-caps">Order ID</th>
-                                    <th class="p-table-cell-padding font-label-caps text-label-caps">Client</th>
-                                    <th class="p-table-cell-padding font-label-caps text-label-caps">Order Date</th>
-                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-right">Total
-                                        (৳)</th>
-                                    <th class="p-table-cell-padding font-label-caps text-label-caps">Status</th>
-                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-right">Actions
-                                    </th>
+                                    <th class="px-4 py-3 text-xs font-semibold tracking-wider uppercase">Order ID</th>
+                                    <th class="px-4 py-3 text-xs font-semibold tracking-wider uppercase">Client</th>
+                                    <th class="px-4 py-3 text-xs font-semibold tracking-wider uppercase">Order Date</th>
+                                    <th class="px-4 py-3 text-xs font-semibold tracking-wider uppercase text-right">
+                                        Total (৳)</th>
+                                    <th class="px-4 py-3 text-xs font-semibold tracking-wider uppercase">Status</th>
+                                    <th class="px-4 py-3 text-xs font-semibold tracking-wider uppercase text-right">
+                                        Actions</th>
                                 </tr>
                             </thead>
-                            <tbody
-                                class="font-table-data text-table-data text-on-surface divide-y divide-outline-variant/50">
+                            <tbody class="text-sm text-slate-700 divide-y divide-slate-100">
+
                                 <!-- Row 1 -->
-                                <tr class="hover:bg-[#F8FAFC] transition-colors group">
-                                    <td class="p-table-cell-padding">
-                                        <input class="rounded border-outline-variant text-primary focus:ring-primary"
+                                <tr class="hover:bg-slate-50 transition-colors group">
+                                    <td class="px-4 py-3">
+                                        <input class="rounded border-slate-300 text-teal-600 focus:ring-teal-500"
                                             type="checkbox" />
                                     </td>
-                                    <td class="p-table-cell-padding font-medium text-primary flex items-center gap-2">
+                                    <td class="px-4 py-3 font-medium text-teal-600 flex items-center gap-2">
                                         INV-2025-001
                                         <span
-                                            class="bg-primary text-white text-[10px] px-1.5 py-0.5 rounded uppercase font-bold tracking-wider">New</span>
+                                            class="bg-teal-600 text-white text-[10px] px-1.5 py-0.5 rounded uppercase font-bold tracking-wider">New</span>
                                     </td>
-                                    <td class="p-table-cell-padding">
-                                        <div class="font-medium">Rahim Ud Din</div>
-                                        <div class="text-xs text-secondary">Acme Corp Ltd.</div>
+                                    <td class="px-4 py-3">
+                                        <div class="font-medium text-slate-800">Rahim Ud Din</div>
+                                        <div class="text-xs text-slate-400">Acme Corp Ltd.</div>
                                     </td>
-                                    <td class="p-table-cell-padding text-secondary">Oct 24, 2025</td>
-                                    <td class="p-table-cell-padding text-right font-medium">125,000.00</td>
-                                    <td class="p-table-cell-padding">
+                                    <td class="px-4 py-3 text-slate-400">Oct 24, 2025</td>
+                                    <td class="px-4 py-3 text-right font-medium">125,000.00</td>
+                                    <td class="px-4 py-3">
                                         <span
-                                            class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-amber-50 text-amber-700 border border-amber-200">
-                                            Pending
-                                        </span>
+                                            class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-amber-50 text-amber-700 border border-amber-200">Pending</span>
                                     </td>
-                                    <td class="p-table-cell-padding text-right">
+                                    <td class="px-4 py-3 text-right">
                                         <div
                                             class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <button class="text-secondary hover:text-primary" title="View"><span
+                                            <button class="text-slate-400 hover:text-teal-600" title="View"><span
                                                     class="material-symbols-outlined text-[20px]">visibility</span></button>
-                                            <button class="text-secondary hover:text-primary"
+                                            <button class="text-slate-400 hover:text-teal-600"
                                                 title="Download Invoice"><span
                                                     class="material-symbols-outlined text-[20px]">download</span></button>
-                                            <button class="text-secondary hover:text-primary" title="Mushak 6.3"><span
+                                            <button class="text-slate-400 hover:text-teal-600" title="Mushak 6.3"><span
                                                     class="material-symbols-outlined text-[20px]">receipt_long</span></button>
-                                            <button class="text-secondary hover:text-error" title="Cancel"><span
+                                            <button class="text-slate-400 hover:text-red-500" title="Cancel"><span
                                                     class="material-symbols-outlined text-[20px]">cancel</span></button>
                                         </div>
                                     </td>
                                 </tr>
+
                                 <!-- Row 2 -->
-                                <tr class="bg-[#F8FAFC] hover:bg-surface-container-low transition-colors group">
-                                    <td class="p-table-cell-padding">
-                                        <input class="rounded border-outline-variant text-primary focus:ring-primary"
+                                <tr class="bg-slate-50/50 hover:bg-slate-50 transition-colors group">
+                                    <td class="px-4 py-3">
+                                        <input class="rounded border-slate-300 text-teal-600 focus:ring-teal-500"
                                             type="checkbox" />
                                     </td>
-                                    <td class="p-table-cell-padding font-medium text-primary">INV-2025-002</td>
-                                    <td class="p-table-cell-padding">
-                                        <div class="font-medium">Sarah Ahmed</div>
-                                        <div class="text-xs text-secondary">Global Tech BD</div>
+                                    <td class="px-4 py-3 font-medium text-teal-600">INV-2025-002</td>
+                                    <td class="px-4 py-3">
+                                        <div class="font-medium text-slate-800">Sarah Ahmed</div>
+                                        <div class="text-xs text-slate-400">Global Tech BD</div>
                                     </td>
-                                    <td class="p-table-cell-padding text-secondary">Oct 23, 2025</td>
-                                    <td class="p-table-cell-padding text-right font-medium">45,500.00</td>
-                                    <td class="p-table-cell-padding">
+                                    <td class="px-4 py-3 text-slate-400">Oct 23, 2025</td>
+                                    <td class="px-4 py-3 text-right font-medium">45,500.00</td>
+                                    <td class="px-4 py-3">
                                         <span
-                                            class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
-                                            Confirmed
-                                        </span>
+                                            class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">Confirmed</span>
                                     </td>
-                                    <td class="p-table-cell-padding text-right">
+                                    <td class="px-4 py-3 text-right">
                                         <div
                                             class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <button class="text-secondary hover:text-primary" title="View"><span
+                                            <button class="text-slate-400 hover:text-teal-600" title="View"><span
                                                     class="material-symbols-outlined text-[20px]">visibility</span></button>
-                                            <button class="text-secondary hover:text-primary"
+                                            <button class="text-slate-400 hover:text-teal-600"
                                                 title="Download Invoice"><span
                                                     class="material-symbols-outlined text-[20px]">download</span></button>
-                                            <button class="text-secondary hover:text-primary" title="Mushak 6.3"><span
+                                            <button class="text-slate-400 hover:text-teal-600" title="Mushak 6.3"><span
                                                     class="material-symbols-outlined text-[20px]">receipt_long</span></button>
-                                            <button class="text-secondary hover:text-error" title="Cancel"><span
+                                            <button class="text-slate-400 hover:text-red-500" title="Cancel"><span
                                                     class="material-symbols-outlined text-[20px]">cancel</span></button>
                                         </div>
                                     </td>
                                 </tr>
+
                                 <!-- Row 3 -->
-                                <tr class="hover:bg-[#F8FAFC] transition-colors group">
-                                    <td class="p-table-cell-padding">
-                                        <input class="rounded border-outline-variant text-primary focus:ring-primary"
+                                <tr class="hover:bg-slate-50 transition-colors group">
+                                    <td class="px-4 py-3">
+                                        <input class="rounded border-slate-300 text-teal-600 focus:ring-teal-500"
                                             type="checkbox" />
                                     </td>
-                                    <td class="p-table-cell-padding font-medium text-primary">INV-2025-003</td>
-                                    <td class="p-table-cell-padding">
-                                        <div class="font-medium">Abdul Karim</div>
-                                        <div class="text-xs text-secondary">Karim Traders</div>
+                                    <td class="px-4 py-3 font-medium text-teal-600">INV-2025-003</td>
+                                    <td class="px-4 py-3">
+                                        <div class="font-medium text-slate-800">Abdul Karim</div>
+                                        <div class="text-xs text-slate-400">Karim Traders</div>
                                     </td>
-                                    <td class="p-table-cell-padding text-secondary">Oct 20, 2025</td>
-                                    <td class="p-table-cell-padding text-right font-medium">890,000.00</td>
-                                    <td class="p-table-cell-padding">
+                                    <td class="px-4 py-3 text-slate-400">Oct 20, 2025</td>
+                                    <td class="px-4 py-3 text-right font-medium">890,000.00</td>
+                                    <td class="px-4 py-3">
                                         <span
-                                            class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
-                                            Successful
-                                        </span>
+                                            class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">Successful</span>
                                     </td>
-                                    <td class="p-table-cell-padding text-right">
+                                    <td class="px-4 py-3 text-right">
                                         <div
                                             class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <button class="text-secondary hover:text-primary" title="View"><span
+                                            <button class="text-slate-400 hover:text-teal-600" title="View"><span
                                                     class="material-symbols-outlined text-[20px]">visibility</span></button>
-                                            <button class="text-secondary hover:text-primary"
+                                            <button class="text-slate-400 hover:text-teal-600"
                                                 title="Download Invoice"><span
                                                     class="material-symbols-outlined text-[20px]">download</span></button>
-                                            <button class="text-secondary hover:text-primary" title="Mushak 6.3"><span
+                                            <button class="text-slate-400 hover:text-teal-600" title="Mushak 6.3"><span
                                                     class="material-symbols-outlined text-[20px]">receipt_long</span></button>
                                         </div>
                                     </td>
                                 </tr>
+
                                 <!-- Row 4 -->
-                                <tr class="bg-[#F8FAFC] hover:bg-surface-container-low transition-colors group">
-                                    <td class="p-table-cell-padding">
-                                        <input class="rounded border-outline-variant text-primary focus:ring-primary"
+                                <tr class="bg-slate-50/50 hover:bg-slate-50 transition-colors group">
+                                    <td class="px-4 py-3">
+                                        <input class="rounded border-slate-300 text-teal-600 focus:ring-teal-500"
                                             type="checkbox" />
                                     </td>
-                                    <td class="p-table-cell-padding font-medium text-primary">INV-2025-004</td>
-                                    <td class="p-table-cell-padding">
-                                        <div class="font-medium">Nusrat Jahan</div>
-                                        <div class="text-xs text-secondary">Bengal Fashion</div>
+                                    <td class="px-4 py-3 font-medium text-teal-600">INV-2025-004</td>
+                                    <td class="px-4 py-3">
+                                        <div class="font-medium text-slate-800">Nusrat Jahan</div>
+                                        <div class="text-xs text-slate-400">Bengal Fashion</div>
                                     </td>
-                                    <td class="p-table-cell-padding text-secondary">Oct 18, 2025</td>
-                                    <td class="p-table-cell-padding text-right font-medium">12,400.00</td>
-                                    <td class="p-table-cell-padding">
+                                    <td class="px-4 py-3 text-slate-400">Oct 18, 2025</td>
+                                    <td class="px-4 py-3 text-right font-medium">12,400.00</td>
+                                    <td class="px-4 py-3">
                                         <span
-                                            class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-red-50 text-red-700 border border-red-200">
-                                            Canceled
-                                        </span>
+                                            class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-red-50 text-red-700 border border-red-200">Canceled</span>
                                     </td>
-                                    <td class="p-table-cell-padding text-right">
+                                    <td class="px-4 py-3 text-right">
                                         <div
                                             class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <button class="text-secondary hover:text-primary" title="View"><span
+                                            <button class="text-slate-400 hover:text-teal-600" title="View"><span
                                                     class="material-symbols-outlined text-[20px]">visibility</span></button>
                                         </div>
                                     </td>
                                 </tr>
+
                                 <!-- Row 5 -->
-                                <tr class="hover:bg-[#F8FAFC] transition-colors group">
-                                    <td class="p-table-cell-padding">
-                                        <input class="rounded border-outline-variant text-primary focus:ring-primary"
+                                <tr class="hover:bg-slate-50 transition-colors group">
+                                    <td class="px-4 py-3">
+                                        <input class="rounded border-slate-300 text-teal-600 focus:ring-teal-500"
                                             type="checkbox" />
                                     </td>
-                                    <td class="p-table-cell-padding font-medium text-primary">INV-2025-005</td>
-                                    <td class="p-table-cell-padding">
-                                        <div class="font-medium">Tariq Islam</div>
-                                        <div class="text-xs text-secondary">Islam Electronics</div>
+                                    <td class="px-4 py-3 font-medium text-teal-600">INV-2025-005</td>
+                                    <td class="px-4 py-3">
+                                        <div class="font-medium text-slate-800">Tariq Islam</div>
+                                        <div class="text-xs text-slate-400">Islam Electronics</div>
                                     </td>
-                                    <td class="p-table-cell-padding text-secondary">Oct 15, 2025</td>
-                                    <td class="p-table-cell-padding text-right font-medium">340,000.00</td>
-                                    <td class="p-table-cell-padding">
+                                    <td class="px-4 py-3 text-slate-400">Oct 15, 2025</td>
+                                    <td class="px-4 py-3 text-right font-medium">340,000.00</td>
+                                    <td class="px-4 py-3">
                                         <span
-                                            class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
-                                            Successful
-                                        </span>
+                                            class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">Successful</span>
                                     </td>
-                                    <td class="p-table-cell-padding text-right">
+                                    <td class="px-4 py-3 text-right">
                                         <div
                                             class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <button class="text-secondary hover:text-primary" title="View"><span
+                                            <button class="text-slate-400 hover:text-teal-600" title="View"><span
                                                     class="material-symbols-outlined text-[20px]">visibility</span></button>
-                                            <button class="text-secondary hover:text-primary"
+                                            <button class="text-slate-400 hover:text-teal-600"
                                                 title="Download Invoice"><span
                                                     class="material-symbols-outlined text-[20px]">download</span></button>
-                                            <button class="text-secondary hover:text-primary" title="Mushak 6.3"><span
+                                            <button class="text-slate-400 hover:text-teal-600" title="Mushak 6.3"><span
                                                     class="material-symbols-outlined text-[20px]">receipt_long</span></button>
                                         </div>
                                     </td>
                                 </tr>
+
                             </tbody>
                         </table>
                     </div>
+
                     <!-- Pagination -->
-                    <div class="p-4 border-t border-outline-variant flex items-center justify-between bg-white">
-                        <div class="text-sm text-secondary">
-                            Showing <span class="font-medium text-on-surface">1</span> to <span
-                                class="font-medium text-on-surface">5</span> of <span
-                                class="font-medium text-on-surface">1,248</span> results
+                    <div class="p-4 border-t border-slate-200 flex items-center justify-between bg-white">
+                        <div class="text-sm text-slate-400">
+                            Showing <span class="font-medium text-slate-700">1</span> to
+                            <span class="font-medium text-slate-700">5</span> of
+                            <span class="font-medium text-slate-700">1,248</span> results
                         </div>
                         <div class="flex gap-1">
                             <button
-                                class="p-1 rounded border border-outline-variant text-secondary hover:bg-surface-container-low disabled:opacity-50"
-                                disabled="">
+                                class="p-1 rounded border border-slate-200 text-slate-400 hover:bg-slate-50 disabled:opacity-40"
+                                disabled>
                                 <span class="material-symbols-outlined text-[20px]">chevron_left</span>
                             </button>
-                            <button class="px-3 py-1 rounded bg-primary text-white text-sm font-medium">1</button>
+                            <button class="px-3 py-1 rounded bg-teal-600 text-white text-sm font-medium">1</button>
                             <button
-                                class="px-3 py-1 rounded border border-outline-variant text-secondary hover:bg-surface-container-low text-sm font-medium">2</button>
+                                class="px-3 py-1 rounded border border-slate-200 text-slate-500 hover:bg-slate-50 text-sm font-medium">2</button>
                             <button
-                                class="px-3 py-1 rounded border border-outline-variant text-secondary hover:bg-surface-container-low text-sm font-medium">3</button>
-                            <span class="px-2 py-1 text-secondary">...</span>
+                                class="px-3 py-1 rounded border border-slate-200 text-slate-500 hover:bg-slate-50 text-sm font-medium">3</button>
+                            <span class="px-2 py-1 text-slate-400">...</span>
                             <button
-                                class="px-3 py-1 rounded border border-outline-variant text-secondary hover:bg-surface-container-low text-sm font-medium">250</button>
-                            <button
-                                class="p-1 rounded border border-outline-variant text-secondary hover:bg-surface-container-low">
+                                class="px-3 py-1 rounded border border-slate-200 text-slate-500 hover:bg-slate-50 text-sm font-medium">250</button>
+                            <button class="p-1 rounded border border-slate-200 text-slate-400 hover:bg-slate-50">
                                 <span class="material-symbols-outlined text-[20px]">chevron_right</span>
                             </button>
                         </div>
                     </div>
                 </div>
+
             </main>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (window.lucide && typeof window.lucide.createIcons === "function") {
+                window.lucide.createIcons();
+            }
+        });
+    </script>
 </body>
 
 </html>

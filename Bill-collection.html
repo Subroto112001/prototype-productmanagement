@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Delivery Process Register</title>
+    <title>Bill Collection Register</title>
         <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
@@ -23,82 +23,81 @@
                 <p class="text-sm text-slate-500">Reports</p>
                 <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                     <div>
-                        <h1 class="text-2xl font-semibold text-slate-800">Delivery Process Register</h1>
-                        <p class="text-sm text-slate-500">Track delivery stages, dispatch dates, and proof of delivery.
+                        <h1 class="text-2xl font-semibold text-slate-800">Bill Collection Register</h1>
+                        <p class="text-sm text-slate-500">Monitor bill collections, outstanding balances, and receipts.
                         </p>
                     </div>
                     <div class="flex gap-3">
                         <button
                             class="px-4 py-2 bg-white border border-slate-200 rounded-md text-sm font-semibold text-slate-600 hover:bg-slate-50">Export
                             PDF</button>
-                        <button class="px-4 py-2 bg-primary text-white rounded-md text-sm font-semibold">Update
-                            Status</button>
+                        <button class="px-4 py-2 bg-primary text-white rounded-md text-sm font-semibold">Record
+                            Payment</button>
                     </div>
                 </div>
             </section>
 
             <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-white p-6 rounded-lg card-shadow border-l-4 border-primary">
-                    <p class="text-sm text-slate-500">Active Deliveries</p>
-                    <p class="text-2xl font-bold text-slate-800 mt-1">42</p>
-                    <p class="text-xs text-slate-400 mt-2">In transit today</p>
+                    <p class="text-sm text-slate-500">Total Bills</p>
+                    <p class="text-2xl font-bold text-slate-800 mt-1">$1.2M</p>
+                    <p class="text-xs text-slate-400 mt-2">Issued this quarter</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg card-shadow border-l-4 border-emerald-500">
-                    <p class="text-sm text-slate-500">Delivered</p>
-                    <p class="text-2xl font-bold text-slate-800 mt-1">108</p>
-                    <p class="text-xs text-emerald-600 mt-2">Completed this week</p>
+                    <p class="text-sm text-slate-500">Collected</p>
+                    <p class="text-2xl font-bold text-slate-800 mt-1">$860K</p>
+                    <p class="text-xs text-emerald-600 mt-2">71% collected</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg card-shadow border-l-4 border-amber-500">
-                    <p class="text-sm text-slate-500">Delayed</p>
-                    <p class="text-2xl font-bold text-slate-800 mt-1">9</p>
-                    <p class="text-xs text-slate-400 mt-2">Needs follow up</p>
+                    <p class="text-sm text-slate-500">Outstanding</p>
+                    <p class="text-2xl font-bold text-slate-800 mt-1">$340K</p>
+                    <p class="text-xs text-slate-400 mt-2">35 invoices pending</p>
                 </div>
             </section>
 
             <section class="bg-white rounded-lg card-shadow overflow-hidden">
                 <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
-                    <h3 class="text-lg font-semibold text-slate-800">Delivery Log</h3>
+                    <h3 class="text-lg font-semibold text-slate-800">Collections</h3>
                     <button class="text-sm text-primary font-semibold hover:underline">Download CSV</button>
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-left text-sm">
                         <thead class="bg-slate-50 text-slate-500 uppercase font-semibold">
                             <tr>
-                                <th class="px-6 py-3">Order</th>
+                                <th class="px-6 py-3">Invoice</th>
                                 <th class="px-6 py-3">Client</th>
-                                <th class="px-6 py-3">Dispatch</th>
+                                <th class="px-6 py-3">Due Date</th>
                                 <th class="px-6 py-3">Status</th>
-                                <th class="px-6 py-3 text-right">Driver</th>
+                                <th class="px-6 py-3 text-right">Amount</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-100 text-slate-700">
                             <tr>
-                                <td class="px-6 py-4 font-medium">ORD-9201</td>
-                                <td class="px-6 py-4">Acme Corp</td>
-                                <td class="px-6 py-4">2026-05-15</td>
+                                <td class="px-6 py-4 font-medium">INV-3021</td>
+                                <td class="px-6 py-4">Rahim Steel Mills</td>
+                                <td class="px-6 py-4">2026-05-20</td>
                                 <td class="px-6 py-4"><span
-                                        class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">In
-                                        Transit</span>
+                                        class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">Pending</span>
                                 </td>
-                                <td class="px-6 py-4 text-right">J. Rahman</td>
+                                <td class="px-6 py-4 text-right font-semibold">$48,500</td>
                             </tr>
                             <tr>
-                                <td class="px-6 py-4 font-medium">ORD-9198</td>
-                                <td class="px-6 py-4">Metro Digital</td>
-                                <td class="px-6 py-4">2026-05-14</td>
+                                <td class="px-6 py-4 font-medium">INV-3014</td>
+                                <td class="px-6 py-4">Bengal Plastics</td>
+                                <td class="px-6 py-4">2026-05-12</td>
                                 <td class="px-6 py-4"><span
-                                        class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">Delivered</span>
+                                        class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">Collected</span>
                                 </td>
-                                <td class="px-6 py-4 text-right">S. Alam</td>
+                                <td class="px-6 py-4 text-right font-semibold">$29,400</td>
                             </tr>
                             <tr>
-                                <td class="px-6 py-4 font-medium">ORD-9195</td>
-                                <td class="px-6 py-4">Horizon Ventures</td>
-                                <td class="px-6 py-4">2026-05-13</td>
+                                <td class="px-6 py-4 font-medium">INV-3008</td>
+                                <td class="px-6 py-4">Square Pharma</td>
+                                <td class="px-6 py-4">2026-05-05</td>
                                 <td class="px-6 py-4"><span
-                                        class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-100 text-rose-800">Delayed</span>
+                                        class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-100 text-rose-800">Overdue</span>
                                 </td>
-                                <td class="px-6 py-4 text-right">M. Khan</td>
+                                <td class="px-6 py-4 text-right font-semibold">$72,100</td>
                             </tr>
                         </tbody>
                     </table>
