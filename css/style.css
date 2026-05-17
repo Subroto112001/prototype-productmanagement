@@ -173,6 +173,41 @@ body.sidebar-ready {
   color: var(--color-primary);
 }
 
+/* Sidebar footer / logout */
+.sidebar-footer {
+    margin-top: auto;
+    padding: 12px;
+    border-top: 1px solid var(--sidebar-border, #e2e8f0);
+}
+
+.sidebar-logout {
+    color: #ef4444; /* লাল রঙ */
+    transition: background 0.2s;
+}
+
+.sidebar-logout:hover {
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+/* Sales section label */
+.sidebar-section-label {
+    cursor: default;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+/* Sidebar flex layout নিশ্চিত করতে */
+.sidebar-component {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+}
+
 .card-shadow {
   box-shadow:
     0 1px 3px 0 rgb(0 0 0 / 0.1),

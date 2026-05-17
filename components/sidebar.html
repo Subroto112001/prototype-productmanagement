@@ -16,35 +16,35 @@
                     Dashboard
                 </a>
             </li>
+
+            <!-- Sales - সবসময় খোলা থাকবে, কোনো dropdown নেই -->
             <li>
-                <details class="sidebar-dropdown">
-                    <summary class="sidebar-link">
-                        <i class="sidebar-icon" data-lucide="shopping-cart"></i>
-                        Sales
-                        <i class="sidebar-icon sidebar-caret" data-lucide="chevron-down"></i>
-                    </summary>
-                    <div class="sidebar-dropdown-panel">
+                <div class="sidebar-link sidebar-section-label">
+                    <i class="sidebar-icon" data-lucide="shopping-cart"></i>
+                    Sales
+                </div>
+                <ul class="sidebar-sub-links">
+                    <li>
                         <a class="sidebar-link sidebar-link-sub" href="./Order.html" data-sidebar-link>
                             <i class="sidebar-icon" data-lucide="plus-circle"></i>
                             New Order
                         </a>
+                    </li>
+                    <li>
                         <a class="sidebar-link sidebar-link-sub" href="./pending-orders.html" data-sidebar-link>
                             <i class="sidebar-icon" data-lucide="clock"></i>
                             Pending Orders
                         </a>
+                    </li>
+                    <li>
                         <a class="sidebar-link sidebar-link-sub" href="./canceled-orders.html" data-sidebar-link>
                             <i class="sidebar-icon" data-lucide="x-circle"></i>
                             Canceled Orders
                         </a>
-                    </div>
-                </details>
+                    </li>
+                </ul>
             </li>
-            <li>
-                <a class="sidebar-link" href="./Sales-person-page.html" data-sidebar-link>
-                    <i class="sidebar-icon" data-lucide="users"></i>
-                    Sales Persons
-                </a>
-            </li>
+
             <li>
                 <a class="sidebar-link" href="./Client.html" data-sidebar-link>
                     <i class="sidebar-icon" data-lucide="user-check"></i>
@@ -63,6 +63,8 @@
                     Quotation &amp; Billing
                 </a>
             </li>
+
+            <!-- Reports - dropdown আগের মতোই থাকবে -->
             <li>
                 <details class="sidebar-dropdown">
                     <summary class="sidebar-link">
@@ -71,7 +73,6 @@
                         <i class="sidebar-icon sidebar-caret" data-lucide="chevron-down"></i>
                     </summary>
                     <div class="sidebar-dropdown-panel">
-
                         <a class="sidebar-link sidebar-link-sub" href="./Sub-ledger.html" data-sidebar-link>
                             <i class="sidebar-icon" data-lucide="clipboard-list"></i>
                             Sub Ledger
@@ -95,12 +96,14 @@
                     </div>
                 </details>
             </li>
-            <li>
-                <a class="sidebar-link" href="./Employee-management.html" data-sidebar-link>
-                    <i class="sidebar-icon" data-lucide="eye"></i>
-                    Employee Monitoring
-                </a>
-            </li>
         </ul>
     </nav>
+
+    <!-- Logout বাটন সবার নিচে -->
+    <div class="sidebar-footer">
+        <button type="button" class="sidebar-link sidebar-logout" onclick="handleLogout()">
+            <i class="sidebar-icon" data-lucide="log-out"></i>
+            Logout
+        </button>
+    </div>
 </aside>

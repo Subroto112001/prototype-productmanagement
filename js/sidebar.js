@@ -22,6 +22,8 @@
       }
     });
 
+    // শুধু Reports dropdown-এর জন্য auto-open রাখা হয়েছে
+    // Sales এখন সবসময় open (কোনো <details> নেই)
     sidebarRoot
       .querySelectorAll("details.sidebar-dropdown")
       .forEach(function (dropdown) {
@@ -146,6 +148,10 @@
       .then(function (html) {
         sidebarRoot.innerHTML = html;
         setActiveLink(sidebarRoot);
+
+        // Logout footer এ extra CSS যোগ করা
+        injectSidebarStyles();
+
         if (window.lucide && typeof window.lucide.createIcons === "function") {
           window.lucide.createIcons();
         }
@@ -158,7 +164,7 @@
   function injectHeader() {
     var headerRoot = document.getElementById("header-root");
     if (!headerRoot) return Promise.resolve();
-    
+
     var main = document.querySelector("main");
     if (main && headerRoot.parentNode !== main) {
       main.insertBefore(headerRoot, main.firstChild);
@@ -178,6 +184,68 @@
       .catch(function (e) {
         console.error("Failed to load header", e);
       });
+  }
+
+  // Sidebar এর জন্য দরকারি CSS inject করা হচ্ছে
+  function injectSidebarStyles() {
+    if (document.getElementById("sidebar-extra-styles")) return;
+
+    var style = document.createElement("style");
+    style.id = "sidebar-extra-styles";
+    style.textContent = [
+      /* Sidebar কে flex column করা যাতে footer নিচে থাকে */
+      ".sidebar-component {",
+      "  display: flex !important;",
+      "  flex-direction: column !important;",
+      "}",
+
+      /* Nav flex-grow করবে */
+      ".sidebar-nav {",
+      "  flex: 1 1 auto !important;",
+      "  overflow-y: auto !important;",
+      "}",
+
+      /* Footer সবার নিচে */
+      ".sidebar-footer {",
+      "  margin-top: auto;",
+      "  padding: 10px 12px;",
+      "  border-top: 1px solid rgba(0,0,0,0.08);",
+      "  flex-shrink: 0;",
+      "}",
+
+      /* Logout বাটন */
+      ".sidebar-logout {",
+      "  width: 100%;",
+      "  text-align: left;",
+      "  background: none;",
+      "  border: none;",
+      "  cursor: pointer;",
+      "  color: #ef4444 !important;",
+      "  font-weight: 500;",
+      "}",
+
+      ".sidebar-logout:hover {",
+      "  background-color: #fef2f2 !important;",
+      "  color: #dc2626 !important;",
+      "}",
+
+      /* Sales section label - click করা যাবে না */
+      ".sidebar-section-label {",
+      "  cursor: default !important;",
+      "  pointer-events: none;",
+      "  font-weight: 600;",
+      "  opacity: 1;",
+      "}",
+
+      /* Sales sub-links list */
+      ".sidebar-sub-links {",
+      "  list-style: none;",
+      "  padding: 0;",
+      "  margin: 0;",
+      "}",
+    ].join("\n");
+
+    document.head.appendChild(style);
   }
 
   function initSmoothScroll() {
@@ -324,6 +392,19 @@
         });
     });
   }
+
+  // =====================
+  // Logout Handler
+  // =====================
+  window.handleLogout = function () {
+    if (confirm("আপনি কি সত্যিই Logout করতে চান?")) {
+      // এখানে আপনার logout logic দিন
+      // যেমন: localStorage clear, session clear, API call ইত্যাদি
+      // localStorage.clear();
+      // sessionStorage.clear();
+      window.location.href = "./login.html"; // আপনার login page এর path দিন
+    }
+  };
 
   document.addEventListener("DOMContentLoaded", function () {
     removeLegacySidebars();

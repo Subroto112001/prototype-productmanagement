@@ -1,37 +1,124 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta name="description" content="Set monthly sales targets, plan revenue, and track performance across the team.">
-        <title>Sales Targets &amp; Planning</title>
-
-        <!-- Tailwind CSS v3 CDN -->
-            <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-    <link href="./css/style.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="./js/tailwind-config.js"></script>
-
+        <title>Targets &amp; Planning — FR Trading</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&display=swap"
+                rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+                rel="stylesheet">
+        <link href="./css/style.css" rel="stylesheet">
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <script src="./js/tailwind-config.js"></script>
         <style>
-                .card-shadow {
-                        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+                body {
+                        font-family: 'Noto Serif', serif;
                 }
 
-                /* Tab transition styles */
-                .tab-content {
+                .card {
+                        background: #fff;
+                        border-radius: 10px;
+                        box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
+                }
+
+                /* Progress bar */
+                .progress-track {
+                        background: #e2e8f0;
+                        border-radius: 99px;
+                        height: 8px;
+                        overflow: hidden;
+                }
+
+                .progress-fill {
+                        height: 100%;
+                        border-radius: 99px;
+                        transition: width .6s ease;
+                }
+
+                /* Modal */
+                .modal-backdrop {
+                        position: fixed;
+                        inset: 0;
+                        background: rgba(0, 0, 0, .4);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 999;
+                        opacity: 0;
+                        pointer-events: none;
+                        transition: opacity .2s;
+                }
+
+                .modal-backdrop.open {
+                        opacity: 1;
+                        pointer-events: all;
+                }
+
+                .modal-box {
+                        background: #fff;
+                        border-radius: 12px;
+                        padding: 28px;
+                        width: 100%;
+                        max-width: 480px;
+                        transform: translateY(12px);
+                        transition: transform .2s;
+                        box-shadow: 0 8px 32px rgba(0, 0, 0, .14);
+                }
+
+                .modal-backdrop.open .modal-box {
+                        transform: translateY(0);
+                }
+
+                /* Tab */
+                .tab-btn {
+                        border-bottom: 2px solid transparent;
+                        padding-bottom: 10px;
+                }
+
+                .tab-btn.active {
+                        color: var(--color-primary, #00695c);
+                        border-color: var(--color-primary, #00695c);
+                        font-weight: 700;
+                }
+
+                /* Status badges */
+                .badge-achieved {
+                        background: #dcfce7;
+                        color: #166534;
+                }
+
+                .badge-ontrack {
+                        background: #dbeafe;
+                        color: #1e40af;
+                }
+
+                .badge-behind {
+                        background: #fef9c3;
+                        color: #854d0e;
+                }
+
+                .badge-missed {
+                        background: #fee2e2;
+                        color: #991b1b;
+                }
+
+                /* Fade-in for tab panels */
+                .tab-panel {
                         display: none;
-                        animation: fadeIn 0.3s ease-in-out;
+                        animation: fadeUp .25s ease;
                 }
 
-                .tab-content.active {
+                .tab-panel.active {
                         display: block;
                 }
 
-                @keyframes fadeIn {
+                @keyframes fadeUp {
                         from {
                                 opacity: 0;
-                                transform: translateY(5px);
+                                transform: translateY(6px);
                         }
 
                         to {
@@ -39,543 +126,641 @@
                                 transform: translateY(0);
                         }
                 }
+
+                /* Hover row */
+                tbody tr:hover {
+                        background: #f8fafc;
+                }
+
+                /* Circular progress */
+                .ring-svg {
+                        transform: rotate(-90deg);
+                }
+
+                .ring-bg {
+                        fill: none;
+                        stroke: #e2e8f0;
+                }
+
+                .ring-fill {
+                        fill: none;
+                        stroke-linecap: round;
+                        transition: stroke-dashoffset .7s ease;
+                }
         </style>
 </head>
 
-<body class="bg-content flex h-screen overflow-hidden font-sans antialiased text-slate-700">
+<body class="bg-slate-100 flex h-screen overflow-hidden text-slate-700">
 
-        <!-- BEGIN: Main Content Area -->
-        <main class="flex-1 flex flex-col overflow-y-auto bg-content flex-1 flex flex-col min-h-screen bg-background"><div id="header-root"></div><div class="space-y-8 p-container-margin w-full max-w-[1600px] mx-auto flex-1 flex flex-col gap-6">
+        <div id="sidebar-root"></div>
 
-                        <!-- Page Header -->
-                        <section aria-label="Page Header">
-                                <p class="text-sm text-slate-500 font-medium mb-1">Sales Planning</p>
-                                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                                        <div>
-                                                <h1 class="text-2xl font-bold text-slate-800">Targets &amp; Planning</h1>
-                                                <p class="text-sm text-slate-500 mt-1">Set monthly targets and track
-                                                        performance across the team.</p>
-                                        </div>
-                                        <div class="flex gap-3 w-full lg:w-auto">
-                                                <button class="w-full lg:w-auto px-4 py-2 bg-white border border-slate-300 rounded-md text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors flex items-center justify-center gap-2">
-                                                        <i class="w-4 h-4" data-lucide="download"></i> Download
-                                                </button>
-                                                <button class="w-full lg:w-auto px-4 py-2 bg-primary text-white rounded-md shadow-[0_2px_0_0_#005049] hover:bg-teal-700 hover:shadow-none translate-y-[2px] active:translate-y-0 transition-all text-sm font-semibold flex items-center justify-center gap-2">
-                                                        <span class="material-symbols-outlined text-[18px]" aria-hidden="true">add_task</span> New Target
-                                                </button>
-                                        </div>
-                                </div>
-                        </section>
+        <main class="flex-1 flex flex-col overflow-y-auto">
+                <div id="header-root"></div>
 
-                        <!-- BEGIN: Summary Cards -->
-                        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" aria-label="Target Summary">
-                                <div class="bg-white p-6 rounded-lg card-shadow border-l-4 border-primary">
-                                        <p class="text-sm text-slate-500 font-medium mb-1">Monthly Target</p>
-                                        <p class="text-2xl font-bold text-slate-800">$1.8M</p>
-                                        <p class="text-xs text-slate-400 mt-2 font-medium">Across 4 regions</p>
-                                </div>
-                                <div class="bg-white p-6 rounded-lg card-shadow border-l-4 border-emerald-500">
-                                        <p class="text-sm text-slate-500 font-medium mb-1">Achieved</p>
-                                        <p class="text-2xl font-bold text-slate-800">$1.12M</p>
-                                        <p class="text-xs text-emerald-600 mt-2 font-medium flex items-center"><i class="w-3 h-3 mr-1" data-lucide="check-circle"></i> 62% of
-                                                target</p>
-                                </div>
-                                <div class="bg-white p-6 rounded-lg card-shadow border-l-4 border-amber-500">
-                                        <p class="text-sm text-slate-500 font-medium mb-1">Pipeline</p>
-                                        <p class="text-2xl font-bold text-slate-800">$540K</p>
-                                        <p class="text-xs text-slate-400 mt-2 font-medium">Deals in review</p>
-                                </div>
-                                <div class="bg-white p-6 rounded-lg card-shadow border-l-4 border-rose-500">
-                                        <p class="text-sm text-slate-500 font-medium mb-1">Risk Accounts</p>
-                                        <p class="text-2xl font-bold text-slate-800">12</p>
-                                        <p class="text-xs text-rose-500 mt-2 font-medium flex items-center"><i class="w-3 h-3 mr-1" data-lucide="alert-triangle"></i> Requires
-                                                follow-up</p>
-                                </div>
-                        </section>
-                        <!-- END: Summary Cards -->
+                <div class="p-6 max-w-[1400px] mx-auto w-full space-y-6">
 
-                        <!-- BEGIN: Tabs Section -->
-                        <section class="bg-white rounded-lg card-shadow" aria-label="Planning and Performance Details">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div>
+                                        <p class="text-xs text-slate-400 font-semibold uppercase tracking-widest mb-1">
+                                                Business Planning</p>
+                                        <h1 class="text-2xl font-bold text-slate-800">Targets &amp; Planning</h1>
+                                        <p class="text-sm text-slate-500 mt-0.5">Set monthly targets and track business
+                                                progress.</p>
+                                </div>
+                                <button onclick="openModal()"
+                                        class="flex items-center gap-2 px-5 py-2.5 bg-primary text-white rounded-lg text-sm font-semibold shadow-[0_2px_0_#005049] hover:bg-teal-700 hover:shadow-none active:translate-y-0.5 transition-all">
+                                        <span class="material-symbols-outlined text-[18px]">add_task</span>
+                                        New Target
+                                </button>
+                        </div>
 
-                                <!-- Tab Headers -->
-                                <div class="border-b border-slate-200 px-6 py-4 flex items-center gap-6" role="tablist">
-                                        <button id="tab-plan" role="tab" aria-selected="true" aria-controls="panel-plan" class="tab-btn text-sm font-bold text-primary border-b-2 border-primary pb-2 transition-colors focus:outline-none">
-                                                Plan Setup
-                                        </button>
-                                        <button id="tab-performance" role="tab" aria-selected="false" aria-controls="panel-performance" class="tab-btn text-sm font-semibold text-slate-500 border-b-2 border-transparent hover:text-slate-700 pb-2 transition-colors focus:outline-none">
-                                                Performance
-                                        </button>
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" id="kpi-cards">
+                        </div>
+
+                        <div class="card overflow-hidden">
+                                <div class="border-b border-slate-200 px-6 flex gap-6">
+                                        <button class="tab-btn active text-sm" data-tab="overview">Overview</button>
+                                        <button class="tab-btn text-sm text-slate-500 font-semibold"
+                                                data-tab="targets">Monthly Targets</button>
+                                        <button class="tab-btn text-sm text-slate-500 font-semibold"
+                                                data-tab="history">History</button>
                                 </div>
 
-                                <!-- Tab Panel 1: Plan Setup -->
-                                <div id="panel-plan" role="tabpanel" aria-labelledby="tab-plan" class="p-6 tab-content active">
-                                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                                <div class="tab-panel active p-6" id="tab-overview">
+                                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-                                                <!-- Target Builder Form -->
-                                                <div class="lg:col-span-2 space-y-6">
-                                                        <h3 class="text-lg font-bold text-slate-800">Target Builder</h3>
-                                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                                                <div>
-                                                                        <label for="regionSelect" class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">Region</label>
-                                                                        <select id="regionSelect" class="w-full border border-slate-300 rounded-md px-4 py-2.5 text-sm text-slate-700 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-slate-50 transition-colors">
-                                                                                <option>North</option>
-                                                                                <option>South</option>
-                                                                                <option>East</option>
-                                                                                <option>West</option>
-                                                                        </select>
-                                                                </div>
-                                                                <div>
-                                                                        <label for="monthInput" class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">Month</label>
-                                                                        <input id="monthInput" type="month" value="2026-05" class="w-full border border-slate-300 rounded-md px-4 py-2 text-sm text-slate-700 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-slate-50 transition-colors">
-                                                                </div>
-                                                                <div>
-                                                                        <label for="targetRevenue" class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">Target
-                                                                                Revenue</label>
-                                                                        <input id="targetRevenue" type="text" placeholder="$450,000" class="w-full border border-slate-300 rounded-md px-4 py-2.5 text-sm text-slate-700 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-slate-50 transition-colors">
-                                                                </div>
-                                                                <div>
-                                                                        <label for="targetOrders" class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">Target
-                                                                                Orders</label>
-                                                                        <input id="targetOrders" type="number" placeholder="120" class="w-full border border-slate-300 rounded-md px-4 py-2.5 text-sm text-slate-700 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-slate-50 transition-colors">
+                                                <div
+                                                        class="flex flex-col items-center justify-center gap-3 p-6 bg-slate-50 rounded-xl border border-slate-200">
+                                                        <p
+                                                                class="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                                                                This Month's Achievement</p>
+                                                        <div class="relative w-36 h-36">
+                                                                <svg class="ring-svg w-full h-full"
+                                                                        viewBox="0 0 120 120">
+                                                                        <circle class="ring-bg" cx="60" cy="60" r="52"
+                                                                                stroke-width="10" />
+                                                                        <circle id="ring-fill" class="ring-fill" cx="60"
+                                                                                cy="60" r="52" stroke="#00897b"
+                                                                                stroke-width="10"
+                                                                                stroke-dasharray="326.7"
+                                                                                stroke-dashoffset="326.7" />
+                                                                </svg>
+                                                                <div
+                                                                        class="absolute inset-0 flex flex-col items-center justify-center">
+                                                                        <span id="ring-pct"
+                                                                                class="text-2xl font-bold text-slate-800">0%</span>
+                                                                        <span
+                                                                                class="text-xs text-slate-400">Achieved</span>
                                                                 </div>
                                                         </div>
-                                                        <button class="px-6 py-2.5 bg-primary text-white rounded-md text-sm font-bold shadow-[0_2px_0_0_#005049] hover:bg-teal-700 hover:shadow-none translate-y-[2px] active:translate-y-0 transition-all">
-                                                                Save Target
-                                                        </button>
-                                                </div>
-
-                                                <!-- Target Guidelines -->
-                                                <div class="bg-blue-50 border border-blue-100 rounded-lg p-5">
-                                                        <h4 class="text-sm font-bold text-blue-900 flex items-center gap-2">
-                                                                <i class="w-4 h-4" data-lucide="info"></i> Target
-                                                                Guidelines
-                                                        </h4>
-                                                        <ul class="mt-4 space-y-3 text-sm text-blue-800 list-disc list-inside">
-                                                                <li>Update targets before the 5th of each month.</li>
-                                                                <li>Align regional targets with pipeline forecasts.</li>
-                                                                <li>Review target variance weekly with sales leads.</li>
-                                                        </ul>
-                                                </div>
-                                        </div>
-
-                                        <!-- Current Month Targets Table -->
-                                        <div class="mt-10">
-                                                <h4 class="text-lg font-bold text-slate-800 mb-4">Current Month Targets
-                                                </h4>
-                                                <div class="border border-slate-200 rounded-lg overflow-hidden">
-                                                        <div class="overflow-x-auto">
-                                                                <table class="w-full text-left text-sm whitespace-nowrap">
-                                                                        <thead class="bg-slate-50 text-slate-500 uppercase font-semibold">
-                                                                                <tr>
-                                                                                        <th scope="col" class="px-6 py-4 border-b border-slate-200">
-                                                                                                Region</th>
-                                                                                        <th scope="col" class="px-6 py-4 border-b border-slate-200">
-                                                                                                Target Revenue</th>
-                                                                                        <th scope="col" class="px-6 py-4 border-b border-slate-200">
-                                                                                                Target Orders</th>
-                                                                                        <th scope="col" class="px-6 py-4 border-b border-slate-200">
-                                                                                                Owner</th>
-                                                                                        <th scope="col" class="px-6 py-4 border-b border-slate-200 text-right">
-                                                                                                Status</th>
-                                                                                </tr>
-                                                                        </thead>
-                                                                        <tbody class="divide-y divide-slate-100 text-slate-700">
-                                                                                <tr class="hover:bg-slate-50 transition-colors">
-                                                                                        <td class="px-6 py-4 font-semibold text-slate-800">
-                                                                                                North</td>
-                                                                                        <td class="px-6 py-4 font-medium">
-                                                                                                $520,000</td>
-                                                                                        <td class="px-6 py-4">160</td>
-                                                                                        <td class="px-6 py-4">A. Rahman
-                                                                                        </td>
-                                                                                        <td class="px-6 py-4 text-right">
-                                                                                                <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">On
-                                                                                                        Track</span>
-                                                                                        </td>
-                                                                                </tr>
-                                                                                <tr class="hover:bg-slate-50 transition-colors">
-                                                                                        <td class="px-6 py-4 font-semibold text-slate-800">
-                                                                                                South</td>
-                                                                                        <td class="px-6 py-4 font-medium">
-                                                                                                $430,000</td>
-                                                                                        <td class="px-6 py-4">140</td>
-                                                                                        <td class="px-6 py-4">S. Ali
-                                                                                        </td>
-                                                                                        <td class="px-6 py-4 text-right">
-                                                                                                <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800">Needs
-                                                                                                        Focus</span>
-                                                                                        </td>
-                                                                                </tr>
-                                                                                <tr class="hover:bg-slate-50 transition-colors">
-                                                                                        <td class="px-6 py-4 font-semibold text-slate-800">
-                                                                                                East</td>
-                                                                                        <td class="px-6 py-4 font-medium">
-                                                                                                $410,000</td>
-                                                                                        <td class="px-6 py-4">135</td>
-                                                                                        <td class="px-6 py-4">N. Khan
-                                                                                        </td>
-                                                                                        <td class="px-6 py-4 text-right">
-                                                                                                <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">On
-                                                                                                        Track</span>
-                                                                                        </td>
-                                                                                </tr>
-                                                                        </tbody>
-                                                                </table>
+                                                        <div class="text-center">
+                                                                <p class="text-sm font-semibold text-slate-700"
+                                                                        id="ov-achieved-amt">—</p>
+                                                                <p class="text-xs text-slate-400">/ <span
+                                                                                id="ov-target-amt">—</span> Target</p>
                                                         </div>
+                                                </div>
+
+                                                <div class="space-y-3">
+                                                        <p
+                                                                class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+                                                                Key Metrics</p>
+                                                        <div id="quick-stats" class="space-y-3"></div>
+                                                </div>
+
+                                                <div>
+                                                        <p
+                                                                class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
+                                                                Last 6 Months Summary</p>
+                                                        <div id="status-breakdown" class="space-y-2"></div>
                                                 </div>
                                         </div>
                                 </div>
 
-                                <!-- Tab Panel 2: Performance -->
-                                <div id="panel-performance" role="tabpanel" aria-labelledby="tab-performance" class="p-6 tab-content">
-                                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-                                                <div class="lg:col-span-2 bg-slate-50 border border-slate-200 rounded-lg p-6">
-                                                        <h3 class="text-lg font-bold text-slate-800">Performance
-                                                                Snapshot</h3>
-                                                        <p class="text-sm text-slate-500 mt-1">Track performance against
-                                                                targets over the past 12 weeks.</p>
-                                                        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                                                <div class="bg-white rounded-md p-5 border border-slate-200 card-shadow">
-                                                                        <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                                                                                Weekly Avg</p>
-                                                                        <p class="text-2xl font-bold text-slate-800 mt-2">
-                                                                                $92K</p>
-                                                                </div>
-                                                                <div class="bg-white rounded-md p-5 border border-slate-200 card-shadow">
-                                                                        <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                                                                                Best Week</p>
-                                                                        <p class="text-2xl font-bold text-slate-800 mt-2">
-                                                                                $148K</p>
-                                                                </div>
-                                                        </div>
-                                                </div>
-
-                                                <div class="bg-white rounded-lg border border-slate-200 p-6 card-shadow">
-                                                        <h4 class="text-lg font-bold text-slate-800 mb-1">Top Performers
-                                                        </h4>
-                                                        <p class="text-xs text-slate-500 mb-4">By generated revenue</p>
-                                                        <ul class="space-y-4 text-sm text-slate-700">
-                                                                <li class="flex justify-between items-center pb-3 border-b border-slate-100">
-                                                                        <span class="font-medium">Robert Fox</span>
-                                                                        <span class="font-bold text-slate-800 bg-slate-50 px-2 py-1 rounded">$320K</span>
-                                                                </li>
-                                                                <li class="flex justify-between items-center pb-3 border-b border-slate-100">
-                                                                        <span class="font-medium">Jane Cooper</span>
-                                                                        <span class="font-bold text-slate-800 bg-slate-50 px-2 py-1 rounded">$287K</span>
-                                                                </li>
-                                                                <li class="flex justify-between items-center">
-                                                                        <span class="font-medium">Wade Warren</span>
-                                                                        <span class="font-bold text-slate-800 bg-slate-50 px-2 py-1 rounded">$241K</span>
-                                                                </li>
-                                                        </ul>
-                                                </div>
-
-                                        </div>
-
-                                        <!-- Variance by Region -->
-                                        <div class="mt-10">
-                                                <h4 class="text-lg font-bold text-slate-800 mb-4">Variance by Region
-                                                </h4>
-                                                <div class="border border-slate-200 rounded-lg overflow-hidden">
-                                                        <div class="overflow-x-auto">
-                                                                <table class="w-full text-left text-sm whitespace-nowrap">
-                                                                        <thead class="bg-slate-50 text-slate-500 uppercase font-semibold">
-                                                                                <tr>
-                                                                                        <th scope="col" class="px-6 py-4 border-b border-slate-200">
-                                                                                                Region</th>
-                                                                                        <th scope="col" class="px-6 py-4 border-b border-slate-200">
-                                                                                                Target</th>
-                                                                                        <th scope="col" class="px-6 py-4 border-b border-slate-200">
-                                                                                                Actual</th>
-                                                                                        <th scope="col" class="px-6 py-4 border-b border-slate-200 text-right">
-                                                                                                Variance</th>
-                                                                                </tr>
-                                                                        </thead>
-                                                                        <tbody class="divide-y divide-slate-100 text-slate-700">
-                                                                                <tr class="hover:bg-slate-50 transition-colors">
-                                                                                        <td class="px-6 py-4 font-semibold text-slate-800">
-                                                                                                North</td>
-                                                                                        <td class="px-6 py-4 font-medium">
-                                                                                                $520K</td>
-                                                                                        <td class="px-6 py-4 font-medium">
-                                                                                                $545K</td>
-                                                                                        <td class="px-6 py-4 text-right font-bold text-emerald-600">
-                                                                                                +5%</td>
-                                                                                </tr>
-                                                                                <tr class="hover:bg-slate-50 transition-colors">
-                                                                                        <td class="px-6 py-4 font-semibold text-slate-800">
-                                                                                                South</td>
-                                                                                        <td class="px-6 py-4 font-medium">
-                                                                                                $430K</td>
-                                                                                        <td class="px-6 py-4 font-medium">
-                                                                                                $378K</td>
-                                                                                        <td class="px-6 py-4 text-right font-bold text-rose-600">
-                                                                                                -12%</td>
-                                                                                </tr>
-                                                                                <tr class="hover:bg-slate-50 transition-colors">
-                                                                                        <td class="px-6 py-4 font-semibold text-slate-800">
-                                                                                                East</td>
-                                                                                        <td class="px-6 py-4 font-medium">
-                                                                                                $410K</td>
-                                                                                        <td class="px-6 py-4 font-medium">
-                                                                                                $438K</td>
-                                                                                        <td class="px-6 py-4 text-right font-bold text-emerald-600">
-                                                                                                +7%</td>
-                                                                                </tr>
-                                                                        </tbody>
-                                                                </table>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
-                        </section>
-                        <!-- END: Tabs Section -->
-
-                        <!-- BEGIN: Advanced Setup (Integrated from orphaned code) -->
-                        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6" aria-label="Advanced Planning Settings">
-
-                                <!-- Plan Setup Form -->
-                                <div class="lg:col-span-1 space-y-6">
-                                        <div class="bg-white rounded-lg card-shadow border-t-4 border-slate-800 p-6">
-                                                <h3 class="text-lg font-bold text-slate-800 mb-6">Advanced Plan Setup
-                                                </h3>
-
-                                                <form class="space-y-5" data-validate="" data-success-message="Advanced plan saved.">
-                                                        <div>
-                                                                <label for="advMonth" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Select
-                                                                        Month</label>
-                                                                <input id="advMonth" class="w-full bg-slate-50 rounded border border-slate-300 focus:border-primary focus:ring-1 focus:ring-primary text-sm px-4 py-2.5 transition-colors" type="month" value="2026-05" required="">
-                                                        </div>
-
-                                                        <div>
-                                                                <label for="advAmount" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Target
-                                                                        Amount (BDT)</label>
-                                                                <div class="relative">
-                                                                        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 font-medium">৳</span>
-                                                                        <input id="advAmount" class="w-full bg-slate-50 rounded border border-slate-300 focus:border-primary focus:ring-1 focus:ring-primary text-sm pl-8 pr-4 py-2.5 transition-colors" placeholder="0.00" type="number" required="">
-                                                                </div>
-                                                        </div>
-
-                                                        <div class="border-t border-slate-200 pt-5 mt-2">
-                                                                <div class="flex items-center justify-between mb-4">
-                                                                        <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Product-wise
-                                                                                Target (Optional)</label>
-                                                                        <button class="text-primary hover:text-teal-700 transition-colors" type="button" aria-label="Add Product">
-                                                                                <span class="material-symbols-outlined text-[20px]">add_circle</span>
-                                                                        </button>
-                                                                </div>
-
-                                                                <div class="space-y-3">
-                                                                        <div class="flex gap-2 items-center">
-                                                                                <select aria-label="Select Product" class="flex-1 bg-slate-50 rounded border border-slate-300 focus:border-primary focus:ring-1 focus:ring-primary text-sm px-3 py-2 transition-colors">
-                                                                                        <option>Select Product</option>
-                                                                                        <option>Premium Widget A
-                                                                                        </option>
-                                                                                        <option>Standard Part B</option>
-                                                                                </select>
-                                                                                <input aria-label="Quantity" class="w-20 bg-slate-50 rounded border border-slate-300 focus:border-primary focus:ring-1 focus:ring-primary text-sm px-3 py-2 transition-colors" placeholder="Qty" type="number">
-                                                                                <button class="text-rose-500 hover:text-rose-700 transition-colors p-1" type="button" aria-label="Remove Product">
-                                                                                        <span class="material-symbols-outlined text-[18px]">close</span>
-                                                                                </button>
-                                                                        </div>
-                                                                </div>
-                                                        </div>
-
-                                                        <div class="pt-4 flex flex-col gap-3">
-                                                                <button class="w-full py-2.5 bg-slate-800 text-white text-sm font-bold rounded shadow-sm hover:bg-slate-700 transition-colors" type="button">
-                                                                        Save Plan
-                                                                </button>
-                                                                <button class="w-full py-2.5 bg-white text-primary border border-primary text-sm font-bold rounded hover:bg-slate-50 transition-colors" type="button">
-                                                                        Copy Previous Month
-                                                                </button>
-                                                        </div>
-                                                </form>
+                                <div class="tab-panel" id="tab-targets">
+                                        <div class="overflow-x-auto">
+                                                <table class="w-full text-sm text-left whitespace-nowrap">
+                                                        <thead
+                                                                class="bg-slate-50 text-xs text-slate-500 uppercase font-semibold border-b border-slate-200">
+                                                                <tr>
+                                                                        <th class="px-6 py-4">Month</th>
+                                                                        <th class="px-6 py-4 text-right">Target (৳)
+                                                                        </th>
+                                                                        <th class="px-6 py-4 text-right">Achieved (৳)
+                                                                        </th>
+                                                                        <th class="px-6 py-4">Progress</th>
+                                                                        <th class="px-6 py-4">Status</th>
+                                                                        <th class="px-6 py-4 text-right">Action</th>
+                                                                </tr>
+                                                        </thead>
+                                                        <tbody id="targets-tbody"
+                                                                class="divide-y divide-slate-100 text-slate-700">
+                                                        </tbody>
+                                                </table>
                                         </div>
                                 </div>
 
-                                <!-- Existing Plans Table -->
-                                <div class="lg:col-span-2">
-                                        <div class="bg-white rounded-lg card-shadow overflow-hidden flex flex-col h-full">
-                                                <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                                                        <h3 class="text-lg font-bold text-slate-800">Existing Plans</h3>
-                                                        <button class="text-slate-400 hover:text-primary transition-colors" aria-label="Filter plans">
-                                                                <span class="material-symbols-outlined text-[20px]">filter_list</span>
-                                                        </button>
+                                <div class="tab-panel" id="tab-history">
+                                        <div class="p-6">
+                                                <p
+                                                        class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">
+                                                        Annual Performance (2026)</p>
+                                                <div id="bar-chart"
+                                                        class="flex items-end gap-3 h-48 border-b border-slate-200 pb-2">
                                                 </div>
-
-                                                <div class="overflow-x-auto">
-                                                        <table class="w-full text-left text-sm whitespace-nowrap">
-                                                                <thead class="bg-white text-slate-500 uppercase font-semibold border-b border-slate-200">
-                                                                        <tr>
-                                                                                <th scope="col" class="px-6 py-4">Month
-                                                                                </th>
-                                                                                <th scope="col" class="px-6 py-4 text-right">
-                                                                                        Target (BDT)</th>
-                                                                                <th scope="col" class="px-6 py-4">
-                                                                                        Achieved (%)</th>
-                                                                                <th scope="col" class="px-6 py-4">Status
-                                                                                </th>
-                                                                                <th scope="col" class="px-6 py-4 text-right">
-                                                                                        Actions</th>
-                                                                        </tr>
-                                                                </thead>
-                                                                <tbody class="divide-y divide-slate-100 text-slate-700">
-                                                                        <tr class="hover:bg-slate-50 transition-colors group">
-                                                                                <td class="px-6 py-4 font-semibold text-slate-800">
-                                                                                        April 2026</td>
-                                                                                <td class="px-6 py-4 text-right font-medium">
-                                                                                        1,250,000</td>
-                                                                                <td class="px-6 py-4">
-                                                                                        <div class="flex items-center gap-3">
-                                                                                                <div class="w-24 h-2 bg-slate-200 rounded-full overflow-hidden" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                                                                                        <div class="h-full bg-primary" style="width: 85%">
-                                                                                                        </div>
-                                                                                                </div>
-                                                                                                <span class="font-medium text-xs">85%</span>
-                                                                                        </div>
-                                                                                </td>
-                                                                                <td class="px-6 py-4">
-                                                                                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">On
-                                                                                                Track</span>
-                                                                                </td>
-                                                                                <td class="px-6 py-4 text-right">
-                                                                                        <div class="flex items-center justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                                                                <button class="text-slate-400 hover:text-primary transition-colors" aria-label="Edit Plan"><span class="material-symbols-outlined text-[18px]">edit</span></button>
-                                                                                                <button class="text-slate-400 hover:text-primary transition-colors" aria-label="View Plan"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
-                                                                                        </div>
-                                                                                </td>
-                                                                        </tr>
-
-                                                                        <tr class="hover:bg-slate-50 transition-colors group">
-                                                                                <td class="px-6 py-4 font-semibold text-slate-800">
-                                                                                        March 2026</td>
-                                                                                <td class="px-6 py-4 text-right font-medium">
-                                                                                        1,100,000</td>
-                                                                                <td class="px-6 py-4">
-                                                                                        <div class="flex items-center gap-3">
-                                                                                                <div class="w-24 h-2 bg-slate-200 rounded-full overflow-hidden" role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100">
-                                                                                                        <div class="h-full bg-amber-500" style="width: 42%">
-                                                                                                        </div>
-                                                                                                </div>
-                                                                                                <span class="font-medium text-xs">42%</span>
-                                                                                        </div>
-                                                                                </td>
-                                                                                <td class="px-6 py-4">
-                                                                                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800">Behind</span>
-                                                                                </td>
-                                                                                <td class="px-6 py-4 text-right">
-                                                                                        <div class="flex items-center justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                                                                <button class="text-slate-400 hover:text-primary transition-colors" aria-label="Edit Plan"><span class="material-symbols-outlined text-[18px]">edit</span></button>
-                                                                                                <button class="text-slate-400 hover:text-primary transition-colors" aria-label="View Plan"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
-                                                                                        </div>
-                                                                                </td>
-                                                                        </tr>
-
-                                                                        <tr class="hover:bg-slate-50 transition-colors group">
-                                                                                <td class="px-6 py-4 font-semibold text-slate-800">
-                                                                                        February 2026</td>
-                                                                                <td class="px-6 py-4 text-right font-medium">
-                                                                                        950,000</td>
-                                                                                <td class="px-6 py-4">
-                                                                                        <div class="flex items-center gap-3">
-                                                                                                <div class="w-24 h-2 bg-slate-200 rounded-full overflow-hidden" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                                                                                                        <div class="h-full bg-emerald-500" style="width: 100%">
-                                                                                                        </div>
-                                                                                                </div>
-                                                                                                <span class="font-medium text-xs">102%</span>
-                                                                                        </div>
-                                                                                </td>
-                                                                                <td class="px-6 py-4">
-                                                                                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">Achieved</span>
-                                                                                </td>
-                                                                                <td class="px-6 py-4 text-right">
-                                                                                        <div class="flex items-center justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                                                                <button class="text-slate-400 hover:text-primary transition-colors" aria-label="Edit Plan"><span class="material-symbols-outlined text-[18px]">edit</span></button>
-                                                                                                <button class="text-slate-400 hover:text-primary transition-colors" aria-label="View Plan"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
-                                                                                        </div>
-                                                                                </td>
-                                                                        </tr>
-
-                                                                        <tr class="hover:bg-slate-50 transition-colors group">
-                                                                                <td class="px-6 py-4 font-semibold text-slate-800">
-                                                                                        January 2026</td>
-                                                                                <td class="px-6 py-4 text-right font-medium">
-                                                                                        900,000</td>
-                                                                                <td class="px-6 py-4">
-                                                                                        <div class="flex items-center gap-3">
-                                                                                                <div class="w-24 h-2 bg-slate-200 rounded-full overflow-hidden" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
-                                                                                                        <div class="h-full bg-primary" style="width: 95%">
-                                                                                                        </div>
-                                                                                                </div>
-                                                                                                <span class="font-medium text-xs">95%</span>
-                                                                                        </div>
-                                                                                </td>
-                                                                                <td class="px-6 py-4">
-                                                                                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">On
-                                                                                                Track</span>
-                                                                                </td>
-                                                                                <td class="px-6 py-4 text-right">
-                                                                                        <div class="flex items-center justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                                                                <button class="text-slate-400 hover:text-primary transition-colors" aria-label="Edit Plan"><span class="material-symbols-outlined text-[18px]">edit</span></button>
-                                                                                                <button class="text-slate-400 hover:text-primary transition-colors" aria-label="View Plan"><span class="material-symbols-outlined text-[18px]">visibility</span></button>
-                                                                                        </div>
-                                                                                </td>
-                                                                        </tr>
-                                                                </tbody>
-                                                        </table>
+                                                <div id="bar-labels"
+                                                        class="flex gap-3 mt-2 text-xs text-slate-400 text-center">
                                                 </div>
                                         </div>
                                 </div>
-                        </section>
-                        <!-- END: Advanced Setup -->
+                        </div>
 
-                </div></main>
+                        <div class="card p-6">
+                                <p class="text-sm font-bold text-slate-700 mb-4">Recent Activity</p>
+                                <ul id="activity-log" class="space-y-3 text-sm text-slate-600"></ul>
+                        </div>
 
-        <script src="./js/sidebar.js" defer=""></script>
+                </div>
+        </main>
+
+        <div class="modal-backdrop" id="target-modal">
+                <div class="modal-box">
+                        <div class="flex items-center justify-between mb-5">
+                                <h2 class="text-base font-bold text-slate-800">New Monthly Target</h2>
+                                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600">
+                                        <span class="material-symbols-outlined text-[20px]">close</span>
+                                </button>
+                        </div>
+
+                        <div class="space-y-4">
+                                <div>
+                                        <label
+                                                class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1.5">Select
+                                                Month</label>
+                                        <input id="m-month" type="month"
+                                                class="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-slate-50">
+                                </div>
+                                <div>
+                                        <label
+                                                class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1.5">Target
+                                                Amount (৳)</label>
+                                        <input id="m-target" type="number" placeholder="e.g., 500000"
+                                                class="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-slate-50">
+                                </div>
+                                <div>
+                                        <label
+                                                class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1.5">Achieved
+                                                Amount (৳) <span
+                                                        class="text-slate-400 font-normal normal-case">(Optional)</span></label>
+                                        <input id="m-achieved" type="number" placeholder="e.g., 350000"
+                                                class="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-slate-50">
+                                </div>
+                                <div>
+                                        <label
+                                                class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1.5">Note
+                                                <span
+                                                        class="text-slate-400 font-normal normal-case">(Optional)</span></label>
+                                        <textarea id="m-note" rows="2" placeholder="Plans for this month..."
+                                                class="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-slate-50 resize-none"></textarea>
+                                </div>
+                        </div>
+
+                        <div class="flex gap-3 mt-6">
+                                <button onclick="closeModal()"
+                                        class="flex-1 py-2.5 border border-slate-300 rounded-lg text-sm font-semibold text-slate-600 hover:bg-slate-50 transition-colors">Cancel</button>
+                                <button onclick="saveTarget()"
+                                        class="flex-1 py-2.5 bg-primary text-white rounded-lg text-sm font-bold shadow-[0_2px_0_#005049] hover:bg-teal-700 hover:shadow-none active:translate-y-0.5 transition-all">Save</button>
+                        </div>
+                </div>
+        </div>
+
+        <div class="modal-backdrop" id="edit-modal">
+                <div class="modal-box">
+                        <div class="flex items-center justify-between mb-5">
+                                <h2 class="text-base font-bold text-slate-800">Edit Target</h2>
+                                <button onclick="closeEditModal()" class="text-slate-400 hover:text-slate-600">
+                                        <span class="material-symbols-outlined text-[20px]">close</span>
+                                </button>
+                        </div>
+                        <input type="hidden" id="e-idx">
+                        <div class="space-y-4">
+                                <div>
+                                        <label
+                                                class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1.5">Month</label>
+                                        <input id="e-month" type="month"
+                                                class="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-slate-50">
+                                </div>
+                                <div>
+                                        <label
+                                                class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1.5">Target
+                                                (৳)</label>
+                                        <input id="e-target" type="number"
+                                                class="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-slate-50">
+                                </div>
+                                <div>
+                                        <label
+                                                class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1.5">Achieved
+                                                (৳)</label>
+                                        <input id="e-achieved" type="number"
+                                                class="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-slate-50">
+                                </div>
+                                <div>
+                                        <label
+                                                class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1.5">Note</label>
+                                        <textarea id="e-note" rows="2"
+                                                class="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-slate-50 resize-none"></textarea>
+                                </div>
+                        </div>
+                        <div class="flex gap-3 mt-6">
+                                <button onclick="closeEditModal()"
+                                        class="flex-1 py-2.5 border border-slate-300 rounded-lg text-sm font-semibold text-slate-600 hover:bg-slate-50 transition-colors">Cancel</button>
+                                <button onclick="updateTarget()"
+                                        class="flex-1 py-2.5 bg-primary text-white rounded-lg text-sm font-bold shadow-[0_2px_0_#005049] hover:bg-teal-700 hover:shadow-none active:translate-y-0.5 transition-all">Update</button>
+                        </div>
+                </div>
+        </div>
+
+        <script src="./js/sidebar.js" defer></script>
         <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                        // Initialize Lucide Icons
-                        if (window.lucide && typeof window.lucide.createIcons === "function") {
-                                window.lucide.createIcons();
+                // ══════════════════════════════════════════════
+                //  DATA STORE
+                // ══════════════════════════════════════════════
+                const STORAGE_KEY = 'fr_targets_v2';
+
+                const defaultTargets = [
+                        { month: '2026-05', target: 1500000, achieved: 780000, note: 'May Target' },
+                        { month: '2026-04', target: 1250000, achieved: 1300000, note: '' },
+                        { month: '2026-03', target: 1100000, achieved: 870000, note: '' },
+                        { month: '2026-02', target: 950000, achieved: 980000, note: '' },
+                        { month: '2026-01', target: 900000, achieved: 855000, note: '' },
+                        { month: '2025-12', target: 1400000, achieved: 1420000, note: 'December Bonus Season' },
+                ];
+
+                function loadTargets() {
+                        try {
+                                const raw = localStorage.getItem(STORAGE_KEY);
+                                return raw ? JSON.parse(raw) : defaultTargets;
+                        } catch (e) { return defaultTargets; }
+                }
+
+                function saveTargets(targets) {
+                        localStorage.setItem(STORAGE_KEY, JSON.stringify(targets));
+                }
+
+                let targets = loadTargets();
+
+                // ══════════════════════════════════════════════
+                //  HELPERS
+                // ══════════════════════════════════════════════
+                function fmt(n) {
+                        return '৳' + Number(n).toLocaleString('en-IN');
+                }
+
+                function monthLabel(m) {
+                        const [y, mo] = m.split('-');
+                        const months = ['January', 'February', 'March', 'April', 'May', 'June',
+                                'July', 'August', 'September', 'October', 'November', 'December'];
+                        return months[parseInt(mo) - 1] + ' ' + y;
+                }
+
+                function pct(t, a) {
+                        if (!t || t === 0) return 0;
+                        return Math.min(Math.round((a / t) * 100), 999);
+                }
+
+                function statusInfo(t, a) {
+                        const p = pct(t, a);
+                        if (a === 0 || a === null || a === undefined) return { label: 'Pending', cls: 'bg-slate-100 text-slate-600', bar: '#94a3b8' };
+                        if (p >= 100) return { label: 'Achieved ✓', cls: 'badge-achieved', bar: '#16a34a' };
+                        if (p >= 80) return { label: 'On Track', cls: 'badge-ontrack', bar: '#2563eb' };
+                        if (p >= 50) return { label: 'Behind', cls: 'badge-behind', bar: '#d97706' };
+                        return { label: 'Missed', cls: 'badge-missed', bar: '#dc2626' };
+                }
+
+                function todayMonth() {
+                        const d = new Date();
+                        return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+                }
+
+                // ══════════════════════════════════════════════
+                //  KPI CARDS
+                // ══════════════════════════════════════════════
+                function renderKPI() {
+                        const current = targets.find(t => t.month === todayMonth()) || targets[0];
+                        const p = pct(current.target, current.achieved);
+                        const remaining = Math.max(0, current.target - (current.achieved || 0));
+
+                        const totalAchieved = targets.reduce((s, t) => s + (t.achieved || 0), 0);
+                        const achieved100 = targets.filter(t => t.achieved >= t.target).length;
+
+                        const cards = [
+                                { icon: 'target', label: "This Month's Target", value: fmt(current.target), sub: monthLabel(current.month), color: 'border-primary' },
+                                { icon: 'trending_up', label: 'Achieved This Month', value: fmt(current.achieved || 0), sub: p + '% Completed', color: 'border-emerald-500' },
+                                { icon: 'hourglass_bottom', label: 'Remaining Amount', value: fmt(remaining), sub: 'Remaining to achieve', color: 'border-amber-500' },
+                                { icon: 'workspace_premium', label: 'Successful Months', value: achieved100 + ' / ' + targets.length, sub: 'Target achieved', color: 'border-violet-500' },
+                        ];
+
+                        document.getElementById('kpi-cards').innerHTML = cards.map(c => `
+        <div class="card p-5 border-l-4 ${c.color}">
+            <div class="flex items-start justify-between">
+                <div>
+                    <p class="text-xs text-slate-500 font-medium mb-1">${c.label}</p>
+                    <p class="text-xl font-bold text-slate-800">${c.value}</p>
+                    <p class="text-xs text-slate-400 mt-1">${c.sub}</p>
+                </div>
+                <span class="material-symbols-outlined text-slate-300 text-[28px]">${c.icon}</span>
+            </div>
+        </div>
+    `).join('');
+                }
+
+                // ══════════════════════════════════════════════
+                //  OVERVIEW TAB
+                // ══════════════════════════════════════════════
+                function renderOverview() {
+                        const current = targets.find(t => t.month === todayMonth()) || targets[0];
+                        const p = pct(current.target, current.achieved);
+                        const circumference = 326.7;
+                        const offset = circumference - (p / 100) * circumference;
+
+                        const fill = document.getElementById('ring-fill');
+                        const si = statusInfo(current.target, current.achieved);
+                        if (fill) {
+                                fill.style.strokeDashoffset = offset;
+                                fill.style.stroke = si.bar;
+                        }
+                        const rp = document.getElementById('ring-pct');
+                        if (rp) rp.textContent = p + '%';
+
+                        const oa = document.getElementById('ov-achieved-amt');
+                        const ot = document.getElementById('ov-target-amt');
+                        if (oa) oa.textContent = fmt(current.achieved || 0);
+                        if (ot) ot.textContent = fmt(current.target);
+
+                        // Quick stats
+                        const prev = targets[1] || null;
+                        const growth = prev && prev.achieved ? Math.round((((current.achieved || 0) - prev.achieved) / prev.achieved) * 100) : 0;
+                        const avgTarget = Math.round(targets.reduce((s, t) => s + t.target, 0) / targets.length);
+                        const bestMonth = [...targets].sort((a, b) => ((b.achieved || 0) / b.target) - ((a.achieved || 0) / a.target))[0];
+
+                        document.getElementById('quick-stats').innerHTML = [
+                                { label: 'Growth vs Last Month', value: (growth >= 0 ? '+' : '') + growth + '%', color: growth >= 0 ? 'text-emerald-600' : 'text-rose-600' },
+                                { label: 'Avg. Monthly Target', value: fmt(avgTarget), color: 'text-slate-700' },
+                                { label: 'Best Month', value: monthLabel(bestMonth.month), color: 'text-slate-700' },
+                                { label: 'Total Records', value: targets.length + ' Months', color: 'text-slate-700' },
+                        ].map(s => `
+        <div class="flex justify-between items-center py-2.5 border-b border-slate-100 last:border-0">
+            <span class="text-xs text-slate-500">${s.label}</span>
+            <span class="text-sm font-bold ${s.color}">${s.value}</span>
+        </div>
+    `).join('');
+
+                        // Status breakdown (last 6 months)
+                        const last6 = targets.slice(0, 6);
+                        document.getElementById('status-breakdown').innerHTML = last6.map(t => {
+                                const p2 = pct(t.target, t.achieved);
+                                const si2 = statusInfo(t.target, t.achieved);
+                                return `
+        <div class="flex items-center gap-3">
+            <span class="text-xs text-slate-500 w-28 shrink-0">${monthLabel(t.month)}</span>
+            <div class="flex-1 progress-track">
+                <div class="progress-fill" style="width:${Math.min(p2, 100)}%; background:${si2.bar}"></div>
+            </div>
+            <span class="text-xs font-bold w-10 text-right" style="color:${si2.bar}">${p2}%</span>
+        </div>`;
+                        }).join('');
+                }
+
+                // ══════════════════════════════════════════════
+                //  TARGETS TABLE
+                // ══════════════════════════════════════════════
+                function renderTargetsTable() {
+                        const tbody = document.getElementById('targets-tbody');
+                        if (!tbody) return;
+
+                        if (targets.length === 0) {
+                                tbody.innerHTML = `<tr><td colspan="6" class="px-6 py-12 text-center text-slate-400 text-sm">No targets found. Add a new target.</td></tr>`;
+                                return;
                         }
 
-                        // Tab Functionality
-                        const tabButtons = document.querySelectorAll(".tab-btn");
-                        const tabPanels = document.querySelectorAll(".tab-content");
+                        tbody.innerHTML = targets.map((t, i) => {
+                                const p2 = pct(t.target, t.achieved);
+                                const si2 = statusInfo(t.target, t.achieved);
+                                const isCurrentMonth = t.month === todayMonth();
+                                return `
+        <tr class="${isCurrentMonth ? 'bg-teal-50/40' : ''}">
+            <td class="px-6 py-4">
+                <div class="font-semibold text-slate-800">${monthLabel(t.month)}</div>
+                ${t.note ? `<div class="text-xs text-slate-400 mt-0.5">${t.note}</div>` : ''}
+                ${isCurrentMonth ? `<span class="inline-block mt-1 text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded-full font-bold">Current Month</span>` : ''}
+            </td>
+            <td class="px-6 py-4 text-right font-medium">${fmt(t.target)}</td>
+            <td class="px-6 py-4 text-right font-medium ${(t.achieved || 0) >= t.target ? 'text-emerald-600' : ''}">${t.achieved ? fmt(t.achieved) : '—'}</td>
+            <td class="px-6 py-4 min-w-[160px]">
+                <div class="flex items-center gap-2">
+                    <div class="flex-1 progress-track">
+                        <div class="progress-fill" style="width:${Math.min(p2, 100)}%; background:${si2.bar}"></div>
+                    </div>
+                    <span class="text-xs font-bold w-10 shrink-0" style="color:${si2.bar}">${p2}%</span>
+                </div>
+            </td>
+            <td class="px-6 py-4">
+                <span class="inline-flex px-2.5 py-1 rounded-full text-xs font-semibold ${si2.cls}">${si2.label}</span>
+            </td>
+            <td class="px-6 py-4 text-right">
+                <div class="flex items-center justify-end gap-2">
+                    <button onclick="openEditModal(${i})" class="text-slate-400 hover:text-primary transition-colors p-1" title="Edit">
+                        <span class="material-symbols-outlined text-[18px]">edit</span>
+                    </button>
+                    <button onclick="deleteTarget(${i})" class="text-slate-400 hover:text-rose-500 transition-colors p-1" title="Delete">
+                        <span class="material-symbols-outlined text-[18px]">delete</span>
+                    </button>
+                </div>
+            </td>
+        </tr>`;
+                        }).join('');
+                }
 
-                        function setActiveTab(targetId) {
-                                // Reset all tabs
-                                tabButtons.forEach(btn => {
-                                        btn.setAttribute("aria-selected", "false");
-                                        btn.classList.remove("text-primary", "border-primary", "font-bold");
-                                        btn.classList.add("text-slate-500", "border-transparent", "font-semibold");
-                                });
+                // ══════════════════════════════════════════════
+                //  BAR CHART (History)
+                // ══════════════════════════════════════════════
+                function renderBarChart() {
+                        const chartDiv = document.getElementById('bar-chart');
+                        const labelsDiv = document.getElementById('bar-labels');
+                        if (!chartDiv || !labelsDiv) return;
 
-                                // Hide all panels
-                                tabPanels.forEach(panel => {
-                                        panel.classList.remove("active");
-                                });
+                        const data = [...targets].reverse();
+                        const maxVal = Math.max(...data.map(t => Math.max(t.target, t.achieved || 0)));
 
-                                // Set active tab and panel
-                                const activeBtn = document.getElementById(targetId);
-                                const activePanelId = activeBtn.getAttribute("aria-controls");
-                                const activePanel = document.getElementById(activePanelId);
+                        const barW = `calc(${100 / data.length}% - 10px)`;
 
-                                activeBtn.setAttribute("aria-selected", "true");
-                                activeBtn.classList.add("text-primary", "border-primary", "font-bold");
-                                activeBtn.classList.remove("text-slate-500", "border-transparent", "font-semibold");
+                        chartDiv.innerHTML = data.map(t => {
+                                const tH = Math.round(((t.target) / maxVal) * 100);
+                                const aH = Math.round(((t.achieved || 0) / maxVal) * 100);
+                                const si2 = statusInfo(t.target, t.achieved);
+                                return `
+        <div class="flex items-end gap-1 flex-1">
+            <div class="flex-1 rounded-t-sm bg-slate-200 relative group" style="height:${tH}%;" title="Target: ${fmt(t.target)}">
+                <div class="absolute -top-5 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 opacity-0 group-hover:opacity-100 whitespace-nowrap">${fmt(t.target)}</div>
+            </div>
+            <div class="flex-1 rounded-t-sm relative group" style="height:${aH}%; background:${si2.bar};" title="Achieved: ${fmt(t.achieved || 0)}">
+                <div class="absolute -top-5 left-1/2 -translate-x-1/2 text-[10px] text-slate-500 opacity-0 group-hover:opacity-100 whitespace-nowrap">${fmt(t.achieved || 0)}</div>
+            </div>
+        </div>`;
+                        }).join('');
 
-                                activePanel.classList.add("active");
+                        labelsDiv.innerHTML = data.map(t => `
+        <div class="flex-1 truncate">${monthLabel(t.month).split(' ')[0]}</div>
+    `).join('');
+                }
+
+                // ══════════════════════════════════════════════
+                //  ACTIVITY LOG
+                // ══════════════════════════════════════════════
+                function renderActivity() {
+                        const log = document.getElementById('activity-log');
+                        if (!log) return;
+                        const items = targets.slice(0, 5).map(t => {
+                                const si2 = statusInfo(t.target, t.achieved);
+                                return `<li class="flex items-start gap-3">
+            <span class="mt-0.5 w-2 h-2 rounded-full shrink-0" style="background:${si2.bar}; margin-top:6px"></span>
+            <div>
+                <span class="font-medium text-slate-700">${monthLabel(t.month)}</span> —
+                Target ${fmt(t.target)}, Achieved ${t.achieved ? fmt(t.achieved) : 'Unknown'} ·
+                <span class="font-semibold" style="color:${si2.bar}">${si2.label}</span>
+            </div>
+        </li>`;
+                        });
+                        log.innerHTML = items.join('');
+                }
+
+                // ══════════════════════════════════════════════
+                //  FULL RENDER
+                // ══════════════════════════════════════════════
+                function renderAll() {
+                        renderKPI();
+                        renderOverview();
+                        renderTargetsTable();
+                        renderBarChart();
+                        renderActivity();
+                }
+
+                // ══════════════════════════════════════════════
+                //  MODAL: NEW TARGET
+                // ══════════════════════════════════════════════
+                function openModal() {
+                        document.getElementById('m-month').value = todayMonth();
+                        document.getElementById('m-target').value = '';
+                        document.getElementById('m-achieved').value = '';
+                        document.getElementById('m-note').value = '';
+                        document.getElementById('target-modal').classList.add('open');
+                }
+                function closeModal() {
+                        document.getElementById('target-modal').classList.remove('open');
+                }
+                function saveTarget() {
+                        const month = document.getElementById('m-month').value;
+                        const target = parseInt(document.getElementById('m-target').value);
+                        const achieved = parseInt(document.getElementById('m-achieved').value) || 0;
+                        const note = document.getElementById('m-note').value.trim();
+
+                        if (!month || !target || target <= 0) {
+                                alert('Month and target amount are required.');
+                                return;
                         }
+                        // Remove if same month exists
+                        const existing = targets.findIndex(t => t.month === month);
+                        if (existing !== -1) {
+                                if (!confirm('A target already exists for this month. Do you want to update it?')) return;
+                                targets.splice(existing, 1);
+                        }
+                        targets.unshift({ month, target, achieved, note });
+                        targets.sort((a, b) => b.month.localeCompare(a.month));
+                        saveTargets(targets);
+                        closeModal();
+                        renderAll();
+                }
 
-                        tabButtons.forEach(button => {
-                                button.addEventListener("click", function () {
-                                        setActiveTab(this.id);
+                // ══════════════════════════════════════════════
+                //  MODAL: EDIT TARGET
+                // ══════════════════════════════════════════════
+                function openEditModal(i) {
+                        const t = targets[i];
+                        document.getElementById('e-idx').value = i;
+                        document.getElementById('e-month').value = t.month;
+                        document.getElementById('e-target').value = t.target;
+                        document.getElementById('e-achieved').value = t.achieved || '';
+                        document.getElementById('e-note').value = t.note || '';
+                        document.getElementById('edit-modal').classList.add('open');
+                }
+                function closeEditModal() {
+                        document.getElementById('edit-modal').classList.remove('open');
+                }
+                function updateTarget() {
+                        const i = parseInt(document.getElementById('e-idx').value);
+                        const month = document.getElementById('e-month').value;
+                        const target = parseInt(document.getElementById('e-target').value);
+                        const achieved = parseInt(document.getElementById('e-achieved').value) || 0;
+                        const note = document.getElementById('e-note').value.trim();
+
+                        if (!month || !target || target <= 0) { alert('Please provide valid information.'); return; }
+                        targets[i] = { month, target, achieved, note };
+                        targets.sort((a, b) => b.month.localeCompare(a.month));
+                        saveTargets(targets);
+                        closeEditModal();
+                        renderAll();
+                }
+
+                // ══════════════════════════════════════════════
+                //  DELETE
+                // ══════════════════════════════════════════════
+                function deleteTarget(i) {
+                        if (!confirm('Delete the target for ' + monthLabel(targets[i].month) + '?')) return;
+                        targets.splice(i, 1);
+                        saveTargets(targets);
+                        renderAll();
+                }
+
+                // ══════════════════════════════════════════════
+                //  TABS
+                // ══════════════════════════════════════════════
+                document.addEventListener('DOMContentLoaded', function () {
+                        if (window.lucide) window.lucide.createIcons();
+
+                        document.querySelectorAll('.tab-btn').forEach(btn => {
+                                btn.addEventListener('click', function () {
+                                        document.querySelectorAll('.tab-btn').forEach(b => {
+                                                b.classList.remove('active');
+                                                b.classList.add('text-slate-500');
+                                        });
+                                        this.classList.add('active');
+                                        this.classList.remove('text-slate-500');
+
+                                        const tab = this.dataset.tab;
+                                        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                                        document.getElementById('tab-' + tab).classList.add('active');
                                 });
                         });
+
+                        // Close modals on backdrop click
+                        ['target-modal', 'edit-modal'].forEach(id => {
+                                document.getElementById(id).addEventListener('click', function (e) {
+                                        if (e.target === this) this.classList.remove('open');
+                                });
+                        });
+
+                        renderAll();
+
+                        // Animate ring on load
+                        setTimeout(() => {
+                                const current = targets.find(t => t.month === todayMonth()) || targets[0];
+                                const p2 = pct(current.target, current.achieved);
+                                const circumference = 326.7;
+                                const fill = document.getElementById('ring-fill');
+                                if (fill) fill.style.strokeDashoffset = circumference - (p2 / 100) * circumference;
+                        }, 100);
                 });
         </script>
+</body>
 
-
-</body></html>
+</html>
