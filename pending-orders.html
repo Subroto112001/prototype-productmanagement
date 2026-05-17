@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pending Orders</title>
         <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <link href="./css/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="./js/tailwind-config.js"></script>
 </head>
 
 <body class="bg-content flex h-screen overflow-hidden">
-    <main class="flex-1 flex flex-col overflow-y-auto bg-content">
-        <div id="header-root"></div>
-
-        <div class="p-8 space-y-8 mt-[70px]">
+    <main class="flex-1 flex flex-col overflow-y-auto bg-content flex-1 flex flex-col min-h-screen bg-background"><div id="header-root"></div><div class="space-y-8 p-container-margin w-full max-w-[1600px] mx-auto flex-1 flex flex-col gap-6">
             <section class="flex flex-col gap-2">
                 <p class="text-sm text-slate-500">Orders</p>
                 <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
@@ -73,9 +67,8 @@
                     </table>
                 </div>
             </section>
-        </div>
-    </main>
-    <script src="./js/sidebar.js" defer></script>
+        </div></main>
+    <script src="./js/sidebar.js" defer=""></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             if (window.lucide && typeof window.lucide.createIcons === "function") {
@@ -83,6 +76,6 @@
             }
         });
     </script>
-</body>
 
-</html>
+
+</body></html>

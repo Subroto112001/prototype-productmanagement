@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-
-<html class="light" lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<!DOCTYPE html><html class="light" lang="en"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Employee Management - Inventory System</title>
         <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <link href="./css/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="./js/tailwind-config.js"></script>
@@ -30,15 +26,12 @@
         <!-- TopNavBar -->
         <div id="header-root"></div>
         <!-- Main Canvas -->
-        <main class="flex-1 mt-16 p-container-margin overflow-y-auto">
-            <!-- Filters & Controls -->
-            <div class="flex justify-between items-end mb-section-gap">
+        <main class="flex-1 overflow-y-auto flex-1 flex flex-col min-h-screen bg-background"><div class="p-container-margin w-full max-w-[1600px] mx-auto flex-1 flex flex-col gap-6"><div class="flex justify-between items-end mb-section-gap">
                 <div class="flex gap-4">
                     <div class="flex flex-col gap-1">
                         <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Role
                             Filter</label>
-                        <select
-                            class="border border-outline-variant rounded bg-surface-container-lowest px-4 py-2 font-body-base text-body-base text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none min-w-[200px]">
+                        <select class="border border-outline-variant rounded bg-surface-container-lowest px-4 py-2 font-body-base text-body-base text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none min-w-[200px]">
                             <option>All Roles</option>
                             <option>Sales Representative</option>
                             <option>Warehouse Manager</option>
@@ -48,22 +41,17 @@
                     </div>
                     <div class="flex flex-col gap-1">
                         <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Status</label>
-                        <select
-                            class="border border-outline-variant rounded bg-surface-container-lowest px-4 py-2 font-body-base text-body-base text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none min-w-[150px]">
+                        <select class="border border-outline-variant rounded bg-surface-container-lowest px-4 py-2 font-body-base text-body-base text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none min-w-[150px]">
                             <option>Active Only</option>
                             <option>Inactive</option>
                             <option>All</option>
                         </select>
                     </div>
                 </div>
-            </div>
-            <!-- Bento Grid Layout for Analytics & Table -->
-            <div class="grid grid-cols-12 gap-section-gap">
+            </div><div class="grid grid-cols-12 gap-section-gap">
                 <!-- Employee Table Card (Spans 8 cols) -->
-                <div
-                    class="col-span-12 xl:col-span-8 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col">
-                    <div
-                        class="p-card-padding border-b border-outline-variant bg-surface-bright flex justify-between items-center">
+                <div class="col-span-12 xl:col-span-8 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col">
+                    <div class="p-card-padding border-b border-outline-variant bg-surface-bright flex justify-between items-center">
                         <h2 class="font-title-sm text-title-sm text-on-surface">Employee Directory</h2>
                         <button class="text-primary hover:bg-surface-container-low p-1 rounded transition-colors">
                             <span class="material-symbols-outlined">filter_list</span>
@@ -73,35 +61,25 @@
                         <table class="w-full text-left border-collapse">
                             <thead>
                                 <tr class="bg-surface-container-low border-b border-outline-variant">
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant w-12">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant w-12">
                                         Photo</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant">
                                         Name &amp; Role</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant text-right">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant text-right">
                                         Orders (Mo)</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant text-right">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant text-right">
                                         Notes Collection</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant">
                                         Status</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant text-right">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant text-right">
                                         Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="font-table-data text-table-data text-on-surface">
                                 <!-- Row 1 -->
-                                <tr
-                                    class="border-b border-outline-variant hover:bg-surface-bright transition-colors cursor-pointer group">
+                                <tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors cursor-pointer group">
                                     <td class="p-table-cell-padding">
-                                        <img alt="Employee Photo"
-                                            class="w-8 h-8 rounded-full border border-outline-variant"
-                                            data-alt="A small circular avatar showing a smiling South Asian man in business casual attire against a light gray background."
-                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJfqK7V0ZpXto7BQVePGgo_dZZLTqEtPyzWg_YCwc38S9rjetWNMhDurvgjrZni9wvbe-Z1zj0n9IVYFQNMAafjUlhZbEmra2uUVuZFhYsjLjCw5pStT1IR9oG26T8ce5uj6KLvuOKl6vgDxJIUIjAMmZ6ngTmcgG8ujrOItXfDHqPoyAPDPTD2QUi1uPHrYxs3DQ3iPKWoYBw4_Hu9q7MnxgqLmwrAOeqfFs7iJ3G3JV4P8W4oC02LUpwszYK67rZFB36yOOnbY8" />
+                                        <img alt="Employee Photo" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A small circular avatar showing a smiling South Asian man in business casual attire against a light gray background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJfqK7V0ZpXto7BQVePGgo_dZZLTqEtPyzWg_YCwc38S9rjetWNMhDurvgjrZni9wvbe-Z1zj0n9IVYFQNMAafjUlhZbEmra2uUVuZFhYsjLjCw5pStT1IR9oG26T8ce5uj6KLvuOKl6vgDxJIUIjAMmZ6ngTmcgG8ujrOItXfDHqPoyAPDPTD2QUi1uPHrYxs3DQ3iPKWoYBw4_Hu9q7MnxgqLmwrAOeqfFs7iJ3G3JV4P8W4oC02LUpwszYK67rZFB36yOOnbY8">
                                     </td>
                                     <td class="p-table-cell-padding">
                                         <div class="font-semibold">Rahim Uddin</div>
@@ -113,29 +91,19 @@
                                         <div class="text-error text-xs mt-0.5">৳ 50k (Due)</div>
                                     </td>
                                     <td class="p-table-cell-padding">
-                                        <span
-                                            class="inline-flex items-center px-2 py-1 rounded bg-primary-container text-on-primary-container text-[11px] font-bold uppercase tracking-wider">Active</span>
+                                        <span class="inline-flex items-center px-2 py-1 rounded bg-primary-container text-on-primary-container text-[11px] font-bold uppercase tracking-wider">Active</span>
                                     </td>
                                     <td class="p-table-cell-padding text-right">
-                                        <div
-                                            class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <button class="text-outline hover:text-primary transition-colors"
-                                                title="Send Message"><span
-                                                    class="material-symbols-outlined text-[18px]">chat</span></button>
-                                            <button class="text-outline hover:text-primary transition-colors"
-                                                title="Edit"><span
-                                                    class="material-symbols-outlined text-[18px]">edit</span></button>
+                                        <div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <button class="text-outline hover:text-primary transition-colors" title="Send Message"><span class="material-symbols-outlined text-[18px]">chat</span></button>
+                                            <button class="text-outline hover:text-primary transition-colors" title="Edit"><span class="material-symbols-outlined text-[18px]">edit</span></button>
                                         </div>
                                     </td>
                                 </tr>
                                 <!-- Row 2 -->
-                                <tr
-                                    class="border-b border-outline-variant hover:bg-surface-bright transition-colors cursor-pointer bg-[#F8FAFC] group">
+                                <tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors cursor-pointer bg-[#F8FAFC] group">
                                     <td class="p-table-cell-padding">
-                                        <img alt="Employee Photo"
-                                            class="w-8 h-8 rounded-full border border-outline-variant"
-                                            data-alt="A small circular avatar showing a professional South Asian woman with glasses against a solid blue background."
-                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLCNGEX_0BMQfK4z1qbr9XJ1yWHtV1XYCeOj9Cg4aMKX8JzX_iccz1MPCfpYnHG6gjzjCEj8k9Qx5ASOcL62KzxS6FrDl3nEnbzph3D8QA8ZASt3lurK2qxcWoiJClH7-d-2Iuby_GMfMDXcAkw4EcPxsYtVMu1jnMys6EPprYjLwg0lOHyiI1Bgk7Z5y6ut5M8X_4JfA0ixnnABDgoTJBS0wS2KpDK7wXqUbAuQqynzTXS78NUnPAyNRp-6ISb6LAXrbN4bwMeOY" />
+                                        <img alt="Employee Photo" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A small circular avatar showing a professional South Asian woman with glasses against a solid blue background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLCNGEX_0BMQfK4z1qbr9XJ1yWHtV1XYCeOj9Cg4aMKX8JzX_iccz1MPCfpYnHG6gjzjCEj8k9Qx5ASOcL62KzxS6FrDl3nEnbzph3D8QA8ZASt3lurK2qxcWoiJClH7-d-2Iuby_GMfMDXcAkw4EcPxsYtVMu1jnMys6EPprYjLwg0lOHyiI1Bgk7Z5y6ut5M8X_4JfA0ixnnABDgoTJBS0wS2KpDK7wXqUbAuQqynzTXS78NUnPAyNRp-6ISb6LAXrbN4bwMeOY">
                                     </td>
                                     <td class="p-table-cell-padding">
                                         <div class="font-semibold">Nusrat Jahan</div>
@@ -147,18 +115,12 @@
                                         <div class="text-on-surface-variant text-xs mt-0.5">৳ 0 (Due)</div>
                                     </td>
                                     <td class="p-table-cell-padding">
-                                        <span
-                                            class="inline-flex items-center px-2 py-1 rounded bg-primary-container text-on-primary-container text-[11px] font-bold uppercase tracking-wider">Active</span>
+                                        <span class="inline-flex items-center px-2 py-1 rounded bg-primary-container text-on-primary-container text-[11px] font-bold uppercase tracking-wider">Active</span>
                                     </td>
                                     <td class="p-table-cell-padding text-right">
-                                        <div
-                                            class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <button class="text-outline hover:text-primary transition-colors"
-                                                title="Send Message"><span
-                                                    class="material-symbols-outlined text-[18px]">chat</span></button>
-                                            <button class="text-outline hover:text-primary transition-colors"
-                                                title="Edit"><span
-                                                    class="material-symbols-outlined text-[18px]">edit</span></button>
+                                        <div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <button class="text-outline hover:text-primary transition-colors" title="Send Message"><span class="material-symbols-outlined text-[18px]">chat</span></button>
+                                            <button class="text-outline hover:text-primary transition-colors" title="Edit"><span class="material-symbols-outlined text-[18px]">edit</span></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -167,10 +129,9 @@
                         </table>
                     </div>
                 </div>
-            </div>
-        </main>
+            </div></div></main>
     </div>
-    <script src="./js/sidebar.js" defer></script>
-</body>
+    <script src="./js/sidebar.js" defer=""></script>
 
-</html>
+
+</body></html>

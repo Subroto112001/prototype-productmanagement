@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-
-<html class="light" lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<!DOCTYPE html><html class="light" lang="en"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Sales Persons Management - Inventory MS</title>
         <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <link href="./css/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="./js/tailwind-config.js"></script>
@@ -36,62 +32,48 @@
         <!-- TopNavBar -->
         <div id="header-root"></div>
         <!-- Page Content -->
-        <main class="flex-1 overflow-y-auto p-container-margin flex flex-col gap-section-gap">
-            <!-- Page Header -->
-            <div class="flex flex-col gap-2">
+        <main class="flex-1 overflow-y-auto flex flex-col gap-section-gap flex-1 flex flex-col min-h-screen bg-background"><div class="p-container-margin w-full max-w-[1600px] mx-auto flex-1 flex flex-col gap-6"><div class="flex flex-col gap-2">
                 <nav aria-label="Breadcrumb" class="flex text-on-surface-variant font-body-sm text-body-sm">
                     <ol class="flex items-center gap-2">
                         <li><a class="hover:text-primary transition-colors" href="#">Dashboard</a></li>
-                        <li><span class="material-symbols-outlined text-[16px]"
-                                data-icon="chevron_right">chevron_right</span></li>
+                        <li><span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span></li>
                         <li aria-current="page" class="font-medium text-on-surface">Sales Persons</li>
                     </ol>
                 </nav>
                 <h2 class="font-display-lg text-display-lg text-on-surface">Sales Team Management</h2>
-            </div>
-            <!-- Top Action Bar -->
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            </div><div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
                     <h3 class="font-title-sm text-title-sm text-on-surface flex items-center gap-2">
                         Sales Team
-                        <span
-                            class="bg-surface-container-highest text-on-surface px-2 py-0.5 rounded-full font-label-caps text-label-caps">24</span>
+                        <span class="bg-surface-container-highest text-on-surface px-2 py-0.5 rounded-full font-label-caps text-label-caps">24</span>
                     </h3>
                 </div>
-                <button
-                    class="bg-primary text-on-primary font-label-caps text-label-caps px-4 py-2 rounded shadow-sm hover:opacity-90 hover:shadow transition-all flex items-center gap-2 border-b-2 border-primary-fixed-dim/20 active:border-b-0 active:translate-y-[2px]">
+                <button class="bg-primary text-on-primary font-label-caps text-label-caps px-4 py-2 rounded shadow-sm hover:opacity-90 hover:shadow transition-all flex items-center gap-2 border-b-2 border-primary-fixed-dim/20 active:border-b-0 active:translate-y-[2px]">
                     <span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
                     Add New Sales Person
                 </button>
-            </div>
-            <!-- Performance Overview Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+            </div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
                 <!-- Card 1 -->
-                <div
-                    class="bg-surface-container-lowest rounded-xl p-card-padding border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col gap-3">
+                <div class="bg-surface-container-lowest rounded-xl p-card-padding border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col gap-3">
                     <div class="flex justify-between items-center">
                         <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">
                             Total Sales (Month)</p>
-                        <span class="material-symbols-outlined text-primary bg-primary/10 p-1.5 rounded-lg text-[20px]"
-                            data-icon="payments">payments</span>
+                        <span class="material-symbols-outlined text-primary bg-primary/10 p-1.5 rounded-lg text-[20px]" data-icon="payments">payments</span>
                     </div>
                     <div>
                         <h4 class="font-headline-md text-headline-md text-on-surface">৳ 4,850,000</h4>
                         <p class="font-body-sm text-body-sm text-primary mt-1 flex items-center gap-1">
-                            <span class="material-symbols-outlined text-[14px]"
-                                data-icon="trending_up">trending_up</span>
+                            <span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
                             +12.5% from last month
                         </p>
                     </div>
                 </div>
                 <!-- Card 2 -->
-                <div
-                    class="bg-surface-container-lowest rounded-xl p-card-padding border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col gap-3">
+                <div class="bg-surface-container-lowest rounded-xl p-card-padding border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col gap-3">
                     <div class="flex justify-between items-center">
                         <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Avg.
                             Target Achievement</p>
-                        <span class="material-symbols-outlined text-primary bg-primary/10 p-1.5 rounded-lg text-[20px]"
-                            data-icon="track_changes">track_changes</span>
+                        <span class="material-symbols-outlined text-primary bg-primary/10 p-1.5 rounded-lg text-[20px]" data-icon="track_changes">track_changes</span>
                     </div>
                     <div>
                         <h4 class="font-headline-md text-headline-md text-on-surface">88.4%</h4>
@@ -101,18 +83,14 @@
                     </div>
                 </div>
                 <!-- Card 3 -->
-                <div
-                    class="bg-surface-container-lowest rounded-xl p-card-padding border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col gap-3">
+                <div class="bg-surface-container-lowest rounded-xl p-card-padding border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col gap-3">
                     <div class="flex justify-between items-center">
                         <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Top
                             Performer</p>
-                        <span
-                            class="material-symbols-outlined text-tertiary bg-tertiary-fixed p-1.5 rounded-lg text-[20px]"
-                            data-icon="military_tech">military_tech</span>
+                        <span class="material-symbols-outlined text-tertiary bg-tertiary-fixed p-1.5 rounded-lg text-[20px]" data-icon="military_tech">military_tech</span>
                     </div>
                     <div class="flex items-center gap-3">
-                        <img alt="Robert Fox" class="w-10 h-10 rounded-full border border-outline-variant object-cover"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaNT6zlrf7K3hgnxaANTy807he7_HQdzFln7dz32KfMMW1P56nchxfkXfoI7LtDzcSWc4WoraMC_UFBj3QuV9DYApiZuGyI4RNF-G6o0TkpH7RhIcYF4GwzdKKFQb0kpa1YpnpEOrc8rPIHNl3BuLRke6s94QVTJXfsYTaXYPt28IdRYBkz20XZTLG1AXVrkGSmnNs_OWDZ108WwEoEvvCco30yjQ9IWtmCx1ESPHUU3LTtGQ119Y5vXUrGvHX0--d5TBW_DqnkjA" />
+                        <img alt="Robert Fox" class="w-10 h-10 rounded-full border border-outline-variant object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaNT6zlrf7K3hgnxaANTy807he7_HQdzFln7dz32KfMMW1P56nchxfkXfoI7LtDzcSWc4WoraMC_UFBj3QuV9DYApiZuGyI4RNF-G6o0TkpH7RhIcYF4GwzdKKFQb0kpa1YpnpEOrc8rPIHNl3BuLRke6s94QVTJXfsYTaXYPt28IdRYBkz20XZTLG1AXVrkGSmnNs_OWDZ108WwEoEvvCco30yjQ9IWtmCx1ESPHUU3LTtGQ119Y5vXUrGvHX0--d5TBW_DqnkjA">
                         <div>
                             <h4 class="font-title-sm text-title-sm text-on-surface">Robert Fox</h4>
                             <p class="font-body-sm text-body-sm text-on-surface-variant">৳ 1,450,000</p>
@@ -120,44 +98,32 @@
                     </div>
                 </div>
                 <!-- Card 4 -->
-                <div
-                    class="bg-surface-container-lowest rounded-xl p-card-padding border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col gap-3">
+                <div class="bg-surface-container-lowest rounded-xl p-card-padding border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col gap-3">
                     <div class="flex justify-between items-center">
                         <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">
                             Pending Leads</p>
-                        <span
-                            class="material-symbols-outlined text-secondary bg-secondary-container p-1.5 rounded-lg text-[20px]"
-                            data-icon="person_add">person_add</span>
+                        <span class="material-symbols-outlined text-secondary bg-secondary-container p-1.5 rounded-lg text-[20px]" data-icon="person_add">person_add</span>
                     </div>
                     <div>
                         <h4 class="font-headline-md text-headline-md text-on-surface">142</h4>
                         <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Requires immediate action</p>
                     </div>
                 </div>
-            </div>
-            <!-- Sales Persons Table (High Density) -->
-            <div
-                class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col overflow-hidden">
+            </div><div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col overflow-hidden">
                 <!-- Table Toolbar -->
                 <div class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-bright">
                     <div class="relative max-w-xs w-full">
-                        <span
-                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]"
-                            data-icon="search">search</span>
-                        <input
-                            class="w-full h-9 pl-9 pr-3 rounded bg-surface border border-outline-variant text-body-sm font-body-sm focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none"
-                            placeholder="Filter by name or ID..." type="text" />
+                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]" data-icon="search">search</span>
+                        <input class="w-full h-9 pl-9 pr-3 rounded bg-surface border border-outline-variant text-body-sm font-body-sm focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder="Filter by name or ID..." type="text">
                     </div>
-                    <button
-                        class="border border-outline-variant text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface px-3 py-1.5 rounded font-label-caps text-label-caps flex items-center gap-2 transition-colors">
+                    <button class="border border-outline-variant text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface px-3 py-1.5 rounded font-label-caps text-label-caps flex items-center gap-2 transition-colors">
                         <span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span>
                         Filter
                     </button>
                 </div>
                 <div class="overflow-x-auto w-full">
                     <table class="w-full text-left border-collapse whitespace-nowrap">
-                        <thead
-                            class="bg-surface-container-low border-b border-outline-variant font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">
+                        <thead class="bg-surface-container-low border-b border-outline-variant font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">
                             <tr>
                                 <th class="p-table-cell-padding font-semibold">Sales Person</th>
                                 <th class="p-table-cell-padding font-semibold">Employee ID</th>
@@ -168,14 +134,12 @@
                                 <th class="p-table-cell-padding font-semibold text-right">Actions</th>
                             </tr>
                         </thead>
-                        <tbody
-                            class="font-table-data text-table-data text-on-surface divide-y divide-outline-variant/40">
+                        <tbody class="font-table-data text-table-data text-on-surface divide-y divide-outline-variant/40">
                             <!-- Row 1 -->
                             <tr class="hover:bg-surface-container-lowest transition-colors even:bg-surface-bright">
                                 <td class="p-table-cell-padding">
                                     <div class="flex items-center gap-3">
-                                        <img alt="Robert Fox" class="w-8 h-8 rounded-full border border-outline-variant"
-                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuABdeqTBpHPax1L8LR7gkTx3bJX6lpaDV62Q5SsCP4pYeThNFe1BN0EP_0xuBeummokMZjvb8pQ7lCJ6a3r-QadFULJgXn7wR9iyx-EdS13g6ZBmXGNQ5YCvkXpfatk0C_02g0t2jHJmpUWeIhcWmnOSOt6YWFEa1LFrgzN8bH7q3xu-7tncfdTOd6HgSzRXObpgZqLsBxKh03qkaMmrbO5ggeQ1T47LExihqY8SJrJipW9miN5cJ0uhVUwR88TFx3n1rzNEOjmLvU" />
+                                        <img alt="Robert Fox" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABdeqTBpHPax1L8LR7gkTx3bJX6lpaDV62Q5SsCP4pYeThNFe1BN0EP_0xuBeummokMZjvb8pQ7lCJ6a3r-QadFULJgXn7wR9iyx-EdS13g6ZBmXGNQ5YCvkXpfatk0C_02g0t2jHJmpUWeIhcWmnOSOt6YWFEa1LFrgzN8bH7q3xu-7tncfdTOd6HgSzRXObpgZqLsBxKh03qkaMmrbO5ggeQ1T47LExihqY8SJrJipW9miN5cJ0uhVUwR88TFx3n1rzNEOjmLvU">
                                         <span class="font-medium text-on-surface">Robert Fox</span>
                                     </div>
                                 </td>
@@ -185,33 +149,22 @@
                                 <td class="p-table-cell-padding text-center">
                                     <span class="inline-flex items-center gap-1 text-primary font-medium">
                                         95%
-                                        <span class="material-symbols-outlined text-[14px]"
-                                            data-icon="arrow_upward">arrow_upward</span>
+                                        <span class="material-symbols-outlined text-[14px]" data-icon="arrow_upward">arrow_upward</span>
                                     </span>
                                 </td>
                                 <td class="p-table-cell-padding text-center">
-                                    <span
-                                        class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold tracking-wide bg-primary/10 text-primary">Active</span>
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold tracking-wide bg-primary/10 text-primary">Active</span>
                                 </td>
                                 <td class="p-table-cell-padding text-right">
                                     <div class="flex items-center justify-end gap-1">
-                                        <button
-                                            class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded transition-colors"
-                                            title="View Details">
-                                            <span class="material-symbols-outlined text-[18px]"
-                                                data-icon="visibility">visibility</span>
+                                        <button class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded transition-colors" title="View Details">
+                                            <span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span>
                                         </button>
-                                        <button
-                                            class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded transition-colors"
-                                            title="Edit">
-                                            <span class="material-symbols-outlined text-[18px]"
-                                                data-icon="edit">edit</span>
+                                        <button class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded transition-colors" title="Edit">
+                                            <span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
                                         </button>
-                                        <button
-                                            class="p-1.5 text-on-surface-variant hover:text-tertiary hover:bg-tertiary-fixed rounded transition-colors"
-                                            title="Performance Report">
-                                            <span class="material-symbols-outlined text-[18px]"
-                                                data-icon="insert_chart">insert_chart</span>
+                                        <button class="p-1.5 text-on-surface-variant hover:text-tertiary hover:bg-tertiary-fixed rounded transition-colors" title="Performance Report">
+                                            <span class="material-symbols-outlined text-[18px]" data-icon="insert_chart">insert_chart</span>
                                         </button>
                                     </div>
                                 </td>
@@ -220,9 +173,7 @@
                             <tr class="hover:bg-surface-container-lowest transition-colors even:bg-surface-bright">
                                 <td class="p-table-cell-padding">
                                     <div class="flex items-center gap-3">
-                                        <img alt="Jane Cooper"
-                                            class="w-8 h-8 rounded-full border border-outline-variant"
-                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1OuHTqEVXiYVkSVIIRxyOpuvQY7PC75ZyC4QQswVqaSASaCxOM-Bj9R1APuXLD5wXI1zKKkG7f40RpkH6ayR5nRfu4coHDVjeiLUtTaDu00OuNtvJ_yLmRzeDl2n1A50ytGfZXKIoD3EfoKadfEkNsM1DrM6_nPMEu7ubqbtFh8wPVUppaXrbxUYv7571EjnZKqQZmsc3Rwkzm6ej8KG8P20NWuzy1LGDQUB9L4_r6bQjHUjmqSp1080myoBRPcHMDrfqFHq1P_s" />
+                                        <img alt="Jane Cooper" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1OuHTqEVXiYVkSVIIRxyOpuvQY7PC75ZyC4QQswVqaSASaCxOM-Bj9R1APuXLD5wXI1zKKkG7f40RpkH6ayR5nRfu4coHDVjeiLUtTaDu00OuNtvJ_yLmRzeDl2n1A50ytGfZXKIoD3EfoKadfEkNsM1DrM6_nPMEu7ubqbtFh8wPVUppaXrbxUYv7571EjnZKqQZmsc3Rwkzm6ej8KG8P20NWuzy1LGDQUB9L4_r6bQjHUjmqSp1080myoBRPcHMDrfqFHq1P_s">
                                         <span class="font-medium text-on-surface">Jane Cooper</span>
                                     </div>
                                 </td>
@@ -232,33 +183,22 @@
                                 <td class="p-table-cell-padding text-center">
                                     <span class="inline-flex items-center gap-1 text-primary font-medium">
                                         110%
-                                        <span class="material-symbols-outlined text-[14px]"
-                                            data-icon="arrow_upward">arrow_upward</span>
+                                        <span class="material-symbols-outlined text-[14px]" data-icon="arrow_upward">arrow_upward</span>
                                     </span>
                                 </td>
                                 <td class="p-table-cell-padding text-center">
-                                    <span
-                                        class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold tracking-wide bg-primary/10 text-primary">Active</span>
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold tracking-wide bg-primary/10 text-primary">Active</span>
                                 </td>
                                 <td class="p-table-cell-padding text-right">
                                     <div class="flex items-center justify-end gap-1">
-                                        <button
-                                            class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded transition-colors"
-                                            title="View Details">
-                                            <span class="material-symbols-outlined text-[18px]"
-                                                data-icon="visibility">visibility</span>
+                                        <button class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded transition-colors" title="View Details">
+                                            <span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span>
                                         </button>
-                                        <button
-                                            class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded transition-colors"
-                                            title="Edit">
-                                            <span class="material-symbols-outlined text-[18px]"
-                                                data-icon="edit">edit</span>
+                                        <button class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded transition-colors" title="Edit">
+                                            <span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
                                         </button>
-                                        <button
-                                            class="p-1.5 text-on-surface-variant hover:text-tertiary hover:bg-tertiary-fixed rounded transition-colors"
-                                            title="Performance Report">
-                                            <span class="material-symbols-outlined text-[18px]"
-                                                data-icon="insert_chart">insert_chart</span>
+                                        <button class="p-1.5 text-on-surface-variant hover:text-tertiary hover:bg-tertiary-fixed rounded transition-colors" title="Performance Report">
+                                            <span class="material-symbols-outlined text-[18px]" data-icon="insert_chart">insert_chart</span>
                                         </button>
                                     </div>
                                 </td>
@@ -267,9 +207,7 @@
                             <tr class="hover:bg-surface-container-lowest transition-colors even:bg-surface-bright">
                                 <td class="p-table-cell-padding">
                                     <div class="flex items-center gap-3">
-                                        <img alt="Wade Warren"
-                                            class="w-8 h-8 rounded-full border border-outline-variant"
-                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW6kwUaY_KIYZ4Ew_z6AmVVRTXj-JAc3nn9S05XZrt99XNVrscX2x1sIE5ClxJJg0FPSAVzIdISZu4ymNa-1FpWMyUaOD9ScqydoyLvssZVy36b-QFrCucNisBNUSUB19PzZnsCvvERoDeH9nLaCCnhtNoxERtm5ORAxAwbGvZHTaP0tledSgsxOIBpZ20_Dc4m0xqmrKlBu_HBbYgwNnErtdPvnL1VegPnEgWQRBq6usXcJvgQJf2n8fNirRtweD-FriHwATtLME" />
+                                        <img alt="Wade Warren" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW6kwUaY_KIYZ4Ew_z6AmVVRTXj-JAc3nn9S05XZrt99XNVrscX2x1sIE5ClxJJg0FPSAVzIdISZu4ymNa-1FpWMyUaOD9ScqydoyLvssZVy36b-QFrCucNisBNUSUB19PzZnsCvvERoDeH9nLaCCnhtNoxERtm5ORAxAwbGvZHTaP0tledSgsxOIBpZ20_Dc4m0xqmrKlBu_HBbYgwNnErtdPvnL1VegPnEgWQRBq6usXcJvgQJf2n8fNirRtweD-FriHwATtLME">
                                         <span class="font-medium text-on-surface">Wade Warren</span>
                                     </div>
                                 </td>
@@ -279,33 +217,22 @@
                                 <td class="p-table-cell-padding text-center">
                                     <span class="inline-flex items-center gap-1 text-on-surface-variant font-medium">
                                         80%
-                                        <span class="material-symbols-outlined text-[14px]"
-                                            data-icon="remove">remove</span>
+                                        <span class="material-symbols-outlined text-[14px]" data-icon="remove">remove</span>
                                     </span>
                                 </td>
                                 <td class="p-table-cell-padding text-center">
-                                    <span
-                                        class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold tracking-wide bg-surface-variant text-on-surface-variant border border-outline-variant/30">Inactive</span>
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold tracking-wide bg-surface-variant text-on-surface-variant border border-outline-variant/30">Inactive</span>
                                 </td>
                                 <td class="p-table-cell-padding text-right">
                                     <div class="flex items-center justify-end gap-1">
-                                        <button
-                                            class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded transition-colors"
-                                            title="View Details">
-                                            <span class="material-symbols-outlined text-[18px]"
-                                                data-icon="visibility">visibility</span>
+                                        <button class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded transition-colors" title="View Details">
+                                            <span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span>
                                         </button>
-                                        <button
-                                            class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded transition-colors"
-                                            title="Edit">
-                                            <span class="material-symbols-outlined text-[18px]"
-                                                data-icon="edit">edit</span>
+                                        <button class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-primary/5 rounded transition-colors" title="Edit">
+                                            <span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
                                         </button>
-                                        <button
-                                            class="p-1.5 text-on-surface-variant hover:text-tertiary hover:bg-tertiary-fixed rounded transition-colors"
-                                            title="Performance Report">
-                                            <span class="material-symbols-outlined text-[18px]"
-                                                data-icon="insert_chart">insert_chart</span>
+                                        <button class="p-1.5 text-on-surface-variant hover:text-tertiary hover:bg-tertiary-fixed rounded transition-colors" title="Performance Report">
+                                            <span class="material-symbols-outlined text-[18px]" data-icon="insert_chart">insert_chart</span>
                                         </button>
                                     </div>
                                 </td>
@@ -314,32 +241,23 @@
                     </table>
                 </div>
                 <!-- Pagination Footer -->
-                <div
-                    class="p-3 border-t border-outline-variant flex items-center justify-between bg-surface text-on-surface-variant font-body-sm text-body-sm">
+                <div class="p-3 border-t border-outline-variant flex items-center justify-between bg-surface text-on-surface-variant font-body-sm text-body-sm">
                     <span>Showing 1 to 3 of 24 entries</span>
                     <div class="flex items-center gap-1">
-                        <button
-                            class="p-1 rounded hover:bg-surface-container-high transition-colors disabled:opacity-50"
-                            disabled="">
-                            <span class="material-symbols-outlined text-[20px]"
-                                data-icon="chevron_left">chevron_left</span>
+                        <button class="p-1 rounded hover:bg-surface-container-high transition-colors disabled:opacity-50" disabled="">
+                            <span class="material-symbols-outlined text-[20px]" data-icon="chevron_left">chevron_left</span>
                         </button>
-                        <button
-                            class="w-8 h-8 rounded bg-primary text-on-primary font-medium flex items-center justify-center">1</button>
-                        <button
-                            class="w-8 h-8 rounded hover:bg-surface-container-high text-on-surface font-medium flex items-center justify-center transition-colors">2</button>
-                        <button
-                            class="w-8 h-8 rounded hover:bg-surface-container-high text-on-surface font-medium flex items-center justify-center transition-colors">3</button>
+                        <button class="w-8 h-8 rounded bg-primary text-on-primary font-medium flex items-center justify-center">1</button>
+                        <button class="w-8 h-8 rounded hover:bg-surface-container-high text-on-surface font-medium flex items-center justify-center transition-colors">2</button>
+                        <button class="w-8 h-8 rounded hover:bg-surface-container-high text-on-surface font-medium flex items-center justify-center transition-colors">3</button>
                         <button class="p-1 rounded hover:bg-surface-container-high transition-colors">
-                            <span class="material-symbols-outlined text-[20px]"
-                                data-icon="chevron_right">chevron_right</span>
+                            <span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
                         </button>
                     </div>
                 </div>
-            </div>
-        </main>
+            </div></div></main>
     </div>
-    <script src="./js/sidebar.js" defer></script>
-</body>
+    <script src="./js/sidebar.js" defer=""></script>
 
-</html>
+
+</body></html>

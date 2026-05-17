@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-
-<html class="light" lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<!DOCTYPE html><html class="light" lang="en"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Dashboard - Inventory Management</title>
         <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <link href="./css/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="./js/tailwind-config.js"></script>
@@ -44,40 +40,31 @@
     </style>
 </head>
 
-<body
-    class="bg-background text-on-surface font-body-base antialiased selection:bg-primary-container selection:text-on-primary-container h-screen overflow-hidden flex">
+<body class="bg-background text-on-surface font-body-base antialiased selection:bg-primary-container selection:text-on-primary-container h-screen overflow-hidden flex">
     <!-- Main Content Wrapper (Accounts for Sidebar) -->
     <div class="flex-1 ml-[260px] flex flex-col h-full bg-background relative">
         <!-- TopNavBar (Shared Component) -->
         <div id="header-root"></div>
         <!-- Scrollable Main Canvas -->
-        <main class="flex-1 overflow-y-auto pt-[88px] px-container-margin pb-container-margin">
-            <!-- Page Header -->
-            <div class="mb-section-gap flex justify-between items-end">
+        <main class="flex-1 overflow-y-auto flex-1 flex flex-col min-h-screen bg-background"><div class="p-container-margin w-full max-w-[1600px] mx-auto flex-1 flex flex-col gap-6"><div class="mb-section-gap flex justify-between items-end">
                 <div>
                     <h2 class="font-display-lg text-display-lg text-on-surface">Dashboard Overview</h2>
                     <p class="font-body-base text-body-base text-on-surface-variant mt-1">General Trade Performance
                         &amp; Inventory Status - Dhaka Region</p>
                 </div>
-                <div
-                    class="flex items-center gap-2 text-body-sm text-on-surface-variant font-body-sm bg-white border border-outline-variant rounded-md px-3 py-1.5 shadow-sm">
+                <div class="flex items-center gap-2 text-body-sm text-on-surface-variant font-body-sm bg-white border border-outline-variant rounded-md px-3 py-1.5 shadow-sm">
                     <span class="material-symbols-outlined text-[16px]">calendar_today</span>
                     <span>Last 30 Days</span>
                     <span class="material-symbols-outlined text-[16px] cursor-pointer">arrow_drop_down</span>
                 </div>
-            </div>
-            <!-- Summary Cards (Bento Grid Style layout) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-section-gap">
+            </div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-section-gap">
                 <!-- Total Orders -->
-                <div
-                    class="bg-white border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] rounded-lg p-card-padding flex flex-col justify-between">
+                <div class="bg-white border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] rounded-lg p-card-padding flex flex-col justify-between">
                     <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+                        <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
                             <span class="material-symbols-outlined">shopping_bag</span>
                         </div>
-                        <span
-                            class="inline-flex items-center gap-1 text-primary-container font-label-caps text-label-caps bg-surface-container-low px-2 py-1 rounded">
+                        <span class="inline-flex items-center gap-1 text-primary-container font-label-caps text-label-caps bg-surface-container-low px-2 py-1 rounded">
                             <span class="material-symbols-outlined text-[14px]">trending_up</span> +12.5%
                         </span>
                     </div>
@@ -87,15 +74,12 @@
                     </div>
                 </div>
                 <!-- Total Collected -->
-                <div
-                    class="bg-white border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] rounded-lg p-card-padding flex flex-col justify-between">
+                <div class="bg-white border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] rounded-lg p-card-padding flex flex-col justify-between">
                     <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+                        <div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
                             <span class="material-symbols-outlined">account_balance_wallet</span>
                         </div>
-                        <span
-                            class="inline-flex items-center gap-1 text-primary-container font-label-caps text-label-caps bg-surface-container-low px-2 py-1 rounded">
+                        <span class="inline-flex items-center gap-1 text-primary-container font-label-caps text-label-caps bg-surface-container-low px-2 py-1 rounded">
                             <span class="material-symbols-outlined text-[14px]">trending_up</span> +8.2%
                         </span>
                     </div>
@@ -106,15 +90,12 @@
                     </div>
                 </div>
                 <!-- Total Due -->
-                <div
-                    class="bg-white border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] rounded-lg p-card-padding flex flex-col justify-between">
+                <div class="bg-white border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] rounded-lg p-card-padding flex flex-col justify-between">
                     <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-on-error-container">
+                        <div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-on-error-container">
                             <span class="material-symbols-outlined">pending_actions</span>
                         </div>
-                        <span
-                            class="inline-flex items-center gap-1 text-error font-label-caps text-label-caps bg-error-container px-2 py-1 rounded">
+                        <span class="inline-flex items-center gap-1 text-error font-label-caps text-label-caps bg-error-container px-2 py-1 rounded">
                             <span class="material-symbols-outlined text-[14px]">trending_down</span> -2.4%
                         </span>
                     </div>
@@ -124,15 +105,12 @@
                     </div>
                 </div>
                 <!-- Low Stock Alert -->
-                <div
-                    class="bg-[#FFFBEB] border border-[#FDE68A] shadow-[0_1px_3px_rgba(0,0,0,0.05)] rounded-lg p-card-padding flex flex-col justify-between">
+                <div class="bg-[#FFFBEB] border border-[#FDE68A] shadow-[0_1px_3px_rgba(0,0,0,0.05)] rounded-lg p-card-padding flex flex-col justify-between">
                     <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="w-10 h-10 rounded-full bg-[#FEF3C7] flex items-center justify-center text-[#D97706]">
+                        <div class="w-10 h-10 rounded-full bg-[#FEF3C7] flex items-center justify-center text-[#D97706]">
                             <span class="material-symbols-outlined">warning</span>
                         </div>
-                        <a class="text-[#D97706] font-label-caps text-label-caps hover:underline flex items-center"
-                            href="./Order.html">
+                        <a class="text-[#D97706] font-label-caps text-label-caps hover:underline flex items-center" href="./Order.html">
                             View All <span class="material-symbols-outlined text-[16px]">chevron_right</span>
                         </a>
                     </div>
@@ -141,12 +119,9 @@
                         <h3 class="font-headline-md text-headline-md text-[#92400E]">24 SKU</h3>
                     </div>
                 </div>
-            </div>
-            <!-- Charts and Tables Grid -->
-            <div class="grid grid-cols-1 xl:grid-cols-3 gap-gutter">
+            </div><div class="grid grid-cols-1 xl:grid-cols-3 gap-gutter">
                 <!-- Chart Area (Spans 2 columns on wide screens) -->
-                <div
-                    class="xl:col-span-2 bg-white border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] rounded-lg p-card-padding flex flex-col h-[400px]">
+                <div class="xl:col-span-2 bg-white border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] rounded-lg p-card-padding flex flex-col h-[400px]">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="font-title-sm text-title-sm text-on-surface">Monthly Sales vs Target</h3>
                         <div class="flex gap-4">
@@ -163,8 +138,7 @@
                     <!-- Faux Chart Representation (CSS/HTML based structure) -->
                     <div class="flex-1 relative border-l border-b border-outline-variant mt-4 pb-2 pl-2">
                         <!-- Y-Axis Labels -->
-                        <div
-                            class="absolute -left-10 bottom-0 top-0 flex flex-col justify-between text-label-caps font-label-caps text-on-surface-variant text-right w-8">
+                        <div class="absolute -left-10 bottom-0 top-0 flex flex-col justify-between text-label-caps font-label-caps text-on-surface-variant text-right w-8">
                             <span>10M</span>
                             <span>7.5M</span>
                             <span>5M</span>
@@ -180,13 +154,11 @@
                             <!-- Jan -->
                             <div class="flex gap-1 h-full items-end group">
                                 <div class="w-6 bg-secondary-fixed-dim rounded-t-sm h-[60%] relative">
-                                    <div
-                                        class="hidden group-hover:block absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-label-caps px-2 py-1 rounded z-10 whitespace-nowrap">
+                                    <div class="hidden group-hover:block absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-label-caps px-2 py-1 rounded z-10 whitespace-nowrap">
                                         Target: 6M</div>
                                 </div>
                                 <div class="w-6 bg-primary rounded-t-sm h-[55%] relative">
-                                    <div
-                                        class="hidden group-hover:block absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-label-caps px-2 py-1 rounded z-10 whitespace-nowrap">
+                                    <div class="hidden group-hover:block absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-label-caps px-2 py-1 rounded z-10 whitespace-nowrap">
                                         Actual: 5.5M</div>
                                 </div>
                             </div>
@@ -217,8 +189,7 @@
                             </div>
                         </div>
                         <!-- X-Axis Labels -->
-                        <div
-                            class="absolute -bottom-6 left-0 right-0 flex justify-around pl-4 pr-4 text-label-caps font-label-caps text-on-surface-variant">
+                        <div class="absolute -bottom-6 left-0 right-0 flex justify-around pl-4 pr-4 text-label-caps font-label-caps text-on-surface-variant">
                             <span class="w-13 text-center">Jan</span>
                             <span class="w-13 text-center">Feb</span>
                             <span class="w-13 text-center">Mar</span>
@@ -229,13 +200,10 @@
                     </div>
                 </div>
                 <!-- Recent Orders Table (High Density) -->
-                <div
-                    class="xl:col-span-1 bg-white border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] rounded-lg flex flex-col h-[400px] overflow-hidden">
-                    <div
-                        class="p-card-padding border-b border-outline-variant flex justify-between items-center bg-white z-10">
+                <div class="xl:col-span-1 bg-white border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] rounded-lg flex flex-col h-[400px] overflow-hidden">
+                    <div class="p-card-padding border-b border-outline-variant flex justify-between items-center bg-white z-10">
                         <h3 class="font-title-sm text-title-sm text-on-surface">Recent Orders</h3>
-                        <button
-                            class="text-primary hover:text-primary-container font-label-caps text-label-caps flex items-center">
+                        <button class="text-primary hover:text-primary-container font-label-caps text-label-caps flex items-center">
                             View All
                         </button>
                     </div>
@@ -243,17 +211,13 @@
                         <table class="w-full text-left border-collapse">
                             <thead class="sticky top-0 bg-surface-bright shadow-sm z-10">
                                 <tr>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant">
                                         Order ID</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant">
                                         Client</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant text-right">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant text-right">
                                         Amount</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant text-center">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant border-b border-outline-variant text-center">
                                         Status</th>
                                 </tr>
                             </thead>
@@ -263,18 +227,15 @@
                                     <td class="p-table-cell-padding text-on-surface">Rahim Store</td>
                                     <td class="p-table-cell-padding text-on-surface text-right">৳ 12,500</td>
                                     <td class="p-table-cell-padding text-center">
-                                        <span
-                                            class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-primary-container/20 text-primary">Delivered</span>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-primary-container/20 text-primary">Delivered</span>
                                     </td>
                                 </tr>
-                                <tr
-                                    class="bg-[#F8FAFC] hover:bg-surface-container-lowest border-b border-outline-variant/50">
+                                <tr class="bg-[#F8FAFC] hover:bg-surface-container-lowest border-b border-outline-variant/50">
                                     <td class="p-table-cell-padding text-primary font-semibold">#ORD-9020</td>
                                     <td class="p-table-cell-padding text-on-surface">Maa Traders</td>
                                     <td class="p-table-cell-padding text-on-surface text-right">৳ 45,000</td>
                                     <td class="p-table-cell-padding text-center">
-                                        <span
-                                            class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#FEF3C7] text-[#D97706]">Pending</span>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#FEF3C7] text-[#D97706]">Pending</span>
                                     </td>
                                 </tr>
                                 <tr class="hover:bg-surface-container-lowest border-b border-outline-variant/50">
@@ -282,18 +243,15 @@
                                     <td class="p-table-cell-padding text-on-surface">Jamal Brothers</td>
                                     <td class="p-table-cell-padding text-on-surface text-right">৳ 8,200</td>
                                     <td class="p-table-cell-padding text-center">
-                                        <span
-                                            class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-primary-container/20 text-primary">Delivered</span>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-primary-container/20 text-primary">Delivered</span>
                                     </td>
                                 </tr>
-                                <tr
-                                    class="bg-[#F8FAFC] hover:bg-surface-container-lowest border-b border-outline-variant/50">
+                                <tr class="bg-[#F8FAFC] hover:bg-surface-container-lowest border-b border-outline-variant/50">
                                     <td class="p-table-cell-padding text-primary font-semibold">#ORD-9018</td>
                                     <td class="p-table-cell-padding text-on-surface">City Super Shop</td>
                                     <td class="p-table-cell-padding text-on-surface text-right">৳ 112,000</td>
                                     <td class="p-table-cell-padding text-center">
-                                        <span
-                                            class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#FEF3C7] text-[#D97706]">Processing</span>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#FEF3C7] text-[#D97706]">Processing</span>
                                     </td>
                                 </tr>
                                 <tr class="hover:bg-surface-container-lowest border-b border-outline-variant/50">
@@ -301,18 +259,15 @@
                                     <td class="p-table-cell-padding text-on-surface">Bismillah Enterprise</td>
                                     <td class="p-table-cell-padding text-on-surface text-right">৳ 24,500</td>
                                     <td class="p-table-cell-padding text-center">
-                                        <span
-                                            class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-error/10 text-error">Cancelled</span>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-error/10 text-error">Cancelled</span>
                                     </td>
                                 </tr>
-                                <tr
-                                    class="bg-[#F8FAFC] hover:bg-surface-container-lowest border-b border-outline-variant/50">
+                                <tr class="bg-[#F8FAFC] hover:bg-surface-container-lowest border-b border-outline-variant/50">
                                     <td class="p-table-cell-padding text-primary font-semibold">#ORD-9016</td>
                                     <td class="p-table-cell-padding text-on-surface">New Market Grocery</td>
                                     <td class="p-table-cell-padding text-on-surface text-right">৳ 5,600</td>
                                     <td class="p-table-cell-padding text-center">
-                                        <span
-                                            class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-primary-container/20 text-primary">Delivered</span>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-primary-container/20 text-primary">Delivered</span>
                                     </td>
                                 </tr>
                                 <tr class="hover:bg-surface-container-lowest border-b border-outline-variant/50">
@@ -320,18 +275,16 @@
                                     <td class="p-table-cell-padding text-on-surface">Al-Amin Stores</td>
                                     <td class="p-table-cell-padding text-on-surface text-right">৳ 18,900</td>
                                     <td class="p-table-cell-padding text-center">
-                                        <span
-                                            class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-primary-container/20 text-primary">Delivered</span>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-primary-container/20 text-primary">Delivered</span>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-            </div>
-        </main>
+            </div></div></main>
     </div>
-    <script src="./js/sidebar.js" defer></script>
-</body>
+    <script src="./js/sidebar.js" defer=""></script>
 
-</html>
+
+</body></html>

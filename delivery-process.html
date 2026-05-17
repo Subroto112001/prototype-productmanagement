@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Delivery Process Register</title>
         <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <link href="./css/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="./js/tailwind-config.js"></script>
 </head>
 
 <body class="bg-content flex h-screen overflow-hidden">
-    <main class="flex-1 flex flex-col overflow-y-auto bg-content">
-        <div id="header-root"></div>
-
-        <div class="p-8 space-y-8 mt-[70px]">
+    <main class="flex-1 flex flex-col overflow-y-auto bg-content flex-1 flex flex-col min-h-screen bg-background"><div id="header-root"></div><div class="space-y-8 p-container-margin w-full max-w-[1600px] mx-auto flex-1 flex flex-col gap-6">
             <section class="flex flex-col gap-2">
                 <p class="text-sm text-slate-500">Reports</p>
                 <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
@@ -28,8 +22,7 @@
                         </p>
                     </div>
                     <div class="flex gap-3">
-                        <button
-                            class="px-4 py-2 bg-white border border-slate-200 rounded-md text-sm font-semibold text-slate-600 hover:bg-slate-50">Export
+                        <button class="px-4 py-2 bg-white border border-slate-200 rounded-md text-sm font-semibold text-slate-600 hover:bg-slate-50">Export
                             PDF</button>
                         <button class="px-4 py-2 bg-primary text-white rounded-md text-sm font-semibold">Update
                             Status</button>
@@ -76,8 +69,7 @@
                                 <td class="px-6 py-4 font-medium">ORD-9201</td>
                                 <td class="px-6 py-4">Acme Corp</td>
                                 <td class="px-6 py-4">2026-05-15</td>
-                                <td class="px-6 py-4"><span
-                                        class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">In
+                                <td class="px-6 py-4"><span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">In
                                         Transit</span>
                                 </td>
                                 <td class="px-6 py-4 text-right">J. Rahman</td>
@@ -86,8 +78,7 @@
                                 <td class="px-6 py-4 font-medium">ORD-9198</td>
                                 <td class="px-6 py-4">Metro Digital</td>
                                 <td class="px-6 py-4">2026-05-14</td>
-                                <td class="px-6 py-4"><span
-                                        class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">Delivered</span>
+                                <td class="px-6 py-4"><span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">Delivered</span>
                                 </td>
                                 <td class="px-6 py-4 text-right">S. Alam</td>
                             </tr>
@@ -95,8 +86,7 @@
                                 <td class="px-6 py-4 font-medium">ORD-9195</td>
                                 <td class="px-6 py-4">Horizon Ventures</td>
                                 <td class="px-6 py-4">2026-05-13</td>
-                                <td class="px-6 py-4"><span
-                                        class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-100 text-rose-800">Delayed</span>
+                                <td class="px-6 py-4"><span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-100 text-rose-800">Delayed</span>
                                 </td>
                                 <td class="px-6 py-4 text-right">M. Khan</td>
                             </tr>
@@ -104,9 +94,8 @@
                     </table>
                 </div>
             </section>
-        </div>
-    </main>
-    <script src="./js/sidebar.js" defer></script>
+        </div></main>
+    <script src="./js/sidebar.js" defer=""></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             if (window.lucide && typeof window.lucide.createIcons === "function") {
@@ -114,6 +103,6 @@
             }
         });
     </script>
-</body>
 
-</html>
+
+</body></html>

@@ -199,6 +199,9 @@ body.sidebar-ready {
 #sidebar-root {
   width: var(--sidebar-width);
   flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }
 
 .app-main {

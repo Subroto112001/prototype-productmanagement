@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Inventory Management System Dashboard</title>
   <!-- Tailwind CSS v3 CDN -->
       <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <link href="./css/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="./js/tailwind-config.js"></script>
@@ -18,10 +14,7 @@
 
 <body class="bg-content flex h-screen overflow-hidden">
   <!-- BEGIN: Main Content Area -->
-  <main class="flex-1 flex flex-col overflow-y-auto bg-content">
-    <!-- Header -->
-    <div id="header-root"></div>
-    <div class="p-8 space-y-8 mt-[70px]">
+  <main class="flex-1 flex flex-col overflow-y-auto bg-content flex-1 flex flex-col min-h-screen bg-background"><div id="header-root"></div><div class="space-y-8 p-container-margin w-full max-w-[1600px] mx-auto flex-1 flex flex-col gap-6">
       <!-- BEGIN: Top Summary Cards -->
       <section class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
         <!-- Card 1 -->
@@ -103,8 +96,7 @@
                 <td class="px-6 py-4">#ORD-9012</td>
                 <td class="px-6 py-4">Global Tech Ltd.</td>
                 <td class="px-6 py-4">2023-10-24</td>
-                <td class="px-6 py-4"><span
-                    class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">Pending</span>
+                <td class="px-6 py-4"><span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">Pending</span>
                 </td>
                 <td class="px-6 py-4 text-right font-medium">₱12,500.00</td>
               </tr>
@@ -113,8 +105,7 @@
                 <td class="px-6 py-4">#ORD-9011</td>
                 <td class="px-6 py-4">Apex Systems</td>
                 <td class="px-6 py-4">2023-10-23</td>
-                <td class="px-6 py-4"><span
-                    class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">Processed</span>
+                <td class="px-6 py-4"><span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">Processed</span>
                 </td>
                 <td class="px-6 py-4 text-right font-medium">₱8,420.00</td>
               </tr>
@@ -123,8 +114,7 @@
                 <td class="px-6 py-4">#ORD-9010</td>
                 <td class="px-6 py-4">Horizon Ventures</td>
                 <td class="px-6 py-4">2023-10-23</td>
-                <td class="px-6 py-4"><span
-                    class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">Processed</span>
+                <td class="px-6 py-4"><span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">Processed</span>
                 </td>
                 <td class="px-6 py-4 text-right font-medium">₱15,100.00</td>
               </tr>
@@ -238,18 +228,16 @@
               </div>
             </div>
           </div>
-          <button
-            class="w-full mt-6 bg-primary text-white font-semibold py-2 rounded-md hover:bg-teal-700 transition-colors">
+          <button class="w-full mt-6 bg-primary text-white font-semibold py-2 rounded-md hover:bg-teal-700 transition-colors">
             Generate New Challan
           </button>
         </div>
       </section>
       <!-- END: Footer Section -->
-    </div>
-  </main>
+    </div></main>
   <!-- END: Main Content Area -->
   <!-- JavaScript for Charts and Icons -->
-  <script src="./js/sidebar.js" defer></script>
+  <script src="./js/sidebar.js" defer=""></script>
   <script data-purpose="canvas-setup">
     // Initialize Lucide Icons
     lucide.createIcons();
@@ -316,6 +304,6 @@
       }
     });
   </script>
-</body>
 
-</html>
+
+</body></html>

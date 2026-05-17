@@ -73,17 +73,21 @@
   function applyLayoutClasses() {
     document.body.classList.add("sidebar-ready", "sidebar-shell");
 
-    var mainElement = Array.prototype.find.call(
-      document.body.children,
-      function (child) {
-        return (
-          child.id !== "sidebar-root" &&
-          !child.classList.contains("sidebar-overlay") &&
-          !child.classList.contains("sidebar-toggle") &&
-          child.tagName !== "SCRIPT"
-        );
-      },
-    );
+    var mainElement = document.querySelector("main");
+    if (!mainElement) {
+      mainElement = Array.prototype.find.call(
+        document.body.children,
+        function (child) {
+          return (
+            child.id !== "sidebar-root" &&
+            child.id !== "header-root" &&
+            !child.classList.contains("sidebar-overlay") &&
+            !child.classList.contains("sidebar-toggle") &&
+            child.tagName !== "SCRIPT"
+          );
+        },
+      );
+    }
 
     if (mainElement) {
       mainElement.classList.add("app-main");
@@ -155,6 +159,11 @@
     var headerRoot = document.getElementById("header-root");
     if (!headerRoot) return Promise.resolve();
     
+    var main = document.querySelector("main");
+    if (main && headerRoot.parentNode !== main) {
+      main.insertBefore(headerRoot, main.firstChild);
+    }
+
     return fetch("./components/header.html", { cache: "no-cache" })
       .then(function (response) {
         if (!response.ok) throw new Error("Header load failed");

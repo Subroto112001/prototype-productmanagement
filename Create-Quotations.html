@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-
-<html class="light" lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<!DOCTYPE html><html class="light" lang="en"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Create Quotation - Inventory Management</title>
         <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <link href="./css/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="./js/tailwind-config.js"></script>
@@ -27,15 +23,14 @@
         <!-- header -->
         <div id="header-root"></div>
         <!-- Page Content -->
-        <main class="mt-16 p-container-margin flex-1 flex justify-center">
-            <div class="w-full max-w-3xl bg-surface-container-lowest rounded-xl border border-outline-variant p-card-padding shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+        <main class="flex-1 flex justify-center flex-1 flex flex-col min-h-screen bg-background"><div class="p-container-margin w-full max-w-[1600px] mx-auto flex-1 flex flex-col gap-6"><div class="w-full max-w-3xl bg-surface-container-lowest rounded-xl border border-outline-variant p-card-padding shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
                 <h2 class="font-title-sm text-title-sm text-on-surface mb-6 border-b border-outline-variant pb-2">Create Quotation</h2>
                 <form class="flex flex-col gap-4">
                     <div class="grid grid-cols-2 gap-4">
                         <div class="flex flex-col gap-1">
                             <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Select Client</label>
                             <select class="form-select w-full border-outline-variant rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-base bg-white h-10">
-                                <option value="" disabled selected>Choose a client...</option>
+                                <option value="" disabled="" selected="">Choose a client...</option>
                                 <option>Acme Corp Ltd.</option>
                                 <option>TechFlow Industries</option>
                                 <option>Global Logistics</option>
@@ -43,21 +38,21 @@
                         </div>
                         <div class="flex flex-col gap-1">
                             <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Date</label>
-                            <input class="form-input w-full border-outline-variant rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-base bg-white h-10" type="date" />
+                            <input class="form-input w-full border-outline-variant rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-base bg-white h-10" type="date">
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
                         <div class="flex flex-col gap-1">
                             <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Item Name</label>
-                            <input class="form-input w-full border-outline-variant rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-base bg-white h-10" type="text" placeholder="Enter item name" />
+                            <input class="form-input w-full border-outline-variant rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-base bg-white h-10" type="text" placeholder="Enter item name">
                         </div>
                         <div class="flex flex-col gap-1">
                             <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Quantity</label>
-                            <input class="form-input w-full border-outline-variant rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-base bg-white h-10" type="number" placeholder="0" />
+                            <input class="form-input w-full border-outline-variant rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-base bg-white h-10" type="number" placeholder="0">
                         </div>
                         <div class="flex flex-col gap-1">
                             <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Unit Price (BDT)</label>
-                            <input class="form-input w-full border-outline-variant rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-base bg-white h-10" type="number" placeholder="0.00" />
+                            <input class="form-input w-full border-outline-variant rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-base bg-white h-10" type="number" placeholder="0.00">
                         </div>
                         <div class="flex flex-col gap-1">
                             <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">VAT %</label>
@@ -82,10 +77,9 @@
                         </button>
                     </div>
                 </form>
-            </div>
-        </main>
+            </div></div></main>
     </div>
-    <script src="./js/sidebar.js" defer></script>
-</body>
+    <script src="./js/sidebar.js" defer=""></script>
 
-</html>
+
+</body></html>

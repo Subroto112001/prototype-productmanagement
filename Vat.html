@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-
-<html class="light" lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<!DOCTYPE html><html class="light" lang="en"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>VAT Control Hub - VAT Management (Mushak-6.3)</title>
         <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <link href="./css/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="./js/tailwind-config.js"></script>
@@ -45,12 +41,10 @@
 
 <body class="bg-surface font-body-base text-on-surface antialiased flex h-screen overflow-hidden">
     <!-- SideNavBar (Shared Component) -->
-    <nav
-        class="bg-surface dark:bg-inverse-surface w-[260px] h-full fixed left-0 top-0 border-r border-outline-variant dark:border-outline shadow-sm flex flex-col h-full py-container-margin overflow-y-auto z-50">
+    <nav class="bg-surface dark:bg-inverse-surface w-[260px] h-full fixed left-0 top-0 border-r border-outline-variant dark:border-outline shadow-sm flex flex-col h-full py-container-margin overflow-y-auto z-50">
         <!-- Brand/Header -->
         <div class="px-container-margin mb-section-gap flex items-center gap-3">
-            <div
-                class="w-10 h-10 rounded bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0">
+            <div class="w-10 h-10 rounded bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0">
                 <span class="material-symbols-outlined fill text-[24px]">inventory_2</span>
             </div>
             <div>
@@ -63,42 +57,34 @@
 
         <ul class="flex-1 px-3 space-y-1">
             <li>
-                <a href="./Index.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
+                <a href="./Index.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
                     <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
                     <span class="font-body-base text-body-base font-medium">Home</span>
                 </a>
             </li>
             <li>
-                <link href="./css/style.css" rel="stylesheet" />
+                <link href="./css/style.css" rel="stylesheet">
                 <script src="https://unpkg.com/lucide@latest"></script>
-                <a href="./Client.html"
-                    class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
+                <a href="./Client.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors duration-200">
                     <span class="material-symbols-outlined" data-icon="groups">groups</span>
                     <span class="font-body-base text-body-base">Clients</span>
                 </a>
             </li>
             <li>
-                </button>
+                
                 <!-- Primary Action -->
-                <a href="./Create-new-order.html"
-                    class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-md shadow-[0_2px_0_0_#005049] hover:bg-surface-tint hover:shadow-none translate-y-[2px] active:translate-y-0 transition-all font-label-caps text-label-caps">
+                <a href="./Create-new-order.html" class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-md shadow-[0_2px_0_0_#005049] hover:bg-surface-tint hover:shadow-none translate-y-[2px] active:translate-y-0 transition-all font-label-caps text-label-caps">
                     <span class="material-symbols-outlined text-[18px]">add</span>
                     Create Order
                 </a>
                 <!-- User Profile -->
-                <div
-                    class="w-8 h-8 rounded-full bg-secondary-container overflow-hidden ml-2 cursor-pointer border border-outline-variant">
-                    <img alt="User Profile" class="w-full h-full object-cover"
-                        data-alt="A professional headshot of a business executive wearing a modern suit, bright even lighting, corporate environment, confident expression. Subtle teal accent in the background. Modern corporate aesthetic."
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJi4laU4YVXMgsXyBv8Gpp0o4pVduNozAAspQzUjyIeKM-NCnVdvOgr8J3LJ22XFKYpoMYBnL2B7NSy9-8wdPzCPr_vkttsWS0sRjQDW3FzcqcgjiaCtDT4MzWsx5_kOzzp9tXONwKAVjMP3g3FphWLZWmJvTYJWxMbdVwe5_n6zr8ViEvoJVuWr5dtF_Y9Jggc97RaGrons5pgX0WPWJiFtKqO2pdiGm1bowxxOe0aJSgTuYTpgrJXkR2e56PzF4LGJC3BppJ-i8" />
+                <div class="w-8 h-8 rounded-full bg-secondary-container overflow-hidden ml-2 cursor-pointer border border-outline-variant">
+                    <img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a business executive wearing a modern suit, bright even lighting, corporate environment, confident expression. Subtle teal accent in the background. Modern corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJi4laU4YVXMgsXyBv8Gpp0o4pVduNozAAspQzUjyIeKM-NCnVdvOgr8J3LJ22XFKYpoMYBnL2B7NSy9-8wdPzCPr_vkttsWS0sRjQDW3FzcqcgjiaCtDT4MzWsx5_kOzzp9tXONwKAVjMP3g3FphWLZWmJvTYJWxMbdVwe5_n6zr8ViEvoJVuWr5dtF_Y9Jggc97RaGrons5pgX0WPWJiFtKqO2pdiGm1bowxxOe0aJSgTuYTpgrJXkR2e56PzF4LGJC3BppJ-i8">
                 </div>
-                </div>
-                </header>
+                
+                
                 <!-- Page Content -->
-                <main class="flex-1 overflow-y-auto p-container-margin bg-surface mt-[50px]">
-                    <!-- Page Header & Workflow Info -->
-                    <div class="flex justify-between items-end mb-section-gap">
+                <main class="flex-1 overflow-y-auto bg-surface flex-1 flex flex-col min-h-screen bg-background"><div class="p-container-margin w-full max-w-[1600px] mx-auto flex-1 flex flex-col gap-6"><div class="flex justify-between items-end mb-section-gap">
                         <div>
                             <h2 class="font-display-lg text-2xl text-on-surface mb-1">VAT Management (Mushak-6.3)</h2>
                             <p class="font-body-sm text-on-surface-variant">Generate and manage compliant VAT Challans
@@ -106,19 +92,15 @@
                                 outbound deliveries.</p>
                         </div>
                         <!-- Workflow Diagram Embed Trigger -->
-                        <button
-                            class="flex items-center gap-2 text-primary hover:text-primary-container transition-colors bg-surface-container-low px-4 py-2 rounded-lg border border-outline-variant/50">
+                        <button class="flex items-center gap-2 text-primary hover:text-primary-container transition-colors bg-surface-container-low px-4 py-2 rounded-lg border border-outline-variant/50">
                             <span class="material-symbols-outlined text-[20px]">account_tree</span>
                             <span class="font-label-caps text-[12px]">View Mushak-6.3 Workflow</span>
                         </button>
-                    </div>
-                    <!-- Bento Grid Layout -->
-                    <div class="grid grid-cols-12 gap-container-margin">
+                    </div><div class="grid grid-cols-12 gap-container-margin">
                         <!-- LEFT COLUMN: Generate Mushak -->
                         <div class="col-span-12 xl:col-span-8 flex flex-col gap-6">
                             <!-- Controls Card -->
-                            <div
-                                class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+                            <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-card-padding shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
                                 <div class="flex items-center gap-2 mb-4 pb-4 border-b border-outline-variant/50">
                                     <span class="material-symbols-outlined text-primary">post_add</span>
                                     <h3 class="font-title-sm text-title-sm text-on-surface">Generate New Challan</h3>
@@ -129,58 +111,47 @@
                                             Confirmed
                                             Order</label>
                                         <div class="relative">
-                                            <select
-                                                class="w-full appearance-none bg-surface border border-outline-variant rounded-lg px-4 py-2.5 text-body-base focus:outline-none focus:border-[#0D9488] focus:ring-1 focus:ring-[#0D9488] transition-colors pr-10">
+                                            <select class="w-full appearance-none bg-surface border border-outline-variant rounded-lg px-4 py-2.5 text-body-base focus:outline-none focus:border-[#0D9488] focus:ring-1 focus:ring-[#0D9488] transition-colors pr-10">
                                                 <option value="">Select an order pending delivery...</option>
                                                 <option value="ORD-2023-8901">ORD-2023-8901 - TechCorp Ltd.</option>
                                                 <option value="ORD-2023-8905">ORD-2023-8905 - Global Industries</option>
                                                 <option value="ORD-2023-8912">ORD-2023-8912 - Nexus Solutions</option>
                                             </select>
-                                            <span
-                                                class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
+                                            <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
                                         </div>
                                     </div>
-                                    <button
-                                        class="bg-[#0D9488] hover:bg-[#0f766e] text-white px-6 py-2.5 rounded-lg font-title-sm text-[14px] shadow-[0_2px_0_rgba(0,0,0,0.05)] active:shadow-none active:translate-y-[2px] transition-all flex items-center justify-center gap-2 h-[42px]">
+                                    <button class="bg-[#0D9488] hover:bg-[#0f766e] text-white px-6 py-2.5 rounded-lg font-title-sm text-[14px] shadow-[0_2px_0_rgba(0,0,0,0.05)] active:shadow-none active:translate-y-[2px] transition-all flex items-center justify-center gap-2 h-[42px]">
                                         <span class="material-symbols-outlined text-[18px]">receipt_long</span>
                                         Generate Draft
                                     </button>
                                 </div>
                             </div>
                             <!-- Print Preview Canvas -->
-                            <div
-                                class="bg-surface-container-low border border-outline-variant rounded-xl p-4 flex-1 min-h-[600px] flex flex-col shadow-inner">
+                            <div class="bg-surface-container-low border border-outline-variant rounded-xl p-4 flex-1 min-h-[600px] flex flex-col shadow-inner">
                                 <div class="flex justify-between items-center mb-4 px-2">
                                     <span class="font-label-caps text-outline">Document Preview (Mushak-6.3)</span>
                                     <div class="flex gap-2">
-                                        <button
-                                            class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-md transition-colors"
-                                            title="Zoom In">
+                                        <button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-md transition-colors" title="Zoom In">
                                             <span class="material-symbols-outlined text-[20px]">zoom_in</span>
                                         </button>
-                                        <button
-                                            class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-md transition-colors"
-                                            title="Download PDF">
+                                        <button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-md transition-colors" title="Download PDF">
                                             <span class="material-symbols-outlined text-[20px]">download</span>
                                         </button>
-                                        <button
-                                            class="flex items-center gap-2 px-3 py-1.5 bg-white border border-outline-variant text-[#0D9488] hover:bg-surface-container-lowest rounded-md font-label-caps transition-colors shadow-sm">
+                                        <button class="flex items-center gap-2 px-3 py-1.5 bg-white border border-outline-variant text-[#0D9488] hover:bg-surface-container-lowest rounded-md font-label-caps transition-colors shadow-sm">
                                             <span class="material-symbols-outlined text-[18px]">print</span>
                                             Print Challan
                                         </button>
                                     </div>
                                 </div>
                                 <!-- The A4 Sheet Simulation -->
-                                <div
-                                    class="bg-white mx-auto w-full max-w-[800px] flex-1 p-8 border border-outline-variant shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)] font-mushak-print text-mushak-print text-black overflow-y-auto print:shadow-none print:border-none print:w-full print:max-w-none print:p-0">
+                                <div class="bg-white mx-auto w-full max-w-[800px] flex-1 p-8 border border-outline-variant shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)] font-mushak-print text-mushak-print text-black overflow-y-auto print:shadow-none print:border-none print:w-full print:max-w-none print:p-0">
                                     <!-- Govt Header -->
                                     <div class="text-center mb-6 border-b-2 border-black pb-4">
                                         <h1 class="font-bold text-[16px] mb-1">Government of the People's Republic of
                                             Bangladesh
                                         </h1>
                                         <h2 class="font-bold text-[14px] mb-1">National Board of Revenue</h2>
-                                        <div
-                                            class="inline-block border border-black px-4 py-1 mt-2 font-bold text-[14px]">
+                                        <div class="inline-block border border-black px-4 py-1 mt-2 font-bold text-[14px]">
                                             Mushak-6.3</div>
                                         <p class="mt-2 text-[12px] font-bold">Tax Invoice / Challan</p>
                                         <p class="text-[10px]">[See Rules 40(1)(a) &amp; 40(1)(c)]</p>
@@ -307,8 +278,7 @@
                         <!-- RIGHT COLUMN: Reports & Context -->
                         <div class="col-span-12 xl:col-span-4 flex flex-col gap-6">
                             <!-- KPI Summary -->
-                            <div
-                                class="bg-gradient-to-br from-primary-container to-surface-tint rounded-xl p-card-padding text-on-primary-container shadow-md relative overflow-hidden">
+                            <div class="bg-gradient-to-br from-primary-container to-surface-tint rounded-xl p-card-padding text-on-primary-container shadow-md relative overflow-hidden">
                                 <!-- Decor abstract shape -->
                                 <div class="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
                                 <div class="flex items-center gap-2 mb-2 opacity-90 relative z-10">
@@ -322,13 +292,10 @@
                                 </div>
                             </div>
                             <!-- Recent Summary Table -->
-                            <div
-                                class="bg-surface-container-lowest border border-outline-variant rounded-xl flex-1 flex flex-col shadow-[0_1px_3px_rgba(0,0,0,0.05)] overflow-hidden">
-                                <div
-                                    class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-bright">
+                            <div class="bg-surface-container-lowest border border-outline-variant rounded-xl flex-1 flex flex-col shadow-[0_1px_3px_rgba(0,0,0,0.05)] overflow-hidden">
+                                <div class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-bright">
                                     <h3 class="font-title-sm text-title-sm text-on-surface">VAT-6.3 Summary</h3>
-                                    <button
-                                        class="flex items-center gap-1.5 text-[#0D9488] hover:bg-surface-container-low px-2 py-1 rounded text-sm transition-colors">
+                                    <button class="flex items-center gap-1.5 text-[#0D9488] hover:bg-surface-container-low px-2 py-1 rounded text-sm transition-colors">
                                         <span class="material-symbols-outlined text-[18px]">table_view</span>
                                         Export Excel
                                     </button>
@@ -337,71 +304,57 @@
                                     <table class="w-full text-left border-collapse">
                                         <thead class="bg-[#F8FAFC] border-b border-outline-variant sticky top-0">
                                             <tr>
-                                                <th
-                                                    class="p-table-cell-padding font-label-caps text-outline text-xs whitespace-nowrap">
+                                                <th class="p-table-cell-padding font-label-caps text-outline text-xs whitespace-nowrap">
                                                     Challan #</th>
-                                                <th
-                                                    class="p-table-cell-padding font-label-caps text-outline text-xs whitespace-nowrap">
+                                                <th class="p-table-cell-padding font-label-caps text-outline text-xs whitespace-nowrap">
                                                     Client</th>
-                                                <th
-                                                    class="p-table-cell-padding font-label-caps text-outline text-xs text-right whitespace-nowrap">
+                                                <th class="p-table-cell-padding font-label-caps text-outline text-xs text-right whitespace-nowrap">
                                                     Net Amt</th>
-                                                <th
-                                                    class="p-table-cell-padding font-label-caps text-outline text-xs text-right whitespace-nowrap">
+                                                <th class="p-table-cell-padding font-label-caps text-outline text-xs text-right whitespace-nowrap">
                                                     VAT</th>
-                                                <th
-                                                    class="p-table-cell-padding font-label-caps text-outline text-xs text-center whitespace-nowrap">
+                                                <th class="p-table-cell-padding font-label-caps text-outline text-xs text-center whitespace-nowrap">
                                                     Status</th>
                                             </tr>
                                         </thead>
-                                        <tbody
-                                            class="font-table-data text-table-data divide-y divide-outline-variant/50">
+                                        <tbody class="font-table-data text-table-data divide-y divide-outline-variant/50">
                                             <tr class="hover:bg-surface-container-low transition-colors">
                                                 <td class="p-table-cell-padding text-primary font-medium">M-1041</td>
-                                                <td class="p-table-cell-padding truncate max-w-[100px]"
-                                                    title="Delta Textiles">
+                                                <td class="p-table-cell-padding truncate max-w-[100px]" title="Delta Textiles">
                                                     Delta Tex...</td>
                                                 <td class="p-table-cell-padding text-right">45k</td>
                                                 <td class="p-table-cell-padding text-right">6.7k</td>
                                                 <td class="p-table-cell-padding text-center">
-                                                    <span
-                                                        class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#0D9488] text-white">Verified</span>
+                                                    <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#0D9488] text-white">Verified</span>
                                                 </td>
                                             </tr>
                                             <tr class="hover:bg-surface-container-low transition-colors bg-[#F8FAFC]">
                                                 <td class="p-table-cell-padding text-primary font-medium">M-1040</td>
-                                                <td class="p-table-cell-padding truncate max-w-[100px]"
-                                                    title="MegaMart BD">
+                                                <td class="p-table-cell-padding truncate max-w-[100px]" title="MegaMart BD">
                                                     MegaMart...</td>
                                                 <td class="p-table-cell-padding text-right">120k</td>
                                                 <td class="p-table-cell-padding text-right">18k</td>
                                                 <td class="p-table-cell-padding text-center">
-                                                    <span
-                                                        class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#0D9488] text-white">Verified</span>
+                                                    <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#0D9488] text-white">Verified</span>
                                                 </td>
                                             </tr>
                                             <tr class="hover:bg-surface-container-low transition-colors">
                                                 <td class="p-table-cell-padding text-primary font-medium">M-1039</td>
-                                                <td class="p-table-cell-padding truncate max-w-[100px]"
-                                                    title="City Corp">City
+                                                <td class="p-table-cell-padding truncate max-w-[100px]" title="City Corp">City
                                                     Corp</td>
                                                 <td class="p-table-cell-padding text-right">25k</td>
                                                 <td class="p-table-cell-padding text-right">3.7k</td>
                                                 <td class="p-table-cell-padding text-center">
-                                                    <span
-                                                        class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#0D9488] text-white">Verified</span>
+                                                    <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#0D9488] text-white">Verified</span>
                                                 </td>
                                             </tr>
                                             <tr class="hover:bg-surface-container-low transition-colors bg-[#F8FAFC]">
                                                 <td class="p-table-cell-padding text-primary font-medium">M-1038</td>
-                                                <td class="p-table-cell-padding truncate max-w-[100px]"
-                                                    title="Apex Build">Apex
+                                                <td class="p-table-cell-padding truncate max-w-[100px]" title="Apex Build">Apex
                                                     Build</td>
                                                 <td class="p-table-cell-padding text-right">500k</td>
                                                 <td class="p-table-cell-padding text-right">75k</td>
                                                 <td class="p-table-cell-padding text-center">
-                                                    <span
-                                                        class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#0D9488] text-white">Verified</span>
+                                                    <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#0D9488] text-white">Verified</span>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -414,27 +367,22 @@
                                 </div>
                             </div>
                             <!-- Context Image Box (Workflow) -->
-                            <div
-                                class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+                            <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
                                 <h4 class="font-title-sm text-[14px] text-on-surface mb-3 flex items-center gap-2">
                                     <span class="material-symbols-outlined text-[18px] text-primary">schema</span>
                                     Compliance Workflow
                                 </h4>
-                                <div
-                                    class="rounded-lg overflow-hidden border border-outline-variant/50 bg-surface-container-low flex items-center justify-center min-h-[120px]">
-                                    <img alt="Mushak-6.3 VAT Workflow Diagram showing Quotation to Delivery"
-                                        class="w-full h-auto object-contain max-h-[160px]"
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUjmo5c1PHw-rrTS_JZWwvThg0CzMMdFWL-ovUesw0GKR5hho8oU8QzPxbx8UTOgVvVzQ_gcNYx8bYubWHYPU0IB9BuNYMwnwVAAnIMOq1l5XQHhQhO9qmwH7JmP27u86nOXmwbeI-FfBJaYMbYENT4TKtEccQYKLcjpYqON8tOwymwUPOohX_7oo4IzKLodQUfWA3_mLp2IUbDKQM3Eevowj_H5UaFMcV5Za6aQvhCvRiqFQzIZtk2NKeDtnewMMwPRfsbgYUek8" />
+                                <div class="rounded-lg overflow-hidden border border-outline-variant/50 bg-surface-container-low flex items-center justify-center min-h-[120px]">
+                                    <img alt="Mushak-6.3 VAT Workflow Diagram showing Quotation to Delivery" class="w-full h-auto object-contain max-h-[160px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUjmo5c1PHw-rrTS_JZWwvThg0CzMMdFWL-ovUesw0GKR5hho8oU8QzPxbx8UTOgVvVzQ_gcNYx8bYubWHYPU0IB9BuNYMwnwVAAnIMOq1l5XQHhQhO9qmwH7JmP27u86nOXmwbeI-FfBJaYMbYENT4TKtEccQYKLcjpYqON8tOwymwUPOohX_7oo4IzKLodQUfWA3_mLp2IUbDKQM3Eevowj_H5UaFMcV5Za6aQvhCvRiqFQzIZtk2NKeDtnewMMwPRfsbgYUek8">
                                 </div>
                                 <p class="text-[11px] text-on-surface-variant mt-2 text-center">Standard path from
                                     Quotation to
                                     Legal Delivery.</p>
                             </div>
                         </div>
-                    </div>
-                </main>
-                </div>
-                <script src="./js/sidebar.js" defer></script>
-</body>
+                    </div></div></main>
+                
+                <script src="./js/sidebar.js" defer=""></script>
 
-</html>
+
+</li></ul></nav></body></html>

@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-
-<html class="light" lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<!DOCTYPE html><html class="light" lang="en"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Quotations - VAT Inventory Pro</title>
         <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <link href="./css/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="./js/tailwind-config.js"></script>
@@ -36,9 +32,7 @@
         <!-- header -->
         <div id="header-root"></div>
         <!-- Main Content Canvas -->
-        <main class=" pt-16 min-h-screen w-full flex flex-col">
-            <!-- Breadcrumbs & Header -->
-            <div class="px-container-margin py-6 flex flex-col gap-4 border-b border-outline-variant/50 bg-white">
+        <main class=" min-h-screen w-full flex flex-col flex-1 flex flex-col min-h-screen bg-background"><div class="p-container-margin w-full max-w-[1600px] mx-auto flex-1 flex flex-col gap-6"><div class="px-container-margin py-6 flex flex-col gap-4 border-b border-outline-variant/50 bg-white">
                 <div class="flex items-center text-body-sm font-body-sm text-secondary gap-2">
                     <a class="hover:text-primary transition-colors" href="#">Quotations</a>
                     <span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
@@ -46,69 +40,52 @@
                 </div>
                 <div class="flex justify-between items-center">
                     <h2 class="font-display-lg text-display-lg text-on-surface">All Quotations</h2>
-                    <a href="./Create-Quotations.html"
-                        class="bg-primary text-on-primary px-5 py-2.5 rounded-lg font-title-sm text-title-sm btn-primary-shadow hover:opacity-90 transition-all flex items-center gap-2">
+                    <a href="./Create-Quotations.html" class="bg-primary text-on-primary px-5 py-2.5 rounded-lg font-title-sm text-title-sm btn-primary-shadow hover:opacity-90 transition-all flex items-center gap-2">
                         <span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
                         Create Quotation
                     </a>
                 </div>
-            </div>
-            <div class="p-container-margin flex-1 flex flex-col gap-section-gap">
+            </div><div class="p-container-margin flex-1 flex flex-col gap-section-gap">
                 <!-- Summary Cards (Bento-style Grid) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
-                    <div
-                        class="bg-white rounded-lg p-card-padding border border-outline-variant card-shadow flex flex-col justify-between">
+                    <div class="bg-white rounded-lg p-card-padding border border-outline-variant card-shadow flex flex-col justify-between">
                         <div class="flex justify-between items-start">
                             <span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Total
                                 Quotations</span>
-                            <span
-                                class="material-symbols-outlined text-primary-container bg-surface-container p-1.5 rounded-md"
-                                data-icon="request_quote">request_quote</span>
+                            <span class="material-symbols-outlined text-primary-container bg-surface-container p-1.5 rounded-md" data-icon="request_quote">request_quote</span>
                         </div>
                         <div class="mt-4">
                             <span class="font-headline-md text-headline-md text-on-surface">1,248</span>
                             <span class="text-body-sm font-body-sm text-secondary ml-2">This Month</span>
                         </div>
                     </div>
-                    <div
-                        class="bg-white rounded-lg p-card-padding border border-outline-variant card-shadow flex flex-col justify-between">
+                    <div class="bg-white rounded-lg p-card-padding border border-outline-variant card-shadow flex flex-col justify-between">
                         <div class="flex justify-between items-start">
-                            <span
-                                class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Pending</span>
-                            <span
-                                class="material-symbols-outlined text-tertiary-container bg-tertiary-fixed p-1.5 rounded-md"
-                                data-icon="pending_actions">pending_actions</span>
+                            <span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Pending</span>
+                            <span class="material-symbols-outlined text-tertiary-container bg-tertiary-fixed p-1.5 rounded-md" data-icon="pending_actions">pending_actions</span>
                         </div>
                         <div class="mt-4">
                             <span class="font-headline-md text-headline-md text-on-surface">42</span>
-                            <span
-                                class="text-body-sm font-body-sm text-tertiary-container ml-2 bg-tertiary-fixed/30 px-2 py-0.5 rounded text-[11px] font-medium">Requires
+                            <span class="text-body-sm font-body-sm text-tertiary-container ml-2 bg-tertiary-fixed/30 px-2 py-0.5 rounded text-[11px] font-medium">Requires
                                 Action</span>
                         </div>
                     </div>
-                    <div
-                        class="bg-white rounded-lg p-card-padding border border-outline-variant card-shadow flex flex-col justify-between">
+                    <div class="bg-white rounded-lg p-card-padding border border-outline-variant card-shadow flex flex-col justify-between">
                         <div class="flex justify-between items-start">
-                            <span
-                                class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Accepted</span>
-                            <span
-                                class="material-symbols-outlined text-primary bg-primary-fixed-dim/30 p-1.5 rounded-md"
-                                data-icon="check_circle">check_circle</span>
+                            <span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Accepted</span>
+                            <span class="material-symbols-outlined text-primary bg-primary-fixed-dim/30 p-1.5 rounded-md" data-icon="check_circle">check_circle</span>
                         </div>
                         <div class="mt-4">
                             <span class="font-headline-md text-headline-md text-on-surface">856</span>
                             <span class="text-body-sm font-body-sm text-primary ml-2">+12% vs last month</span>
                         </div>
                     </div>
-                    <div
-                        class="bg-white rounded-lg p-card-padding border border-outline-variant card-shadow flex flex-col justify-between">
+                    <div class="bg-white rounded-lg p-card-padding border border-outline-variant card-shadow flex flex-col justify-between">
                         <div class="flex justify-between items-start">
-                            <span
-                                class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Expired
+                            <span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Expired
                                 /
                                 Rejected</span>
-                            <span class="material-symbols-outlined text-error bg-error-container p-1.5 rounded-md"
-                                data-icon="cancel">cancel</span>
+                            <span class="material-symbols-outlined text-error bg-error-container p-1.5 rounded-md" data-icon="cancel">cancel</span>
                         </div>
                         <div class="mt-4">
                             <span class="font-headline-md text-headline-md text-on-surface">350</span>
@@ -119,23 +96,17 @@
                 <!-- Main Data Section (Filters + Table) -->
                 <div class="bg-white border border-outline-variant rounded-lg card-shadow flex flex-col">
                     <!-- Search & Filter Bar -->
-                    <div
-                        class="p-4 border-b border-outline-variant flex flex-wrap gap-4 items-end bg-surface/30 rounded-t-lg">
+                    <div class="p-4 border-b border-outline-variant flex flex-wrap gap-4 items-end bg-surface/30 rounded-t-lg">
                         <div class="flex-1 min-w-[200px]">
                             <label class="block font-label-caps text-label-caps text-secondary mb-1">Search</label>
                             <div class="relative">
-                                <span
-                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]"
-                                    data-icon="search">search</span>
-                                <input
-                                    class="w-full pl-9 pr-3 py-2 rounded-md border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary text-body-sm font-body-sm outline-none"
-                                    placeholder="Quotation ID, Client Name..." type="text" />
+                                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]" data-icon="search">search</span>
+                                <input class="w-full pl-9 pr-3 py-2 rounded-md border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary text-body-sm font-body-sm outline-none" placeholder="Quotation ID, Client Name..." type="text">
                             </div>
                         </div>
                         <div class="w-40">
                             <label class="block font-label-caps text-label-caps text-secondary mb-1">Status</label>
-                            <select
-                                class="w-full px-3 py-2 rounded-md border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary text-body-sm font-body-sm outline-none bg-white">
+                            <select class="w-full px-3 py-2 rounded-md border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary text-body-sm font-body-sm outline-none bg-white">
                                 <option>All Statuses</option>
                                 <option>Pending</option>
                                 <option>Accepted</option>
@@ -145,8 +116,7 @@
                         </div>
                         <div class="w-48">
                             <label class="block font-label-caps text-label-caps text-secondary mb-1">Client</label>
-                            <select
-                                class="w-full px-3 py-2 rounded-md border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary text-body-sm font-body-sm outline-none bg-white">
+                            <select class="w-full px-3 py-2 rounded-md border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary text-body-sm font-body-sm outline-none bg-white">
                                 <option>All Clients</option>
                                 <option>Acme Corp</option>
                                 <option>Global Industries</option>
@@ -156,19 +126,13 @@
                         <div class="w-48">
                             <label class="block font-label-caps text-label-caps text-secondary mb-1">Date Range</label>
                             <div class="relative">
-                                <span
-                                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]"
-                                    data-icon="calendar_today">calendar_today</span>
-                                <input
-                                    class="w-full pl-9 pr-3 py-2 rounded-md border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary text-body-sm font-body-sm outline-none bg-white cursor-pointer"
-                                    placeholder="Last 30 Days" readonly="" type="text" />
+                                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]" data-icon="calendar_today">calendar_today</span>
+                                <input class="w-full pl-9 pr-3 py-2 rounded-md border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary text-body-sm font-body-sm outline-none bg-white cursor-pointer" placeholder="Last 30 Days" readonly="" type="text">
                             </div>
                         </div>
                         <div class="flex gap-2">
-                            <button
-                                class="px-4 py-2 bg-surface-container hover:bg-surface-variant text-on-surface rounded-md font-title-sm text-body-sm border border-outline-variant transition-colors">Reset</button>
-                            <button
-                                class="px-4 py-2 bg-primary text-on-primary rounded-md font-title-sm text-body-sm hover:opacity-90 transition-opacity">Apply
+                            <button class="px-4 py-2 bg-surface-container hover:bg-surface-variant text-on-surface rounded-md font-title-sm text-body-sm border border-outline-variant transition-colors">Reset</button>
+                            <button class="px-4 py-2 bg-primary text-on-primary rounded-md font-title-sm text-body-sm hover:opacity-90 transition-opacity">Apply
                                 Filters</button>
                         </div>
                     </div>
@@ -177,33 +141,25 @@
                         <table class="w-full text-left border-collapse">
                             <thead>
                                 <tr class="bg-surface border-b border-outline-variant">
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-secondary font-semibold">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-secondary font-semibold">
                                         Quotation ID</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-secondary font-semibold">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-secondary font-semibold">
                                         Client Name</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-secondary font-semibold">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-secondary font-semibold">
                                         Quotation Date</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-secondary font-semibold">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-secondary font-semibold">
                                         Valid Until</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-secondary font-semibold text-right">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-secondary font-semibold text-right">
                                         Total Amount (৳)</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-secondary font-semibold text-center">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-secondary font-semibold text-center">
                                         Status</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-secondary font-semibold text-right">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-secondary font-semibold text-right">
                                         Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="font-table-data text-table-data text-on-surface">
                                 <!-- Row 1: Pending -->
-                                <tr
-                                    class="border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors group">
+                                <tr class="border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors group">
                                     <td class="p-table-cell-padding font-medium text-primary">QT-2023-1045</td>
                                     <td class="p-table-cell-padding">
                                         <div class="font-medium text-on-surface">Rahman &amp; Sons</div>
@@ -213,33 +169,21 @@
                                     <td class="p-table-cell-padding text-secondary">07 Nov, 2023</td>
                                     <td class="p-table-cell-padding text-right font-medium">245,000.00</td>
                                     <td class="p-table-cell-padding text-center">
-                                        <span
-                                            class="inline-flex items-center px-2 py-1 rounded-full bg-[#fef08a] text-[#854d0e] text-[11px] font-semibold border border-[#fde047]">
+                                        <span class="inline-flex items-center px-2 py-1 rounded-full bg-[#fef08a] text-[#854d0e] text-[11px] font-semibold border border-[#fde047]">
                                             Pending
                                         </span>
                                     </td>
                                     <td class="p-table-cell-padding text-right">
-                                        <div
-                                            class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <button class="text-secondary hover:text-primary" title="View"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="visibility">visibility</span></button>
-                                            <button class="text-secondary hover:text-primary" title="Edit"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="edit">edit</span></button>
-                                            <button class="text-secondary hover:text-primary"
-                                                title="Convert to Order"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="shopping_cart">shopping_cart</span></button>
-                                            <button class="text-secondary hover:text-error" title="Delete"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="delete">delete</span></button>
+                                        <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <button class="text-secondary hover:text-primary" title="View"><span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span></button>
+                                            <button class="text-secondary hover:text-primary" title="Edit"><span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span></button>
+                                            <button class="text-secondary hover:text-primary" title="Convert to Order"><span class="material-symbols-outlined text-[18px]" data-icon="shopping_cart">shopping_cart</span></button>
+                                            <button class="text-secondary hover:text-error" title="Delete"><span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span></button>
                                         </div>
                                     </td>
                                 </tr>
                                 <!-- Row 2: Accepted -->
-                                <tr
-                                    class="border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors bg-[#f8fafc] group">
+                                <tr class="border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors bg-[#f8fafc] group">
                                     <td class="p-table-cell-padding font-medium text-primary">QT-2023-1044</td>
                                     <td class="p-table-cell-padding">
                                         <div class="font-medium text-on-surface">Bengal Tech Logistics</div>
@@ -249,34 +193,21 @@
                                     <td class="p-table-cell-padding text-secondary">05 Nov, 2023</td>
                                     <td class="p-table-cell-padding text-right font-medium">1,120,500.00</td>
                                     <td class="p-table-cell-padding text-center">
-                                        <span
-                                            class="inline-flex items-center px-2 py-1 rounded-full bg-primary-container text-on-primary-container text-[11px] font-semibold">
+                                        <span class="inline-flex items-center px-2 py-1 rounded-full bg-primary-container text-on-primary-container text-[11px] font-semibold">
                                             Accepted
                                         </span>
                                     </td>
                                     <td class="p-table-cell-padding text-right">
-                                        <div
-                                            class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <button class="text-secondary hover:text-primary" title="View"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="visibility">visibility</span></button>
-                                            <button class="text-outline cursor-not-allowed" title="Edit Disabled"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="edit">edit</span></button>
-                                            <button class="text-secondary hover:text-primary"
-                                                title="Convert to Order"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="shopping_cart">shopping_cart</span></button>
-                                            <button class="text-outline cursor-not-allowed"
-                                                title="Delete Disabled"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="delete">delete</span></button>
+                                        <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <button class="text-secondary hover:text-primary" title="View"><span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span></button>
+                                            <button class="text-outline cursor-not-allowed" title="Edit Disabled"><span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span></button>
+                                            <button class="text-secondary hover:text-primary" title="Convert to Order"><span class="material-symbols-outlined text-[18px]" data-icon="shopping_cart">shopping_cart</span></button>
+                                            <button class="text-outline cursor-not-allowed" title="Delete Disabled"><span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span></button>
                                         </div>
                                     </td>
                                 </tr>
                                 <!-- Row 3: Expired -->
-                                <tr
-                                    class="border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors group">
+                                <tr class="border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors group">
                                     <td class="p-table-cell-padding font-medium text-primary">QT-2023-1030</td>
                                     <td class="p-table-cell-padding">
                                         <div class="font-medium text-on-surface">Dhaka Metropolitan Store</div>
@@ -286,33 +217,21 @@
                                     <td class="p-table-cell-padding text-error">15 Oct, 2023</td>
                                     <td class="p-table-cell-padding text-right font-medium">45,000.00</td>
                                     <td class="p-table-cell-padding text-center">
-                                        <span
-                                            class="inline-flex items-center px-2 py-1 rounded-full bg-surface-variant text-on-surface-variant text-[11px] font-semibold border border-outline-variant">
+                                        <span class="inline-flex items-center px-2 py-1 rounded-full bg-surface-variant text-on-surface-variant text-[11px] font-semibold border border-outline-variant">
                                             Expired
                                         </span>
                                     </td>
                                     <td class="p-table-cell-padding text-right">
-                                        <div
-                                            class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <button class="text-secondary hover:text-primary" title="View"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="visibility">visibility</span></button>
-                                            <button class="text-outline cursor-not-allowed" title="Edit Disabled"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="edit">edit</span></button>
-                                            <button class="text-outline cursor-not-allowed"
-                                                title="Cannot Convert Expired"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="shopping_cart">shopping_cart</span></button>
-                                            <button class="text-secondary hover:text-error" title="Delete"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="delete">delete</span></button>
+                                        <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <button class="text-secondary hover:text-primary" title="View"><span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span></button>
+                                            <button class="text-outline cursor-not-allowed" title="Edit Disabled"><span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span></button>
+                                            <button class="text-outline cursor-not-allowed" title="Cannot Convert Expired"><span class="material-symbols-outlined text-[18px]" data-icon="shopping_cart">shopping_cart</span></button>
+                                            <button class="text-secondary hover:text-error" title="Delete"><span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span></button>
                                         </div>
                                     </td>
                                 </tr>
                                 <!-- Row 4: Rejected -->
-                                <tr
-                                    class="border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors bg-[#f8fafc] group">
+                                <tr class="border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors bg-[#f8fafc] group">
                                     <td class="p-table-cell-padding font-medium text-primary">QT-2023-1025</td>
                                     <td class="p-table-cell-padding">
                                         <div class="font-medium text-on-surface">Alpha Manufacturing Ltd</div>
@@ -322,33 +241,21 @@
                                     <td class="p-table-cell-padding text-secondary">09 Oct, 2023</td>
                                     <td class="p-table-cell-padding text-right font-medium">890,200.00</td>
                                     <td class="p-table-cell-padding text-center">
-                                        <span
-                                            class="inline-flex items-center px-2 py-1 rounded-full bg-error-container text-on-error-container text-[11px] font-semibold">
+                                        <span class="inline-flex items-center px-2 py-1 rounded-full bg-error-container text-on-error-container text-[11px] font-semibold">
                                             Rejected
                                         </span>
                                     </td>
                                     <td class="p-table-cell-padding text-right">
-                                        <div
-                                            class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <button class="text-secondary hover:text-primary" title="View"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="visibility">visibility</span></button>
-                                            <button class="text-outline cursor-not-allowed" title="Edit Disabled"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="edit">edit</span></button>
-                                            <button class="text-outline cursor-not-allowed"
-                                                title="Convert Disabled"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="shopping_cart">shopping_cart</span></button>
-                                            <button class="text-secondary hover:text-error" title="Delete"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="delete">delete</span></button>
+                                        <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <button class="text-secondary hover:text-primary" title="View"><span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span></button>
+                                            <button class="text-outline cursor-not-allowed" title="Edit Disabled"><span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span></button>
+                                            <button class="text-outline cursor-not-allowed" title="Convert Disabled"><span class="material-symbols-outlined text-[18px]" data-icon="shopping_cart">shopping_cart</span></button>
+                                            <button class="text-secondary hover:text-error" title="Delete"><span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span></button>
                                         </div>
                                     </td>
                                 </tr>
                                 <!-- Row 5: Pending -->
-                                <tr
-                                    class="border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors group">
+                                <tr class="border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors group">
                                     <td class="p-table-cell-padding font-medium text-primary">QT-2023-1046</td>
                                     <td class="p-table-cell-padding">
                                         <div class="font-medium text-on-surface">Desh Builders</div>
@@ -358,27 +265,16 @@
                                     <td class="p-table-cell-padding text-secondary">08 Nov, 2023</td>
                                     <td class="p-table-cell-padding text-right font-medium">5,400,000.00</td>
                                     <td class="p-table-cell-padding text-center">
-                                        <span
-                                            class="inline-flex items-center px-2 py-1 rounded-full bg-[#fef08a] text-[#854d0e] text-[11px] font-semibold border border-[#fde047]">
+                                        <span class="inline-flex items-center px-2 py-1 rounded-full bg-[#fef08a] text-[#854d0e] text-[11px] font-semibold border border-[#fde047]">
                                             Pending
                                         </span>
                                     </td>
                                     <td class="p-table-cell-padding text-right">
-                                        <div
-                                            class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <button class="text-secondary hover:text-primary" title="View"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="visibility">visibility</span></button>
-                                            <button class="text-secondary hover:text-primary" title="Edit"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="edit">edit</span></button>
-                                            <button class="text-secondary hover:text-primary"
-                                                title="Convert to Order"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="shopping_cart">shopping_cart</span></button>
-                                            <button class="text-secondary hover:text-error" title="Delete"><span
-                                                    class="material-symbols-outlined text-[18px]"
-                                                    data-icon="delete">delete</span></button>
+                                        <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <button class="text-secondary hover:text-primary" title="View"><span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span></button>
+                                            <button class="text-secondary hover:text-primary" title="Edit"><span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span></button>
+                                            <button class="text-secondary hover:text-primary" title="Convert to Order"><span class="material-symbols-outlined text-[18px]" data-icon="shopping_cart">shopping_cart</span></button>
+                                            <button class="text-secondary hover:text-error" title="Delete"><span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -386,30 +282,19 @@
                         </table>
                     </div>
                     <!-- Table Pagination -->
-                    <div
-                        class="p-4 border-t border-outline-variant flex justify-between items-center bg-surface/30 rounded-b-lg">
+                    <div class="p-4 border-t border-outline-variant flex justify-between items-center bg-surface/30 rounded-b-lg">
                         <span class="text-body-sm font-body-sm text-secondary">Showing 1-5 of 1,248</span>
                         <div class="flex gap-1">
-                            <button
-                                class="p-1.5 rounded border border-outline-variant text-outline hover:bg-surface-variant transition-colors disabled:opacity-50"><span
-                                    class="material-symbols-outlined text-[18px]"
-                                    data-icon="chevron_left">chevron_left</span></button>
-                            <button
-                                class="p-1.5 px-3 rounded bg-primary text-on-primary font-body-sm text-body-sm">1</button>
-                            <button
-                                class="p-1.5 px-3 rounded border border-outline-variant text-on-surface hover:bg-surface-variant transition-colors font-body-sm text-body-sm">2</button>
-                            <button
-                                class="p-1.5 px-3 rounded border border-outline-variant text-on-surface hover:bg-surface-variant transition-colors font-body-sm text-body-sm">3</button>
-                            <button
-                                class="p-1.5 rounded border border-outline-variant text-on-surface hover:bg-surface-variant transition-colors"><span
-                                    class="material-symbols-outlined text-[18px]"
-                                    data-icon="chevron_right">chevron_right</span></button>
+                            <button class="p-1.5 rounded border border-outline-variant text-outline hover:bg-surface-variant transition-colors disabled:opacity-50"><span class="material-symbols-outlined text-[18px]" data-icon="chevron_left">chevron_left</span></button>
+                            <button class="p-1.5 px-3 rounded bg-primary text-on-primary font-body-sm text-body-sm">1</button>
+                            <button class="p-1.5 px-3 rounded border border-outline-variant text-on-surface hover:bg-surface-variant transition-colors font-body-sm text-body-sm">2</button>
+                            <button class="p-1.5 px-3 rounded border border-outline-variant text-on-surface hover:bg-surface-variant transition-colors font-body-sm text-body-sm">3</button>
+                            <button class="p-1.5 rounded border border-outline-variant text-on-surface hover:bg-surface-variant transition-colors"><span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span></button>
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
-        <script src="./js/sidebar.js" defer></script>
-</body>
+            </div></div></main>
+        <script src="./js/sidebar.js" defer=""></script>
 
-</html>
+
+</div></body></html>

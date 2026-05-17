@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-
-<html class="light" lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<!DOCTYPE html><html class="light" lang="en"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Stock Management</title>
         <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <link href="./css/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="./js/tailwind-config.js"></script>
@@ -49,45 +45,34 @@
     <div class="flex-1 ml-0 md:ml-[260px] flex flex-col min-h-screen">
         <div id="header-root"></div>
         <!-- Main Content Canvas -->
-        <main class="flex-1 mt-16 p-container-margin overflow-x-hidden">
-            <!-- Page Header -->
-            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-section-gap">
+        <main class="flex-1 overflow-x-hidden flex-1 flex flex-col min-h-screen bg-background"><div class="p-container-margin w-full max-w-[1600px] mx-auto flex-1 flex flex-col gap-6"><div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-section-gap">
                 <div>
                     <h2 class="font-display-lg text-display-lg text-on-background">Stock Management</h2>
                     <p class="font-body-base text-body-base text-on-surface-variant mt-1">Monitor inventory levels,
                         adjust stock, and review movements.</p>
                 </div>
                 <div class="flex flex-wrap gap-3">
-                    <button
-                        class="px-5 py-2.5 bg-surface text-primary border border-primary rounded font-label-caps text-label-caps hover:bg-surface-container-low transition-colors flex items-center gap-2">
+                    <button class="px-5 py-2.5 bg-surface text-primary border border-primary rounded font-label-caps text-label-caps hover:bg-surface-container-low transition-colors flex items-center gap-2">
                         <span class="material-symbols-outlined">arrow_downward</span>
                         Stock In
                     </button>
-                    <button
-                        class="px-5 py-2.5 bg-primary text-on-primary rounded font-label-caps text-label-caps hover:opacity-90 shadow-[0_2px_0_rgba(0,0,0,0.1)] active:shadow-none active:translate-y-[2px] transition-all flex items-center gap-2">
+                    <button class="px-5 py-2.5 bg-primary text-on-primary rounded font-label-caps text-label-caps hover:opacity-90 shadow-[0_2px_0_rgba(0,0,0,0.1)] active:shadow-none active:translate-y-[2px] transition-all flex items-center gap-2">
                         <span class="material-symbols-outlined">arrow_upward</span>
                         Stock Out
                     </button>
                 </div>
-            </div>
-            <!-- Filters -->
-            <div
-                class="bg-surface-container-lowest p-4 rounded-lg border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] mb-6 flex flex-col md:flex-row gap-4 items-end">
+            </div><div class="bg-surface-container-lowest p-4 rounded-lg border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] mb-6 flex flex-col md:flex-row gap-4 items-end">
                 <div class="flex-1 w-full">
                     <label class="font-label-caps text-label-caps text-on-surface-variant mb-1.5 block">Search
                         Products</label>
                     <div class="relative">
-                        <span
-                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
-                        <input
-                            class="w-full pl-10 pr-4 py-2 border border-outline-variant rounded bg-surface-container-lowest focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-body-base text-on-surface transition-all"
-                            placeholder="Code, Name, or SKU..." type="text" />
+                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+                        <input class="w-full pl-10 pr-4 py-2 border border-outline-variant rounded bg-surface-container-lowest focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-body-base text-on-surface transition-all" placeholder="Code, Name, or SKU..." type="text">
                     </div>
                 </div>
                 <div class="w-full md:w-64">
                     <label class="font-label-caps text-label-caps text-on-surface-variant mb-1.5 block">Category</label>
-                    <select
-                        class="w-full px-4 py-2 border border-outline-variant rounded bg-surface-container-lowest focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-body-base text-on-surface appearance-none transition-all">
+                    <select class="w-full px-4 py-2 border border-outline-variant rounded bg-surface-container-lowest focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-body-base text-on-surface appearance-none transition-all">
                         <option>All Categories</option>
                         <option>Industrial Motors</option>
                         <option>Cooling Systems</option>
@@ -97,45 +82,36 @@
                 <div class="w-full md:w-64">
                     <label class="font-label-caps text-label-caps text-on-surface-variant mb-1.5 block">Date
                         Range</label>
-                    <select
-                        class="w-full px-4 py-2 border border-outline-variant rounded bg-surface-container-lowest focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-body-base text-on-surface appearance-none transition-all">
+                    <select class="w-full px-4 py-2 border border-outline-variant rounded bg-surface-container-lowest focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-body-base text-on-surface appearance-none transition-all">
                         <option>Last 7 Days</option>
                         <option>Last 30 Days</option>
                         <option>This Month</option>
                         <option>Custom Range...</option>
                     </select>
                 </div>
-                <button
-                    class="px-4 py-2 bg-surface-container text-on-surface rounded font-label-caps text-label-caps hover:bg-surface-container-high transition-colors h-[42px] border border-outline-variant">
+                <button class="px-4 py-2 bg-surface-container text-on-surface rounded font-label-caps text-label-caps hover:bg-surface-container-high transition-colors h-[42px] border border-outline-variant">
                     Apply Filters
                 </button>
-            </div>
-            <!-- Summary Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-section-gap">
-                <div
-                    class="bg-surface-container-lowest p-card-padding rounded-lg border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex items-start justify-between">
+            </div><div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-section-gap">
+                <div class="bg-surface-container-lowest p-card-padding rounded-lg border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex items-start justify-between">
                     <div>
                         <p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Total Products</p>
                         <p class="font-headline-md text-headline-md text-on-surface">128</p>
                     </div>
-                    <div
-                        class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+                    <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
                         <span class="material-symbols-outlined text-[24px]">inventory_2</span>
                     </div>
                 </div>
-                <div
-                    class="bg-surface-container-lowest p-card-padding rounded-lg border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex items-start justify-between">
+                <div class="bg-surface-container-lowest p-card-padding rounded-lg border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex items-start justify-between">
                     <div>
                         <p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Total Stock Value</p>
                         <p class="font-headline-md text-headline-md text-on-surface">৳ 4.2M</p>
                     </div>
-                    <div
-                        class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+                    <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
                         <span class="material-symbols-outlined text-[24px]">account_balance_wallet</span>
                     </div>
                 </div>
-                <div
-                    class="bg-error-container p-card-padding rounded-lg border border-error/20 shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex items-start justify-between">
+                <div class="bg-error-container p-card-padding rounded-lg border border-error/20 shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex items-start justify-between">
                     <div>
                         <p class="font-label-caps text-label-caps text-on-error-container mb-1">Low Stock</p>
                         <p class="font-headline-md text-headline-md text-on-error-container">24</p>
@@ -144,12 +120,9 @@
                         <span class="material-symbols-outlined text-[24px]">warning</span>
                     </div>
                 </div>
-            </div>
-            <!-- Chart & Table Area -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12">
+            </div><div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12">
                 <!-- Chart Placeholder -->
-                <div
-                    class="lg:col-span-4 bg-surface-container-lowest p-card-padding rounded-lg border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col">
+                <div class="lg:col-span-4 bg-surface-container-lowest p-card-padding rounded-lg border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col">
                     <h3 class="font-title-sm text-title-sm text-on-surface mb-6 border-b border-outline-variant pb-3">
                         Stock Movement (7 Days)</h3>
                     <div class="flex-1 relative flex items-end justify-between px-2 gap-2 mt-4 h-48">
@@ -182,24 +155,19 @@
                         <!-- Legend -->
                         <div class="absolute top-0 right-0 flex items-center gap-4">
                             <div class="flex items-center gap-1.5">
-                                <div class="w-3 h-3 rounded bg-primary"></div><span
-                                    class="text-[11px] text-on-surface-variant">In</span>
+                                <div class="w-3 h-3 rounded bg-primary"></div><span class="text-[11px] text-on-surface-variant">In</span>
                             </div>
                             <div class="flex items-center gap-1.5">
-                                <div class="w-3 h-3 rounded bg-tertiary opacity-70"></div><span
-                                    class="text-[11px] text-on-surface-variant">Out</span>
+                                <div class="w-3 h-3 rounded bg-tertiary opacity-70"></div><span class="text-[11px] text-on-surface-variant">Out</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Main Data Table -->
-                <div
-                    class="lg:col-span-8 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col">
-                    <div
-                        class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-bright">
+                <div class="lg:col-span-8 bg-surface-container-lowest rounded-lg border border-outline-variant shadow-[0_1px_3px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col">
+                    <div class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-bright">
                         <h3 class="font-title-sm text-title-sm text-on-surface">Inventory List</h3>
-                        <button
-                            class="text-primary hover:text-primary-container text-sm font-semibold flex items-center gap-1">
+                        <button class="text-primary hover:text-primary-container text-sm font-semibold flex items-center gap-1">
                             Export <span class="material-symbols-outlined text-[16px]">download</span>
                         </button>
                     </div>
@@ -207,28 +175,21 @@
                         <table class="w-full text-left border-collapse min-w-[800px]">
                             <thead class="bg-surface sticky top-0 z-10 border-b border-outline-variant">
                                 <tr>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant font-semibold">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant font-semibold">
                                         Code</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant font-semibold">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant font-semibold">
                                         Product Name</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant font-semibold text-right">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant font-semibold text-right">
                                         Stock</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant font-semibold text-center">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant font-semibold text-center">
                                         Unit</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant font-semibold text-right">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant font-semibold text-right">
                                         Reorder</th>
-                                    <th
-                                        class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant font-semibold text-center">
+                                    <th class="p-table-cell-padding font-label-caps text-label-caps text-on-surface-variant font-semibold text-center">
                                         Actions</th>
                                 </tr>
                             </thead>
-                            <tbody
-                                class="font-table-data text-table-data text-on-surface divide-y divide-outline-variant">
+                            <tbody class="font-table-data text-table-data text-on-surface divide-y divide-outline-variant">
                                 <!-- Row 1 Normal -->
                                 <tr class="hover:bg-surface-container-low transition-colors group">
                                     <td class="p-table-cell-padding font-mono text-xs text-on-surface-variant">IM-1042
@@ -238,8 +199,7 @@
                                     <td class="p-table-cell-padding text-center text-on-surface-variant">Pcs</td>
                                     <td class="p-table-cell-padding text-right text-on-surface-variant">10</td>
                                     <td class="p-table-cell-padding text-center">
-                                        <button
-                                            class="px-3 py-1.5 border border-outline-variant rounded text-primary text-xs font-semibold hover:bg-surface-container transition-colors">Adjust</button>
+                                        <button class="px-3 py-1.5 border border-outline-variant rounded text-primary text-xs font-semibold hover:bg-surface-container transition-colors">Adjust</button>
                                     </td>
                                 </tr>
                                 <!-- Row 2 Warning -->
@@ -247,15 +207,13 @@
                                     <td class="p-table-cell-padding font-mono text-xs text-on-surface-variant">CF-8821
                                     </td>
                                     <td class="p-table-cell-padding font-medium">Server Rack Cooling Fan 120mm</td>
-                                    <td
-                                        class="p-table-cell-padding text-right text-error font-bold flex items-center justify-end gap-1">
+                                    <td class="p-table-cell-padding text-right text-error font-bold flex items-center justify-end gap-1">
                                         <span class="material-symbols-outlined text-[14px]">warning</span> 5
                                     </td>
                                     <td class="p-table-cell-padding text-center text-on-surface-variant">Pcs</td>
                                     <td class="p-table-cell-padding text-right text-on-surface-variant">20</td>
                                     <td class="p-table-cell-padding text-center">
-                                        <button
-                                            class="px-3 py-1.5 border border-error/50 rounded text-error text-xs font-semibold hover:bg-error/10 transition-colors bg-white">Adjust</button>
+                                        <button class="px-3 py-1.5 border border-error/50 rounded text-error text-xs font-semibold hover:bg-error/10 transition-colors bg-white">Adjust</button>
                                     </td>
                                 </tr>
                                 <!-- Row 3 Normal -->
@@ -267,8 +225,7 @@
                                     <td class="p-table-cell-padding text-center text-on-surface-variant">Box</td>
                                     <td class="p-table-cell-padding text-right text-on-surface-variant">50</td>
                                     <td class="p-table-cell-padding text-center">
-                                        <button
-                                            class="px-3 py-1.5 border border-outline-variant rounded text-primary text-xs font-semibold hover:bg-surface-container transition-colors">Adjust</button>
+                                        <button class="px-3 py-1.5 border border-outline-variant rounded text-primary text-xs font-semibold hover:bg-surface-container transition-colors">Adjust</button>
                                     </td>
                                 </tr>
                                 <!-- Row 4 Warning -->
@@ -276,15 +233,13 @@
                                     <td class="p-table-cell-padding font-mono text-xs text-on-surface-variant">WR-CU-05
                                     </td>
                                     <td class="p-table-cell-padding font-medium">Copper Wire 0.5mm Coil</td>
-                                    <td
-                                        class="p-table-cell-padding text-right text-error font-bold flex items-center justify-end gap-1">
+                                    <td class="p-table-cell-padding text-right text-error font-bold flex items-center justify-end gap-1">
                                         <span class="material-symbols-outlined text-[14px]">warning</span> 2
                                     </td>
                                     <td class="p-table-cell-padding text-center text-on-surface-variant">Rolls</td>
                                     <td class="p-table-cell-padding text-right text-on-surface-variant">15</td>
                                     <td class="p-table-cell-padding text-center">
-                                        <button
-                                            class="px-3 py-1.5 border border-error/50 rounded text-error text-xs font-semibold hover:bg-error/10 transition-colors bg-white">Adjust</button>
+                                        <button class="px-3 py-1.5 border border-error/50 rounded text-error text-xs font-semibold hover:bg-error/10 transition-colors bg-white">Adjust</button>
                                     </td>
                                 </tr>
                                 <!-- Row 5 Normal -->
@@ -296,42 +251,29 @@
                                     <td class="p-table-cell-padding text-center text-on-surface-variant">Pcs</td>
                                     <td class="p-table-cell-padding text-right text-on-surface-variant">30</td>
                                     <td class="p-table-cell-padding text-center">
-                                        <button
-                                            class="px-3 py-1.5 border border-outline-variant rounded text-primary text-xs font-semibold hover:bg-surface-container transition-colors">Adjust</button>
+                                        <button class="px-3 py-1.5 border border-outline-variant rounded text-primary text-xs font-semibold hover:bg-surface-container transition-colors">Adjust</button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div
-                        class="p-4 border-t border-outline-variant bg-surface-bright flex items-center justify-between">
+                    <div class="p-4 border-t border-outline-variant bg-surface-bright flex items-center justify-between">
                         <span class="text-sm text-on-surface-variant">Showing 1 to 5 of 128 entries</span>
                         <div class="flex gap-1">
-                            <button
-                                class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container disabled:opacity-50"><span
-                                    class="material-symbols-outlined text-[18px]">chevron_left</span></button>
-                            <button
-                                class="w-8 h-8 rounded bg-primary text-on-primary flex items-center justify-center text-sm font-medium">1</button>
-                            <button
-                                class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center text-on-surface hover:bg-surface-container text-sm font-medium">2</button>
-                            <button
-                                class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container"><span
-                                    class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+                            <button class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container disabled:opacity-50"><span class="material-symbols-outlined text-[18px]">chevron_left</span></button>
+                            <button class="w-8 h-8 rounded bg-primary text-on-primary flex items-center justify-center text-sm font-medium">1</button>
+                            <button class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center text-on-surface hover:bg-surface-container text-sm font-medium">2</button>
+                            <button class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Modal Mockup Area (Rendered in flow for demonstration as requested) -->
-            <div class="mt-12 p-8 border-2 border-dashed border-outline-variant rounded-xl bg-surface-bright/50">
+            </div><div class="p-8 border-2 border-dashed border-outline-variant rounded-xl bg-surface-bright/50">
                 <h4 class="text-center font-label-caps text-label-caps text-outline mb-6">--- UI MOCKUP: MODAL OVERLAY
                     ---</h4>
-                <div
-                    class="max-w-md mx-auto bg-surface-container-lowest rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.1)] border border-outline-variant overflow-hidden relative z-10">
+                <div class="max-w-md mx-auto bg-surface-container-lowest rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.1)] border border-outline-variant overflow-hidden relative z-10">
                     <div class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface">
-                        <h3 class="font-title-sm text-title-sm text-on-surface">Adjust Stock: <span
-                                class="font-normal text-on-surface-variant">CF-8821</span></h3>
-                        <button
-                            class="text-on-surface-variant hover:bg-surface-container p-1 rounded-full transition-colors">
+                        <h3 class="font-title-sm text-title-sm text-on-surface">Adjust Stock: <span class="font-normal text-on-surface-variant">CF-8821</span></h3>
+                        <button class="text-on-surface-variant hover:bg-surface-container p-1 rounded-full transition-colors">
                             <span class="material-symbols-outlined">close</span>
                         </button>
                     </div>
@@ -342,27 +284,20 @@
                         </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label
-                                    class="font-label-caps text-label-caps text-on-surface-variant mb-1.5 block">Action</label>
-                                <select
-                                    class="w-full px-3 py-2 border border-outline-variant rounded bg-surface focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-body-base text-on-surface appearance-none">
+                                <label class="font-label-caps text-label-caps text-on-surface-variant mb-1.5 block">Action</label>
+                                <select class="w-full px-3 py-2 border border-outline-variant rounded bg-surface focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-body-base text-on-surface appearance-none">
                                     <option>Add (+)</option>
                                     <option>Remove (-)</option>
                                 </select>
                             </div>
                             <div>
-                                <label
-                                    class="font-label-caps text-label-caps text-on-surface-variant mb-1.5 block">Quantity</label>
-                                <input
-                                    class="w-full px-3 py-2 border border-outline-variant rounded bg-surface focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-body-base text-on-surface"
-                                    min="1" type="number" value="1" />
+                                <label class="font-label-caps text-label-caps text-on-surface-variant mb-1.5 block">Quantity</label>
+                                <input class="w-full px-3 py-2 border border-outline-variant rounded bg-surface focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-body-base text-on-surface" min="1" type="number" value="1">
                             </div>
                         </div>
                         <div>
-                            <label
-                                class="font-label-caps text-label-caps text-on-surface-variant mb-1.5 block">Reason</label>
-                            <select
-                                class="w-full px-3 py-2 border border-outline-variant rounded bg-surface focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-body-base text-on-surface appearance-none">
+                            <label class="font-label-caps text-label-caps text-on-surface-variant mb-1.5 block">Reason</label>
+                            <select class="w-full px-3 py-2 border border-outline-variant rounded bg-surface focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-body-base text-on-surface appearance-none">
                                 <option>Correction (Audit)</option>
                                 <option>Damage/Spoilage</option>
                                 <option>Customer Return</option>
@@ -372,23 +307,18 @@
                         <div>
                             <label class="font-label-caps text-label-caps text-on-surface-variant mb-1.5 block">Notes
                                 (Optional)</label>
-                            <textarea
-                                class="w-full px-3 py-2 border border-outline-variant rounded bg-surface focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-body-base text-on-surface resize-none"
-                                placeholder="Provide context for this adjustment..." rows="2"></textarea>
+                            <textarea class="w-full px-3 py-2 border border-outline-variant rounded bg-surface focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-body-base text-on-surface resize-none" placeholder="Provide context for this adjustment..." rows="2"></textarea>
                         </div>
                     </div>
                     <div class="p-4 border-t border-outline-variant bg-surface-bright flex justify-end gap-3">
-                        <button
-                            class="px-4 py-2 border border-outline-variant text-on-surface rounded font-label-caps text-label-caps hover:bg-surface-container transition-colors">Cancel</button>
-                        <button
-                            class="px-4 py-2 bg-primary text-on-primary rounded font-label-caps text-label-caps hover:opacity-90 shadow-[0_2px_0_rgba(0,0,0,0.1)] transition-all">Confirm
+                        <button class="px-4 py-2 border border-outline-variant text-on-surface rounded font-label-caps text-label-caps hover:bg-surface-container transition-colors">Cancel</button>
+                        <button class="px-4 py-2 bg-primary text-on-primary rounded font-label-caps text-label-caps hover:opacity-90 shadow-[0_2px_0_rgba(0,0,0,0.1)] transition-all">Confirm
                             Adjustment</button>
                     </div>
                 </div>
-            </div>
-        </main>
+            </div></div></main>
     </div>
-    <script src="./js/sidebar.js" defer></script>
-</body>
+    <script src="./js/sidebar.js" defer=""></script>
 
-</html>
+
+</body></html>
