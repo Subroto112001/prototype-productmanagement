@@ -22,13 +22,15 @@
       }
     });
 
-    // শুধু Reports dropdown-এর জন্য auto-open রাখা হয়েছে
-    // Sales এখন সবসময় open (কোনো <details> নেই)
+    // যেকোনো dropdown এ active link থাকলে সেটি open করা হবে
+    // এতে Reports-এর যেকোনো sub-page খুললে dropdown automatically open থাকবে
     sidebarRoot
       .querySelectorAll("details.sidebar-dropdown")
       .forEach(function (dropdown) {
         var hasActive = dropdown.querySelector(".sidebar-active");
-        dropdown.open = Boolean(hasActive);
+        if (hasActive) {
+          dropdown.setAttribute("open", "");
+        }
       });
   }
 
@@ -149,7 +151,6 @@
         sidebarRoot.innerHTML = html;
         setActiveLink(sidebarRoot);
 
-        // Logout footer এ extra CSS যোগ করা
         injectSidebarStyles();
 
         if (window.lucide && typeof window.lucide.createIcons === "function") {
@@ -186,14 +187,13 @@
       });
   }
 
-  // Sidebar এর জন্য দরকারি CSS inject করা হচ্ছে
   function injectSidebarStyles() {
     if (document.getElementById("sidebar-extra-styles")) return;
 
     var style = document.createElement("style");
     style.id = "sidebar-extra-styles";
     style.textContent = [
-      /* Sidebar কে flex column করা যাতে footer নিচে থাকে */
+      /* Sidebar কে flex column করা */
       ".sidebar-component {",
       "  display: flex !important;",
       "  flex-direction: column !important;",
@@ -242,6 +242,42 @@
       "  list-style: none;",
       "  padding: 0;",
       "  margin: 0;",
+      "}",
+
+      /* ── Active link highlight ── */
+      /* যেকোনো active link কে highlight করবে */
+      "a[data-sidebar-link].sidebar-active {",
+      "  background-color: rgba(59, 130, 246, 0.1) !important;",
+      "  color: #2563eb !important;",
+      "  font-weight: 600;",
+      "}",
+
+      /* Active link এর icon কেও highlight করবে */
+      "a[data-sidebar-link].sidebar-active .sidebar-icon {",
+      "  color: #2563eb !important;",
+      "  stroke: #2563eb !important;",
+      "}",
+
+      /* Reports dropdown summary — active child থাকলে parent label highlight */
+      "details.sidebar-dropdown:has(.sidebar-active) > summary {",
+      "  color: #2563eb !important;",
+      "  font-weight: 600;",
+      "}",
+
+      "details.sidebar-dropdown:has(.sidebar-active) > summary .sidebar-icon {",
+      "  color: #2563eb !important;",
+      "  stroke: #2563eb !important;",
+      "}",
+
+      /* Caret rotation when dropdown is open */
+      "details.sidebar-dropdown[open] .sidebar-caret {",
+      "  transform: rotate(180deg);",
+      "  transition: transform 0.2s ease;",
+      "}",
+
+      ".sidebar-caret {",
+      "  margin-left: auto;",
+      "  transition: transform 0.2s ease;",
       "}",
     ].join("\n");
 
@@ -398,11 +434,7 @@
   // =====================
   window.handleLogout = function () {
     if (confirm("আপনি কি সত্যিই Logout করতে চান?")) {
-      // এখানে আপনার logout logic দিন
-      // যেমন: localStorage clear, session clear, API call ইত্যাদি
-      // localStorage.clear();
-      // sessionStorage.clear();
-      window.location.href = "./login.html"; // আপনার login page এর path দিন
+      window.location.href = "./login.html";
     }
   };
 
